@@ -37,5 +37,11 @@
   },
   "short": {
     "message": "Die Liste $1 wurde nicht aktualisiert: Sie enthält zu wenige Adressen ($2)."
+  },
+  "speech": {
+    "message": "Sprache"
+  },
+  "auto": {
+    "message": "Wie im Browser"
   }
 }

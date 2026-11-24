@@ -7,6 +7,12 @@ import type { Words } from './words.ts';
 
 type Key = keyof Words;
 
+const GLOBE =
+  '<svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" ' +
+  'stroke-width="1.5" aria-hidden="true"><circle cx="10" cy="10" r="7.5"/><path d="M2.5 10h15"/>' +
+  '<path d="M10 2.5c2.6 2.2 3.7 4.7 3.7 7.5s-1.1 5.3-3.7 7.5"/>' +
+  '<path d="M10 2.5C7.4 4.7 6.3 7.2 6.3 10s1.1 5.3 3.7 7.5"/></svg>';
+
 /** An element and the key of the text in it. */
 interface Label {
   readonly node: HTMLElement;
@@ -64,7 +70,10 @@ export class Panel {
 
   private build(): void {
     const head = element('section', 'head');
-    [this.sign, this.title, this.note, this.power, this.update].forEach((node) =>
+    const speech = element('label', 'speech');
+    speech.innerHTML = GLOBE;
+    speech.appendChild(this.speech);
+    [speech, this.sign, this.title, this.note, this.power, this.update].forEach((node) =>
       head.appendChild(node),
     );
     this.root.appendChild(head);
@@ -74,10 +83,6 @@ export class Panel {
     this.section('blocked.title', ['blocked.hint'], this.blocked);
     this.root.appendChild(this.apply);
     this.root.appendChild(this.labelled(element('p', 'foot'), 'youtube'));
-    const speech = element('label', 'foot speech');
-    speech.appendChild(this.labelled(element('span', ''), 'speech'));
-    speech.appendChild(this.speech);
-    this.root.appendChild(speech);
     this.labelled(this.update, 'update');
     this.labelled(this.apply, 'apply');
     this.sign.dir = 'ltr';
@@ -168,6 +173,8 @@ export class Panel {
     this.note.textContent = summary(report);
     this.power.textContent = report.words[on ? 'turn.off' : 'turn.on'];
     this.root.classList.toggle('on', on);
+    this.speech.title = report.words.speech;
+    this.speech.setAttribute('aria-label', report.words.speech);
     this.speech.textContent = '';
     [{ code: '', title: report.words['speech.system'] }].concat(report.languages).forEach((tongue) => {
       const option = written('option', '', tongue.title);

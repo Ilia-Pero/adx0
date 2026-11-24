@@ -37,5 +37,11 @@
   },
   "short": {
     "message": "The list $1 was not updated: it has too few addresses ($2)."
+  },
+  "speech": {
+    "message": "Language"
+  },
+  "auto": {
+    "message": "Same as the browser"
   }
 }

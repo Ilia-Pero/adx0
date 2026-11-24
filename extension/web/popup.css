@@ -51,8 +51,10 @@ p {
   color: #fff;
 }
 
-button {
+button,
+select {
   display: block;
+  box-sizing: border-box;
   width: 100%;
   padding: 8px 12px;
   border: 1px solid #b9bfc8;
@@ -63,11 +65,17 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+select {
+  margin-top: 8px;
+}
+
+button:hover,
+select:hover {
   background: #eef0f3;
 }
 
-button:focus-visible {
+button:focus-visible,
+select:focus-visible {
   outline: 2px solid #0f766e;
   outline-offset: 1px;
 }
@@ -78,16 +86,19 @@ button:focus-visible {
 
 @media (prefers-color-scheme: dark) {
   body,
-  button {
+  button,
+  select {
     background: #25282d;
     color: #e6e8eb;
   }
 
-  button {
+  button,
+  select {
     border-color: #4a505a;
   }
 
-  button:hover {
+  button:hover,
+  select:hover {
     background: #30343b;
   }
 

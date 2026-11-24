@@ -1,17 +1,19 @@
 import type { Status } from './browser.ts';
+import { browsers, messages } from './own.ts';
+import type { Speech } from './speech.ts';
+import { TONGUES, choice, choose, spoken } from './speech.ts';
 
-/** The text in the language of the browser. */
-function text(key: string, values: ReadonlyArray<string>): string {
-  return browser.i18n.getMessage(key, values);
-}
+const store = browser.storage.local;
 
-function part(id: string): HTMLElement {
+function part<T extends HTMLElement>(id: string, kind: new () => T): T {
   const node = document.getElementById(id);
-  if (node === null) {
-    throw new Error(`The popup has no part ${id}`);
+  if (node instanceof kind) {
+    return node;
   }
-  return node;
+  throw new Error(`The popup has no part ${id}`);
 }
+
+const tongues = part('speech', HTMLSelectElement);
 
 /** The site in the active tab. An empty text if it is a page of the browser itself. */
 async function host(): Promise<string> {
@@ -20,28 +22,49 @@ async function host(): Promise<string> {
   return /^https?:/.test(url) ? new URL(url).hostname : '';
 }
 
-function day(moment: number): string {
-  return new Date(moment).toLocaleDateString(text('code', []), { day: 'numeric', month: 'long' });
+function day(moment: number, code: string): string {
+  return new Date(moment).toLocaleDateString(code, { day: 'numeric', month: 'long' });
 }
 
-function lists(state: Status): string {
+function lists(state: Status, speech: Speech): string {
+  const code = speech.text('code', []);
   return state.updated === 0
-    ? text('never', [])
-    : text('lists', [state.addresses.toLocaleString(text('code', [])), day(state.updated)]);
+    ? speech.text('never', [])
+    : speech.text('lists', [state.addresses.toLocaleString(code), day(state.updated, code)]);
+}
+
+/** Fills the list of languages. */
+async function offer(speech: Speech): Promise<void> {
+  tongues.title = speech.text('speech', []);
+  tongues.setAttribute('aria-label', tongues.title);
+  tongues.textContent = '';
+  [{ code: '', title: speech.text('auto', []) }, ...TONGUES].forEach((tongue) => {
+    const option = document.createElement('option');
+    option.value = tongue.code;
+    option.textContent = tongue.title;
+    tongues.appendChild(option);
+  });
+  tongues.value = await choice(store);
 }
 
 async function show(): Promise<void> {
+  const speech = await spoken(store, browsers, messages);
+  const code = speech.text('code', []);
   const site = await host();
   const state = await browser.runtime.sendMessage<Status>({ kind: 'status', host: site });
-  part('sign').textContent = state.allowed ? 'ad × 1 = ad' : 'ad × 0 = 0';
-  part('site').textContent = site === '' ? text('service', []) : site;
-  part('state').textContent = text(state.allowed ? 'allowed' : 'blocked', []);
-  part('allow').textContent = text(state.allowed ? 'block' : 'allow', []);
-  part('allow').hidden = site === '';
-  part('lists').textContent = lists(state);
-  part('alarm').textContent = state.failures.join(' ');
-  part('alarm').hidden = state.failures.length === 0;
+  document.documentElement.lang = code;
+  document.documentElement.dir = code === 'he' ? 'rtl' : 'ltr';
+  part('refresh', HTMLButtonElement).textContent = speech.text('update', []);
+  part('sign', HTMLElement).textContent = state.allowed ? 'ad × 1 = ad' : 'ad × 0 = 0';
+  part('site', HTMLElement).textContent = site === '' ? speech.text('service', []) : site;
+  part('state', HTMLElement).textContent = speech.text(state.allowed ? 'allowed' : 'blocked', []);
+  part('allow', HTMLElement).textContent = speech.text(state.allowed ? 'block' : 'allow', []);
+  part('allow', HTMLElement).hidden = site === '';
+  part('lists', HTMLElement).textContent = lists(state, speech);
+  part('alarm', HTMLElement).textContent = state.failures.join(' ');
+  part('alarm', HTMLElement).hidden = state.failures.length === 0;
   document.body.classList.toggle('open', state.allowed);
+  await offer(speech);
 }
 
 async function toggle(): Promise<void> {
@@ -57,23 +80,24 @@ async function toggle(): Promise<void> {
 }
 
 async function refresh(): Promise<void> {
-  part('lists').textContent = text('loading', []);
+  const speech = await spoken(store, browsers, messages);
+  part('lists', HTMLElement).textContent = speech.text('loading', []);
   await browser.runtime.sendMessage<void>({ kind: 'refresh' });
   await show();
 }
 
 function complain(error: unknown): void {
-  part('alarm').textContent = String(error);
-  part('alarm').hidden = false;
+  part('alarm', HTMLElement).textContent = String(error);
+  part('alarm', HTMLElement).hidden = false;
 }
 
-document.documentElement.lang = text('code', []);
-document.documentElement.dir = text('code', []) === 'he' ? 'rtl' : 'ltr';
-part('refresh').textContent = text('update', []);
-part('allow').addEventListener('click', () => {
+part('allow', HTMLButtonElement).addEventListener('click', () => {
   toggle().catch(complain);
 });
-part('refresh').addEventListener('click', () => {
+part('refresh', HTMLButtonElement).addEventListener('click', () => {
   refresh().catch(complain);
+});
+tongues.addEventListener('change', () => {
+  choose(store, tongues.value).then(show).catch(complain);
 });
 show().catch(complain);

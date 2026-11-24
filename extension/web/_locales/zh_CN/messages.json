@@ -37,5 +37,11 @@
   },
   "short": {
     "message": "列表 $1 未更新：其中地址太少（$2）。"
+  },
+  "speech": {
+    "message": "语言"
+  },
+  "auto": {
+    "message": "跟随浏览器"
   }
 }

@@ -48,6 +48,7 @@
     "windows": {
       "nsis": {
         "installMode": "perMachine",
+        "displayLanguageSelector": true,
         "languages": [
           "English",
           "Russian",

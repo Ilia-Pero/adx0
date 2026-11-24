@@ -2,20 +2,26 @@ import own from '../../data/own.json' with { type: 'json' };
 import type { Message, Sender, Status } from './browser.ts';
 import { harmless } from './essential.ts';
 import { joined } from './filters.ts';
+import { browsers, messages } from './own.ts';
 import { place, Shelf } from './shelf.ts';
 import { suitable } from './lists.ts';
 import { NUMBERS, Rules } from './rules.ts';
 import { Site, sheet } from './site.ts';
+import { spoken } from './speech.ts';
 
 /** Once a day. Between updates and pages the browser unloads this part of the extension. */
 const PERIOD = 24 * 60;
 
 const store = browser.storage.local;
 
-const shelf = new Shelf({ text: downloaded }, store, {
-  silent: (list, reason) => browser.i18n.getMessage('silent', [list.title, reason]),
-  short: (list, rules) => browser.i18n.getMessage('short', [list.title, String(rules)]),
-});
+/** The shelf with downloaded lists. It tells about failures in the language of the moment. */
+async function shelf(): Promise<Shelf> {
+  const speech = await spoken(store, browsers, messages);
+  return new Shelf({ text: downloaded }, store, {
+    silent: (list, reason) => speech.text('silent', [list.title, reason]),
+    short: (list, rules) => speech.text('short', [list.title, String(rules)]),
+  });
+}
 
 function strings(value: unknown): ReadonlyArray<string> {
   return Array.isArray(value) ? value.filter((item) => typeof item === 'string') : [];
@@ -54,7 +60,8 @@ async function enforce(): Promise<void> {
 /** Downloads the lists and replaces the previous ones with them. */
 async function refresh(): Promise<void> {
   const lists = suitable(await languages());
-  const taken = await Promise.all(lists.map((list) => shelf.taken(list)));
+  const full = await shelf();
+  const taken = await Promise.all(lists.map((list) => full.taken(list)));
   const before = strings((await store.get(['keys']))['keys']);
   const filters = joined(taken.map((one) => one.filters));
   const values: Record<string, unknown> = {};

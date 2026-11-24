@@ -1,6 +1,7 @@
 //! The folder of the program: settings and downloaded lists.
 
 use std::collections::BTreeSet;
+use std::env;
 use std::path::{Path, PathBuf};
 
 use adx0_core::{Domain, Failure, Settings, SettingsFile, Shelf, Verdict, SOURCES};
@@ -20,10 +21,23 @@ impl Home {
         &self.root
     }
 
+    /// The settings. At first they follow the language chosen in the installer.
     pub fn settings(&self) -> SettingsFile {
+        let installed = env::current_exe()
+            .ok()
+            .and_then(|program| program.parent().map(Language::installed))
+            .unwrap_or_default();
+        let spoken = if installed.is_empty() {
+            Language::current().code
+        } else {
+            &installed
+        };
         SettingsFile::new(
             self.root.join("settings.json"),
-            Settings::initial(Language::current().code),
+            Settings {
+                language: installed.clone(),
+                ..Settings::initial(spoken)
+            },
         )
     }
 

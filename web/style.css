@@ -199,13 +199,32 @@ textarea {
 }
 
 .speech {
-  display: block;
-  margin-top: 12px;
+  position: absolute;
+  top: 18px;
+  right: 16px;
+  line-height: 30px;
+}
+
+[dir="rtl"] .speech {
+  right: auto;
+  left: 16px;
+}
+
+.speech svg {
+  margin: 0 6px;
+  vertical-align: middle;
 }
 
 .speech select {
-  margin: 0 8px;
+  max-width: 170px;
   padding: 4px 6px;
+  vertical-align: middle;
+}
+
+.on .head select {
+  border-color: rgba(255, 255, 255, 0.6);
+  background: #0f766e;
+  color: #fff;
 }
 
 @media (prefers-color-scheme: dark) {

@@ -1,0 +1,101 @@
+body {
+  width: 280px;
+  margin: 0;
+  padding: 16px;
+  border-top: 5px solid #0f766e;
+  background: #fff;
+  color: #1f2328;
+  font: 14px/1.4 -apple-system, "Segoe UI", Ubuntu, sans-serif;
+}
+
+body.open {
+  border-top-color: #8b929c;
+}
+
+h1 {
+  margin: 2px 0 12px;
+  font-size: 18px;
+  line-height: 1.25;
+}
+
+p {
+  margin: 0;
+  color: #5b636e;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+#sign {
+  margin-bottom: 10px;
+  color: #0f766e;
+  font: 600 20px/1.2 Menlo, Consolas, "Ubuntu Mono", monospace;
+}
+
+[dir="rtl"] #sign {
+  text-align: right;
+}
+
+.open #sign {
+  color: #7c8b90;
+}
+
+#lists {
+  margin: 14px 0 8px;
+}
+
+#alarm {
+  margin-top: 12px;
+  padding: 8px 10px;
+  border-radius: 6px;
+  background: #b3261e;
+  color: #fff;
+}
+
+button {
+  display: block;
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #b9bfc8;
+  border-radius: 6px;
+  background: #fff;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #eef0f3;
+}
+
+button:focus-visible {
+  outline: 2px solid #0f766e;
+  outline-offset: 1px;
+}
+
+[hidden] {
+  display: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  body,
+  button {
+    background: #25282d;
+    color: #e6e8eb;
+  }
+
+  button {
+    border-color: #4a505a;
+  }
+
+  button:hover {
+    background: #30343b;
+  }
+
+  p {
+    color: #a3abb6;
+  }
+
+  #sign {
+    color: #2dbdae;
+  }
+}

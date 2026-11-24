@@ -1,0 +1,14 @@
+[package]
+name = "adx0-net"
+version = "0.1.0"
+edition = "2021"
+description = "Downloading lists of ad addresses"
+license = "MIT"
+publish = false
+
+[dependencies]
+adx0-core = { path = "../core" }
+ureq = { version = "3", default-features = false, features = ["rustls", "gzip"] }
+
+[lints]
+workspace = true

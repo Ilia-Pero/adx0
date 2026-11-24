@@ -1,0 +1,41 @@
+[workspace]
+members = ["core", "net", "phrase", "system"]
+
+[workspace.lints.rust]
+unsafe_code = "deny"
+
+[workspace.lints.clippy]
+all = { level = "deny", priority = -1 }
+pedantic = { level = "deny", priority = -1 }
+# Tauri commands take AppHandle, State and windows by value: its macro requires so.
+needless_pass_by_value = "allow"
+
+[package]
+name = "adx0"
+version = "0.1.0"
+edition = "2021"
+description = "An ad blocker that does not run"
+license = "MIT"
+repository = "https://github.com/Ilia-Pero/adx0"
+publish = false
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+adx0-core = { path = "core" }
+adx0-net = { path = "net" }
+adx0-phrase = { path = "phrase" }
+adx0-system = { path = "system" }
+serde = { version = "1", features = ["derive"] }
+tauri = { version = "2", features = [] }
+
+[lints]
+workspace = true
+
+[profile.release]
+codegen-units = 1
+lto = true
+opt-level = "s"
+panic = "abort"
+strip = true

@@ -1,0 +1,41 @@
+{
+  "code": {
+    "message": "ko"
+  },
+  "description": {
+    "message": "웹 페이지와 YouTube 동영상의 광고를 차단합니다. 대기 중에는 부하가 없습니다."
+  },
+  "blocked": {
+    "message": "광고를 차단하고 있습니다"
+  },
+  "allowed": {
+    "message": "이 사이트에서는 광고를 허용합니다"
+  },
+  "allow": {
+    "message": "이 사이트의 광고 허용"
+  },
+  "block": {
+    "message": "광고 차단"
+  },
+  "service": {
+    "message": "브라우저 페이지"
+  },
+  "never": {
+    "message": "목록을 아직 받지 않았습니다"
+  },
+  "lists": {
+    "message": "목록의 주소: $1, 받은 날짜 $2"
+  },
+  "update": {
+    "message": "목록 업데이트"
+  },
+  "loading": {
+    "message": "목록을 받는 중…"
+  },
+  "silent": {
+    "message": "목록을 업데이트하지 못했습니다: $1이(가) 응답하지 않습니다. ($2)"
+  },
+  "short": {
+    "message": "목록 $1을(를) 업데이트하지 못했습니다: 주소가 너무 적습니다($2개)."
+  }
+}

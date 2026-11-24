@@ -1,0 +1,41 @@
+{
+  "code": {
+    "message": "ja"
+  },
+  "description": {
+    "message": "ページと YouTube 動画の広告をブロックします。待機中の負荷はありません。"
+  },
+  "blocked": {
+    "message": "広告をブロックしています"
+  },
+  "allowed": {
+    "message": "このサイトの広告を許可しています"
+  },
+  "allow": {
+    "message": "このサイトの広告を許可"
+  },
+  "block": {
+    "message": "広告をブロック"
+  },
+  "service": {
+    "message": "ブラウザーのページ"
+  },
+  "never": {
+    "message": "リストは未取得です"
+  },
+  "lists": {
+    "message": "リストのアドレス：$1、取得日 $2"
+  },
+  "update": {
+    "message": "リストを更新"
+  },
+  "loading": {
+    "message": "リストを取得中…"
+  },
+  "silent": {
+    "message": "リストを更新できません：$1 が応答しません。（$2）"
+  },
+  "short": {
+    "message": "リスト $1 を更新できません：アドレスが少なすぎます（$2 件）。"
+  }
+}

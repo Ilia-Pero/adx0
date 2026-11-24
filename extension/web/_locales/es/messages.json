@@ -1,0 +1,41 @@
+{
+  "code": {
+    "message": "es"
+  },
+  "description": {
+    "message": "Bloquea la publicidad en las páginas y en los vídeos de YouTube. Sin carga en reposo."
+  },
+  "blocked": {
+    "message": "La publicidad está bloqueada"
+  },
+  "allowed": {
+    "message": "La publicidad está permitida en este sitio"
+  },
+  "allow": {
+    "message": "Permitir la publicidad en este sitio"
+  },
+  "block": {
+    "message": "Bloquear la publicidad"
+  },
+  "service": {
+    "message": "Página del navegador"
+  },
+  "never": {
+    "message": "Las listas aún no se han descargado"
+  },
+  "lists": {
+    "message": "Direcciones en las listas: $1, descargadas el $2"
+  },
+  "update": {
+    "message": "Actualizar las listas"
+  },
+  "loading": {
+    "message": "Descargando las listas…"
+  },
+  "silent": {
+    "message": "La lista no se ha actualizado: $1 no responde. ($2)"
+  },
+  "short": {
+    "message": "La lista $1 no se ha actualizado: tiene muy pocas direcciones ($2)."
+  }
+}

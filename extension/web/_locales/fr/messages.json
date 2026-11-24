@@ -1,0 +1,41 @@
+{
+  "code": {
+    "message": "fr"
+  },
+  "description": {
+    "message": "Bloque les publicités sur les pages et dans les vidéos YouTube. Aucune charge au repos."
+  },
+  "blocked": {
+    "message": "Les publicités sont bloquées"
+  },
+  "allowed": {
+    "message": "Les publicités sont autorisées sur ce site"
+  },
+  "allow": {
+    "message": "Autoriser les publicités sur ce site"
+  },
+  "block": {
+    "message": "Bloquer les publicités"
+  },
+  "service": {
+    "message": "Page du navigateur"
+  },
+  "never": {
+    "message": "Les listes ne sont pas encore téléchargées"
+  },
+  "lists": {
+    "message": "Adresses dans les listes : $1, téléchargées le $2"
+  },
+  "update": {
+    "message": "Mettre à jour les listes"
+  },
+  "loading": {
+    "message": "Téléchargement des listes…"
+  },
+  "silent": {
+    "message": "La liste n’a pas été mise à jour : $1 ne répond pas. ($2)"
+  },
+  "short": {
+    "message": "La liste $1 n’a pas été mise à jour : elle contient trop peu d’adresses ($2)."
+  }
+}

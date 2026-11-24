@@ -1,0 +1,41 @@
+{
+  "code": {
+    "message": "it"
+  },
+  "description": {
+    "message": "Blocca la pubblicità nelle pagine e nei video di YouTube. Nessun carico a riposo."
+  },
+  "blocked": {
+    "message": "La pubblicità è bloccata"
+  },
+  "allowed": {
+    "message": "La pubblicità è consentita su questo sito"
+  },
+  "allow": {
+    "message": "Consenti la pubblicità su questo sito"
+  },
+  "block": {
+    "message": "Blocca la pubblicità"
+  },
+  "service": {
+    "message": "Pagina del browser"
+  },
+  "never": {
+    "message": "Le liste non sono ancora state scaricate"
+  },
+  "lists": {
+    "message": "Indirizzi nelle liste: $1, scaricate il $2"
+  },
+  "update": {
+    "message": "Aggiorna le liste"
+  },
+  "loading": {
+    "message": "Scaricamento delle liste…"
+  },
+  "silent": {
+    "message": "La lista non è stata aggiornata: $1 non risponde. ($2)"
+  },
+  "short": {
+    "message": "La lista $1 non è stata aggiornata: contiene troppo pochi indirizzi ($2)."
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "code": {
+    "message": "en"
+  },
+  "description": {
+    "message": "Blocks ads on pages and in YouTube videos. No load at rest."
+  },
+  "blocked": {
+    "message": "Ads are blocked"
+  },
+  "allowed": {
+    "message": "Ads are allowed on this site"
+  },
+  "allow": {
+    "message": "Allow ads on this site"
+  },
+  "block": {
+    "message": "Block ads"
+  },
+  "service": {
+    "message": "A page of the browser"
+  },
+  "never": {
+    "message": "The lists are not downloaded yet"
+  },
+  "lists": {
+    "message": "Addresses in the lists: $1, downloaded on $2"
+  },
+  "update": {
+    "message": "Update the lists"
+  },
+  "loading": {
+    "message": "Downloading the lists…"
+  },
+  "silent": {
+    "message": "The list was not updated: $1 does not answer. ($2)"
+  },
+  "short": {
+    "message": "The list $1 was not updated: it has too few addresses ($2)."
+  }
+}

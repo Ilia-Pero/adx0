@@ -1,0 +1,239 @@
+/* No flex gap, logical properties and other things Safari 11 lacks: it draws the window
+   on High Sierra. */
+
+html,
+body {
+  margin: 0;
+}
+
+body {
+  padding: 16px 16px 24px;
+  background: #eef3f3;
+  color: #17252a;
+  font: 14px/1.45 -apple-system, "Segoe UI", Ubuntu, sans-serif;
+}
+
+h1 {
+  margin: 0 0 4px;
+  font-size: 22px;
+  line-height: 1.25;
+}
+
+h2 {
+  margin: 0 0 4px;
+  font-size: 15px;
+}
+
+p {
+  margin: 0;
+}
+
+section {
+  margin-bottom: 12px;
+  padding: 14px 16px;
+  border: 1px solid #d5dfe0;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.head {
+  position: relative;
+  padding: 18px 16px 16px;
+}
+
+.on .head {
+  border-color: #0f766e;
+  background: #0f766e;
+  color: #fff;
+}
+
+.sign {
+  margin-bottom: 8px;
+  color: #7c8b90;
+  font: 600 26px/1.2 Menlo, Consolas, "Ubuntu Mono", monospace;
+}
+
+[dir="rtl"] .sign {
+  text-align: right;
+}
+
+.on .sign {
+  color: #fff;
+}
+
+.note {
+  min-height: 60px;
+  margin-bottom: 12px;
+}
+
+.hint {
+  color: #52646a;
+  font-size: 13px;
+}
+
+button,
+select {
+  border: 1px solid #a9b8bb;
+  border-radius: 7px;
+  background: #fff;
+  color: #17252a;
+  font: inherit;
+  cursor: pointer;
+}
+
+button {
+  margin: 0 8px 8px 0;
+  padding: 8px 18px;
+}
+
+[dir="rtl"] button {
+  margin: 0 0 8px 8px;
+}
+
+button:hover,
+select:hover {
+  background: #e6eded;
+}
+
+button.main {
+  border-color: #0f766e;
+  background: #0f766e;
+  color: #fff;
+}
+
+button.main:hover {
+  background: #0b5d57;
+}
+
+.on .head button {
+  border-color: rgba(255, 255, 255, 0.6);
+  background: transparent;
+  color: #fff;
+}
+
+.on .head button:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+button:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid #0f766e;
+  outline-offset: 2px;
+}
+
+.on .head button:focus {
+  outline-color: #fff;
+}
+
+button:disabled,
+select:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+button.apply {
+  display: block;
+  width: 100%;
+  margin: 0 0 12px;
+}
+
+.alarm {
+  margin-bottom: 12px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: #b3261e;
+  color: #fff;
+}
+
+.alarm.hidden,
+button.hidden {
+  display: none;
+}
+
+.source {
+  display: block;
+  position: relative;
+  padding: 8px 0 8px 28px;
+  cursor: pointer;
+}
+
+[dir="rtl"] .source {
+  padding: 8px 28px 8px 0;
+}
+
+.source input {
+  position: absolute;
+  top: 11px;
+  left: 2px;
+  margin: 0;
+  accent-color: #0f766e;
+}
+
+[dir="rtl"] .source input {
+  right: 2px;
+  left: auto;
+}
+
+.source .hint {
+  display: block;
+}
+
+textarea {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  margin-top: 8px;
+  padding: 8px 10px;
+  border: 1px solid #a9b8bb;
+  border-radius: 7px;
+  background: #fff;
+  color: inherit;
+  font: 13px/1.4 Menlo, Consolas, "Ubuntu Mono", monospace;
+  resize: vertical;
+}
+
+.foot {
+  color: #52646a;
+  font-size: 13px;
+}
+
+.speech {
+  display: block;
+  margin-top: 12px;
+}
+
+.speech select {
+  margin: 0 8px;
+  padding: 4px 6px;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #12191b;
+    color: #e3ebec;
+  }
+
+  section,
+  textarea {
+    border-color: #2f3d40;
+    background: #1b2528;
+  }
+
+  button,
+  select {
+    border-color: #465659;
+    background: #1b2528;
+    color: #e3ebec;
+  }
+
+  button:hover,
+  select:hover {
+    background: #263336;
+  }
+
+  .hint,
+  .foot {
+    color: #9db0b5;
+  }
+}

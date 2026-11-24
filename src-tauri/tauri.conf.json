@@ -1,0 +1,84 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "adx0",
+  "mainBinaryName": "adx0",
+  "version": "0.1.0",
+  "identifier": "io.github.ilia-pero.adx0",
+  "build": {
+    "frontendDist": "../web",
+    "beforeBuildCommand": "npm run bundle",
+    "beforeDevCommand": "npm run bundle"
+  },
+  "app": {
+    "withGlobalTauri": false,
+    "windows": [
+      {
+        "title": "ad×0",
+        "width": 480,
+        "height": 720,
+        "minWidth": 380,
+        "minHeight": 420,
+        "center": true
+      }
+    ],
+    "security": {
+      "csp": "default-src 'none'; script-src 'self'; style-src 'self'; connect-src ipc: http://ipc.localhost"
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": [
+      "nsis",
+      "app",
+      "dmg",
+      "deb"
+    ],
+    "category": "Utility",
+    "copyright": "Copyright (c) 2026 Ilia-Pero",
+    "license": "MIT",
+    "homepage": "https://github.com/Ilia-Pero/adx0",
+    "shortDescription": "ad × 0 = 0",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ],
+    "windows": {
+      "nsis": {
+        "installMode": "perMachine",
+        "languages": [
+          "English",
+          "Russian",
+          "SpanishInternational",
+          "Greek",
+          "Hebrew",
+          "SimpChinese",
+          "Japanese",
+          "Korean",
+          "Serbian",
+          "French",
+          "German",
+          "Italian"
+        ],
+        "customLanguageFiles": {
+          "Greek": "installer/Greek.nsh",
+          "Serbian": "installer/Serbian.nsh"
+        },
+        "installerHooks": "installer/hooks.nsh"
+      }
+    },
+    "linux": {
+      "deb": {
+        "depends": [
+          "pkexec"
+        ],
+        "preRemoveScript": "installer/prerm"
+      }
+    },
+    "macOS": {
+      "minimumSystemVersion": "10.13"
+    }
+  }
+}

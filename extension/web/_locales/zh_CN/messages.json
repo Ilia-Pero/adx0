@@ -1,0 +1,41 @@
+{
+  "code": {
+    "message": "zh"
+  },
+  "description": {
+    "message": "屏蔽网页和 YouTube 视频中的广告。空闲时不占资源。"
+  },
+  "blocked": {
+    "message": "广告已屏蔽"
+  },
+  "allowed": {
+    "message": "已允许此网站显示广告"
+  },
+  "allow": {
+    "message": "允许此网站的广告"
+  },
+  "block": {
+    "message": "屏蔽广告"
+  },
+  "service": {
+    "message": "浏览器页面"
+  },
+  "never": {
+    "message": "列表尚未下载"
+  },
+  "lists": {
+    "message": "列表中的地址：$1，下载于 $2"
+  },
+  "update": {
+    "message": "更新列表"
+  },
+  "loading": {
+    "message": "正在下载列表…"
+  },
+  "silent": {
+    "message": "列表未更新：$1 没有响应。（$2）"
+  },
+  "short": {
+    "message": "列表 $1 未更新：其中地址太少（$2）。"
+  }
+}

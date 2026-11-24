@@ -1,0 +1,6 @@
+#!/bin/sh
+# Opens the blocked addresses before the program goes away. An upgrade keeps them.
+set -e
+if [ "$1" = remove ]; then
+  /usr/bin/adx0 --clear || true
+fi

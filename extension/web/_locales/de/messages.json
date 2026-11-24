@@ -1,0 +1,41 @@
+{
+  "code": {
+    "message": "de"
+  },
+  "description": {
+    "message": "Blockiert Werbung auf Seiten und in YouTube-Videos. Keine Last im Ruhezustand."
+  },
+  "blocked": {
+    "message": "Werbung ist blockiert"
+  },
+  "allowed": {
+    "message": "Werbung ist auf dieser Website erlaubt"
+  },
+  "allow": {
+    "message": "Werbung auf dieser Website erlauben"
+  },
+  "block": {
+    "message": "Werbung blockieren"
+  },
+  "service": {
+    "message": "Seite des Browsers"
+  },
+  "never": {
+    "message": "Die Listen sind noch nicht heruntergeladen"
+  },
+  "lists": {
+    "message": "Adressen in den Listen: $1, heruntergeladen am $2"
+  },
+  "update": {
+    "message": "Listen aktualisieren"
+  },
+  "loading": {
+    "message": "Listen werden heruntergeladen…"
+  },
+  "silent": {
+    "message": "Die Liste wurde nicht aktualisiert: $1 antwortet nicht. ($2)"
+  },
+  "short": {
+    "message": "Die Liste $1 wurde nicht aktualisiert: Sie enthält zu wenige Adressen ($2)."
+  }
+}

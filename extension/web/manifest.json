@@ -1,0 +1,79 @@
+{
+  "manifest_version": 3,
+  "name": "ad×0",
+  "version": "0.1.0",
+  "description": "__MSG_description__",
+  "default_locale": "en",
+  "homepage_url": "https://github.com/Ilia-Pero/adx0",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "adx0@ilia-pero.github.io",
+      "strict_min_version": "128.0",
+      "data_collection_permissions": {
+        "required": [
+          "none"
+        ]
+      }
+    }
+  },
+  "icons": {
+    "32": "icons/32x32.png",
+    "64": "icons/64x64.png",
+    "128": "icons/128x128.png"
+  },
+  "permissions": [
+    "declarativeNetRequest",
+    "storage",
+    "unlimitedStorage",
+    "alarms",
+    "scripting",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "action": {
+    "default_title": "ad×0",
+    "default_icon": "icons/32x32.png",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js": [
+        "page.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": true
+    },
+    {
+      "matches": [
+        "https://www.youtube.com/*",
+        "https://m.youtube.com/*"
+      ],
+      "js": [
+        "player.js"
+      ],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": [
+        "https://www.youtube.com/*",
+        "https://m.youtube.com/*"
+      ],
+      "js": [
+        "skip.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}

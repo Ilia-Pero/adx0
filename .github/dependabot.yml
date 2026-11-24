@@ -1,0 +1,30 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: monthly
+    groups:
+      all:
+        patterns: ['*']
+  - package-ecosystem: npm
+    directory: /extension
+    schedule:
+      interval: monthly
+    groups:
+      all:
+        patterns: ['*']
+  - package-ecosystem: cargo
+    directory: /src-tauri
+    schedule:
+      interval: monthly
+    groups:
+      all:
+        patterns: ['*']
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    groups:
+      all:
+        patterns: ['*']

@@ -27,7 +27,7 @@ ad×0 escribe las direcciones de los servidores de publicidad en el archivo host
 - Conserva sus propias líneas del archivo hosts, deja una copia antes del primer cambio y vuelve a leer lo que ha escrito.
 - Guarda la última copia buena de cada lista, así el bloqueo no depende de que el sitio de la lista funcione.
 - No deja que un error de una lista cierre sitios como Google, Wikipedia o GitHub: esta es [la lista completa](../data/essential.json). Cualquier otro sitio se abre con el campo «No bloquear».
-- Habla 12 idiomas. No envía nada: solo descarga las listas cuando usted pulsa el botón.
+- Habla 12 idiomas: el idioma se elige en la parte superior de la ventana y en el instalador para Windows. No envía nada: solo descarga las listas cuando usted pulsa el botón.
 
 ## La extensión para Firefox
 
@@ -36,6 +36,7 @@ ad×0 escribe las direcciones de los servidores de publicidad en el archivo host
 - Bloquea direcciones de publicidad y oculta bloques en las páginas. Las listas regionales se eligen según los idiomas del navegador.
 - Quita el calendario de anuncios de las respuestas de YouTube, así el reproductor no tiene nada que mostrar.
 - Actualiza las listas una vez al día. El propio navegador aplica las reglas, y la parte de fondo se descarga entre tanto.
+- Habla los mismos 12 idiomas: al principio el del navegador; otro se elige en la ventana de la extensión.
 
 ## Qué no puede hacer
 

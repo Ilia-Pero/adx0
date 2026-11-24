@@ -58,7 +58,7 @@ cargo clippy --manifest-path src-tauri/Cargo.toml -p adx0-system --target x86_64
 
 **macOS 10.13.** On High Sierra the system WebKit draws the window, so it is built for Safari 11: no `gap` in flex, no logical properties, no destructuring.
 
-**Objects.** They are immutable, there is no `null`, and names are not made with "-er". A test has one assertion, and its name says what the program does. What is left undone is marked in the code with `@todo #issue` next to the place it concerns, as in [puzzle driven development](https://www.yegor256.com/2010/03/04/pdd.html). Such a comment is enough to take the work up.
+**Objects.** They are immutable, there is no `null`, and names are not made with "-er". A test has one assertion, and its name says what the program does. What is left undone is marked in the code with `@todo #issue` next to the place it concerns, as in [puzzle driven development](https://www.yegor256.com/2010/03/04/pdd.html). Such a comment is enough to take the work up. What is planned: [ROADMAP.md](ROADMAP.md).
 
 ## Translations
 

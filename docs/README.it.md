@@ -27,7 +27,7 @@ ad×0 scrive gli indirizzi dei server pubblicitari nel file hosts del sistema e 
 - Conserva le tue righe del file hosts, ne lascia una copia prima della prima modifica e rilegge ciò che ha scritto.
 - Conserva l’ultima copia valida di ogni lista, così il blocco non dipende dal sito della lista.
 - Non permette a un errore in una lista di chiudere siti come Google, Wikipedia o GitHub: ecco [la lista completa](../data/essential.json). Ogni altro sito si apre con il campo «Non bloccare».
-- Parla 12 lingue. Non invia nulla: scarica soltanto le liste quando premi il pulsante.
+- Parla 12 lingue: la lingua si sceglie in alto nella finestra e nel programma di installazione per Windows. Non invia nulla: scarica soltanto le liste quando premi il pulsante.
 
 ## L’estensione per Firefox
 
@@ -36,6 +36,7 @@ ad×0 scrive gli indirizzi dei server pubblicitari nel file hosts del sistema e 
 - Blocca gli indirizzi pubblicitari e nasconde i blocchi pubblicitari nelle pagine. Le liste regionali si scelgono in base alle lingue del browser.
 - Toglie il programma della pubblicità dalle risposte di YouTube, così il lettore non ha nulla da mostrare.
 - Aggiorna le liste una volta al giorno. È il browser ad applicare le regole, e la parte in background nel frattempo non è caricata.
+- Parla le stesse 12 lingue: all’inizio quella del browser; un’altra si sceglie nella finestra dell’estensione.
 
 ## Che cosa non può fare
 

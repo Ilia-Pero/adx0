@@ -27,7 +27,7 @@ ad×0 schreibt Adressen von Werbeservern in die Datei hosts des Systems und been
 - Behält Ihre eigenen Zeilen in der Datei hosts, legt vor der ersten Änderung eine Kopie an und liest zurück, was es geschrieben hat.
 - Bewahrt die letzte gute Kopie jeder Liste auf, sodass die Blockierung nicht davon abhängt, ob die Website der Liste erreichbar ist.
 - Lässt nicht zu, dass ein Fehler in einer Liste Seiten wie Google, Wikipedia oder GitHub sperrt: hier ist [die ganze Liste](../data/essential.json). Jede andere Seite wird im Feld „Nicht blockieren“ geöffnet.
-- Spricht 12 Sprachen. Sendet nichts: Es lädt nur die Listen herunter, wenn Sie auf die Schaltfläche klicken.
+- Spricht 12 Sprachen: Die Sprache wird oben im Fenster und im Installationsprogramm für Windows gewählt. Sendet nichts: Es lädt nur die Listen herunter, wenn Sie auf die Schaltfläche klicken.
 
 ## Die Erweiterung für Firefox
 
@@ -36,6 +36,7 @@ ad×0 schreibt Adressen von Werbeservern in die Datei hosts des Systems und been
 - Blockiert Werbeadressen und blendet Werbeblöcke auf Seiten aus. Regionale Listen werden nach den Sprachen des Browsers gewählt.
 - Entfernt den Werbeplan aus den Antworten von YouTube, sodass der Player nichts zu zeigen hat.
 - Aktualisiert die Listen einmal am Tag. Der Browser selbst setzt die Regeln durch, der Hintergrundteil ist dazwischen nicht geladen.
+- Spricht dieselben 12 Sprachen: zuerst die des Browsers; eine andere wird im Fenster der Erweiterung gewählt.
 
 ## Was es nicht kann
 

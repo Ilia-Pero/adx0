@@ -27,7 +27,7 @@ ad×0 writes addresses of ad servers into the hosts file of the system and exits
 - Keeps your own lines of the hosts file, leaves a copy of it before the first change, and reads back what it has written.
 - Keeps the last good copy of each list, so blocking does not depend on whether the site of a list is up.
 - Does not let a mistake in a list close sites such as Google, Wikipedia or GitHub: here is [the whole list](data/essential.json). Any other site is opened with the field “Do not block”.
-- Speaks 12 languages. Sends nothing anywhere: it only downloads the lists when you press the button.
+- Speaks 12 languages: the language is chosen at the top of the window and in the installer for Windows. Sends nothing anywhere: it only downloads the lists when you press the button.
 
 ## The Firefox extension
 
@@ -36,6 +36,7 @@ ad×0 writes addresses of ad servers into the hosts file of the system and exits
 - Blocks ad addresses and hides ad blocks on pages. Regional lists are chosen by the languages of the browser.
 - Takes the schedule of ads out of the answers of YouTube, so the player has nothing to show.
 - Updates the lists once a day. The browser itself enforces the rules, and the background part is unloaded in between.
+- Speaks the same 12 languages: the one of the browser at first, another one is chosen in the window of the extension.
 
 ## What it cannot do
 

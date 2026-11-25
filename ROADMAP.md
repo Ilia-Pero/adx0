@@ -2,12 +2,12 @@
 
 ## Next
 
-What can be done in the code alone is marked with `@todo #1` next to the place it concerns. Besides that, the program has to be checked on Windows 10 and 11, on a Mac and on Ubuntu.
+Tasks that need only changes in the code are marked with `@todo #1` where they belong. The program also has to be checked on Windows 10 and 11, on a Mac and on Ubuntu.
 
 ## Later
 
-These tasks need a paid account or somebody to look after them, so they are put off.
+These tasks need a paid account or constant maintenance.
 
-- The extension in the Chrome Web Store, which charges for registration. Yandex Browser trusts this catalog and the one of Opera only.
-- Signatures of the downloads, so that Windows and macOS do not warn at the first start.
-- Installing updates from within the program. It needs a key that signs them; today the program only tells about a newer version.
+- The Chrome Web Store, which charges for registration. Yandex Browser accepts extensions only from this store and from Opera Add-ons.
+- Paid signatures, so that Windows and macOS do not warn at the first start.
+- Updating from within the program, which needs a signing key. For now the program only reports a new version.

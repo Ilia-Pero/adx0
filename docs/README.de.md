@@ -4,7 +4,7 @@
 
 <p align="center"><b>ad × 0 = 0</b></p>
 
-<p align="center">Ein Werbeblocker, der nicht im Hintergrund läuft: für Windows, macOS, Linux und Browser</p>
+<p align="center">Werbeblocker für Windows, macOS, Linux und Browser</p>
 
 <p align="center">
 <a href="https://github.com/Ilia-Pero/adx0/actions/workflows/build.yml"><img src="https://github.com/Ilia-Pero/adx0/actions/workflows/build.yml/badge.svg" alt="build"></a>
@@ -16,109 +16,52 @@
 [English](../README.md) · [Русский](README.ru.md) · [Español](README.es.md) · [Ελληνικά](README.el.md) · [עברית](README.he.md) · [简体中文](README.zh.md) · [日本語](README.ja.md) · [한국어](README.ko.md) · [Српски](README.sr.md) · [Français](README.fr.md) · **Deutsch** · [Italiano](README.it.md) · [Беларуская](README.be.md) · [Қазақша](README.kk.md)
 
 <p align="center">
-<img src="window-off.png" width="380" alt="Das Fenster des Programms: Die Blockierung ist aus">
-<img src="window-on.png" width="380" alt="Das Fenster des Programms: Werbung ist blockiert">
+<img src="window-off.png" width="380" alt="Fenster des Programms: Blockieren ist aus">
+<img src="window-on.png" width="380" alt="Fenster des Programms: Werbung ist blockiert">
 </p>
 
-ad×0 schreibt Adressen von Werbeservern in die Datei hosts des Systems und beendet sich. Werbung von diesen Adressen wird in keinem Programm mehr geladen, und es gibt keinen Hintergrundprozess, der Speicher oder Prozessor belegt. Eine Browser-Erweiterung tut, was die Datei hosts nicht kann: Sie blendet Werbeblöcke auf Seiten aus und entfernt Werbung aus YouTube-Videos.
-
-## Das Programm
-
-- Blockiert etwa 10.000 Adressen von Werbeservern und Trackern aus den Listen, die Sie wählen.
-- Behält Ihre eigenen Zeilen in der Datei hosts, legt vor der ersten Änderung eine Kopie an und liest zurück, was es geschrieben hat.
-- Bewahrt die letzte gute Kopie jeder Liste auf, sodass die Blockierung nicht davon abhängt, ob die Website der Liste erreichbar ist.
-- Lässt nicht zu, dass ein Fehler in einer Liste Seiten wie Google, Wikipedia oder GitHub sperrt: hier ist [die ganze Liste](../data/essential.json). Jede andere Seite wird im Feld „Nicht blockieren“ geöffnet.
-- Spricht 14 Sprachen: Die Sprache wird oben im Fenster und im Installationsprogramm für Windows gewählt. Sendet nichts: Es lädt nur die Listen herunter, wenn Sie auf die Schaltfläche klicken und, solange die Blockierung an ist, beim Systemstart, höchstens einmal am Tag. Letzteres geschieht ohne Fenster in einem Augenblick und lässt sich ausschalten. Nach einer neuen Version sucht es nur, wenn Sie auf die Schaltfläche klicken.
-
-## Die Browser-Erweiterung
-
-Für Firefox und für Browser auf Basis von Chromium: Chrome, Yandex Browser, Edge, Opera.
-
-<p align="center"><img src="popup.png" width="312" alt="Die Browser-Erweiterung"></p>
-
-- Blockiert Werbeadressen und blendet Werbeblöcke auf Seiten aus. Regionale Listen werden nach den Sprachen des Browsers gewählt.
-- Entfernt den Werbeplan aus den Antworten von YouTube, sodass der Player nichts zu zeigen hat.
-- Aktualisiert die Listen einmal am Tag. Der Browser selbst setzt die Regeln durch, der Hintergrundteil ist dazwischen nicht geladen.
-- Spricht dieselben 14 Sprachen: zuerst die des Browsers; eine andere wird im Fenster der Erweiterung gewählt.
-
-## Was es nicht kann
-
-Die Datei hosts arbeitet mit ganzen Adressen. Werbung, die von derselben Adresse wie der Inhalt kommt, etwa bei YouTube oder in sozialen Netzwerken, bleibt; für YouTube gibt es die Erweiterung. Ein Proxy oder VPN, der Adressen selbst sucht, umgeht die Datei hosts.
-
-## Wie leicht es ist
-
-Gemessen am 24.11.2026 unter Windows Server 2022, optimierter Build:
-
-| Was | Ergebnis |
-| --- | --- |
-| Prozesse bei geschlossenem Fenster | 0 |
-| Prozessor bei offenem Fenster | 0–31 ms in 5 s |
-| Vom Start bis zum Fenster | 0,06–0,6 s in vier Läufen |
-| Größe des Programms | 4,4 MB |
-| Wachstum der Datei hosts | 198 KB für 9.800 Adressen |
-
-## Listen
-
-Die Listen gehören nicht zu diesem Repository. Ihre Kopie des Programms lädt sie von deren Websites, und jede hat ihre eigene Lizenz.
-
-| Liste | Wo | Lizenz |
-| --- | --- | --- |
-| [Peter Lowe](https://pgl.yoyo.org/adservers/) | beide | [McRae GPL](https://pgl.yoyo.org/license/) |
-| [AdAway](https://adaway.org/) | beide | CC BY 3.0 |
-| [RU AdList](https://github.com/easylist/ruadlist) | beide | CC BY 3.0 |
-| [Liste FR](https://github.com/easylist/listefr) | beide | CC BY-SA 3.0 |
-| [EasyList China](https://github.com/easylist/easylistchina) | beide | [GPL 3.0 / CC BY-SA 3.0](https://easylist.to/pages/licence.html) |
-| [StevenBlack](https://github.com/StevenBlack/hosts) | Programm | MIT |
-| [EasyList](https://easylist.to/) | Erweiterung | [GPL 3.0 / CC BY-SA 3.0](https://easylist.to/pages/licence.html) |
-| [EasyList Germany](https://github.com/easylist/easylistgermany) | Erweiterung | [GPL 3.0 / CC BY-SA 3.0](https://easylist.to/pages/licence.html) |
-| [EasyList Hebrew](https://github.com/easylist/EasyListHebrew) | Erweiterung | [GPL 3.0 / CC BY-SA 3.0](https://easylist.to/pages/licence.html) |
-| [EasyList Italy](https://github.com/easylist/easylistitaly) | Erweiterung | [GPL 3.0 / CC BY-SA 3.0](https://easylist.to/pages/licence.html) |
-| [EasyList Spanish](https://github.com/easylist/easylistspanish) | Erweiterung | [GPL 3.0 / CC BY-SA 3.0](https://easylist.to/pages/licence.html) |
-| [KoreanList](https://github.com/easylist/KoreanList) | Erweiterung | [GPL 3.0 / CC BY-SA 3.0](https://easylist.to/pages/licence.html) |
-| [AdGuard Japanese](https://github.com/AdguardTeam/AdguardFilters) | Erweiterung | GPL 3.0 |
-| [Greek AdBlock Filter](https://github.com/kargig/greek-adblockplus-filter) | Erweiterung | CC BY-SA 4.0 |
-
-## Stand
-
-| System | Stand |
-| --- | --- |
-| Windows | Funktioniert unter Windows Server 2022: mit echten Listen an einer Kopie der Datei hosts geprüft. Unter Windows 10 und 11 noch nicht geprüft. |
-| macOS 10.13+ | Lässt sich bauen und besteht die Tests; auf einer Maschine bei GitHub lässt es sich installieren und startet. Von Hand hat es noch niemand ausprobiert. |
-| Ubuntu 24.04+ | Lässt sich bauen und besteht die Tests; auf einer Maschine bei GitHub lässt es sich installieren und startet. Von Hand hat es noch niemand ausprobiert. |
-| Firefox 128+ | Funktioniert in Firefox 161. Von Mozilla noch nicht signiert und muss nach einem Neustart von Firefox erneut geladen werden. |
-| Chrome, Yandex Browser, Edge, Opera | Funktioniert in Edge 158, ohne Fenster geprüft. Die anderen sind nicht geprüft; nötig ist Chromium 120 oder neuer. |
+ad×0 schreibt die Adressen von Werbeservern in die hosts-Datei des Systems und beendet sich. Danach laden Programme auf dem Computer nichts mehr von diesen Adressen, und ad×0 selbst hat keinen laufenden Prozess. Eine Browser-Erweiterung blendet Werbeblöcke auf Seiten aus und entfernt Werbung aus YouTube-Videos.
 
 ## Installation
 
 | System | Datei | So wird installiert |
 | --- | --- | --- |
-| Windows 10 und 11 | [adx0-windows.exe](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-windows.exe) | Starten Sie sie. Wenn Windows das Programm nicht kennt: „Weitere Informationen“, „Trotzdem ausführen“. |
-| macOS 10.13+ | [adx0-macos.dmg](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-macos.dmg) | Ziehen Sie das Programm in „Programme“ und öffnen Sie es. Wenn macOS es ablehnt, öffnen Sie die Systemeinstellungen, „Datenschutz und Sicherheit“, und klicken Sie auf „Dennoch öffnen“. |
+| Windows 10, 11 | [adx0-windows.exe](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-windows.exe) | Datei starten. Wenn Windows warnt: „Weitere Informationen“, dann „Trotzdem ausführen“. |
+| macOS 10.13+ | [adx0-macos.dmg](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-macos.dmg) | Programm in „Programme“ ziehen und öffnen. Nach der ersten Ablehnung in den Systemeinstellungen „Datenschutz & Sicherheit“ öffnen und „Dennoch öffnen“ wählen. |
 | Ubuntu 24.04+ | [adx0-ubuntu.deb](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-ubuntu.deb) | `sudo apt install ./adx0-ubuntu.deb` |
-| Firefox 128+ | [adx0-firefox.zip](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-firefox.zip) | Öffnen Sie `about:debugging`, „Dieser Firefox“, „Temporäres Add-on laden“, und wählen Sie die Datei. Nach einem Neustart von Firefox laden Sie sie erneut. |
-| Chrome, Yandex Browser, Edge, Opera | [adx0-chrome.zip](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-chrome.zip) | Entpacken Sie sie, öffnen Sie `chrome://extensions`, schalten Sie den „Entwicklermodus“ ein, klicken Sie auf „Entpackte Erweiterung laden“ und wählen Sie den Ordner; löschen Sie ihn nicht. Yandex Browser vertraut nur Katalogen und kann die Erweiterung ausschalten. |
+| Firefox 128+ | [adx0-firefox.zip](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-firefox.zip) | `about:debugging` öffnen, „Dieser Firefox“, „Temporäres Add-on laden“ und die Datei wählen. Nach einem Neustart von Firefox erneut laden. |
+| Chrome, Edge, Opera, Yandex Browser | [adx0-chrome.zip](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-chrome.zip) | Archiv in einen Ordner entpacken, der bestehen bleibt. `chrome://extensions` öffnen, „Entwicklermodus“ einschalten, „Entpackte Erweiterung laden“ und den Ordner wählen. |
 
-GitHub baut diese Dateien aus dem Code dieses Repositorys, installiert und startet die Programme und veröffentlicht erst dann alles. Die Dateien haben keine bezahlte Signatur, deshalb warnen Windows und macOS beim ersten Start.
+Windows und macOS warnen, weil die Dateien keine bezahlte Signatur haben. GitHub baut sie aus diesem Repository, installiert die Programme auf sauberen Rechnern und startet sie, bevor eine Version veröffentlicht wird.
 
-Sie können das Programm auch selbst bauen. Nötig sind Node.js 24 oder neuer und Rust, unter Windows auch die Microsoft C++ Build Tools, unter Ubuntu auch `libwebkit2gtk-4.1-dev librsvg2-dev`.
+Bei der Deinstallation werden die blockierten Adressen aus der hosts-Datei entfernt. Unter macOS schalten Sie das Blockieren vorher aus.
 
-```sh
-git clone https://github.com/Ilia-Pero/adx0
-cd adx0
-npm ci
-npm run tauri build
-```
+## Programm
 
-Das Installationsprogramm erscheint in `src-tauri/target/release/bundle`.
+- Blockiert etwa 10.000 Adressen von Werbe- und Zählservern. Sie wählen die Listen und können eigene Websites hinzufügen.
+- Lässt Ihre Zeilen in der hosts-Datei unverändert, kopiert die Datei vor der ersten Änderung und prüft sie nach dem Schreiben.
+- Aktualisiert die Listen höchstens einmal am Tag, kurz nach dem Start des Systems und ohne Fenster. Das lässt sich ausschalten.
+- 14 Sprachen.
 
-Die Deinstallation gibt die blockierten Adressen wieder frei. Unter macOS schalten Sie die Blockierung aus, bevor Sie das Programm löschen.
+Die hosts-Datei blockiert ganze Adressen, deshalb bleibt Werbung, die von derselben Adresse wie der Inhalt kommt. Programme mit Proxy oder VPN und eigener Namensauflösung umgehen die hosts-Datei.
 
-Die Erweiterung: Führen Sie `npm ci && npm run build` im Ordner `extension` aus, öffnen Sie `about:debugging` in Firefox, wählen Sie „Dieser Firefox“, „Temporäres Add-on laden“ und die Datei `extension/packed/firefox/manifest.json`. Für Chromium ist es der Ordner `extension/packed/chrome`.
+## Browser-Erweiterung
 
-## Übersetzungen
+<p align="center"><img src="popup.png" width="312" alt="Fenster der Erweiterung"></p>
 
-Die Übersetzungen sind maschinell und wurden nicht von Muttersprachlern geprüft. Wenn Sie einen Fehler sehen, berichtigen Sie ihn bitte in `locales`, in `extension/web/_locales` oder in `docs`.
+- Blockiert etwa 64.000 Adressen und blendet Werbeblöcke auf Seiten aus.
+- Entfernt den Werbeplan aus den Antworten von YouTube.
+- Erlaubt Werbung auf einer Website mit einer Schaltfläche.
+- Aktualisiert die Listen einmal am Tag.
 
-## Mitmachen und Lizenz
+## Daten und Netzwerk
 
-So wird das Programm gebaut, geprüft und geändert: [CONTRIBUTING.md](../CONTRIBUTING.md). Die Lizenz ist [MIT](../LICENSE).
+Programm und Erweiterung laden die Listen von deren Websites und sammeln keine Daten. Nach einer neuen Version fragt das Programm bei GitHub, wenn Sie auf „Nach Updates suchen“ klicken.
+
+## Mehr
+
+Listen und ihre Lizenzen, Messwerte, geprüfte Systeme und der Bau des Programms sind [auf Englisch](../README.md) beschrieben.
+
+Dieser Text wurde maschinell übersetzt und nicht von Muttersprachlern geprüft. Korrekturen gehören in den Ordner `docs`.
+
+[MIT](../LICENSE)

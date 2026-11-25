@@ -4,7 +4,7 @@
 
 <p align="center"><b>ad × 0 = 0</b></p>
 
-<p align="center">常駐しない広告ブロッカー（Windows、macOS、Linux、ブラウザー）</p>
+<p align="center">Windows、macOS、Linux、ブラウザー用の広告ブロッカー</p>
 
 <p align="center">
 <a href="https://github.com/Ilia-Pero/adx0/actions/workflows/build.yml"><img src="https://github.com/Ilia-Pero/adx0/actions/workflows/build.yml/badge.svg" alt="build"></a>
@@ -20,105 +20,48 @@
 <img src="window-on.png" width="380" alt="プログラムのウィンドウ：広告をブロック中">
 </p>
 
-ad×0 は広告サーバーのアドレスをシステムの hosts ファイルに書き込み、終了します。すべてのプログラムで、これらのアドレスからの広告が読み込まれなくなり、メモリーやプロセッサーを使う常駐プロセスはありません。ブラウザー拡張機能は hosts ファイルではできないことをします。ページの広告枠を隠し、YouTube の動画から広告を取り除きます。
-
-## プログラム
-
-- 選んだリストにある、広告サーバーとトラッカーのアドレス約 10,000 件をブロックします。
-- hosts ファイルの自分の行を残し、最初の変更の前に控えを作り、書き込んだ内容を読み直して確かめます。
-- 各リストの最後に正しく取得できた内容を保存するので、リストのサイトが止まっていてもブロックできます。
-- リストの誤りで Google、Wikipedia、GitHub などのサイト（[一覧](../data/essential.json)）が閉じることはありません。ほかのサイトは「ブロックしない」で開けます。
-- 14 の言語に対応しています。言語はウィンドウの上部と Windows のインストーラーで選べます。何も送信しません。リストを取得するのは、ボタンを押したときと、ブロックがオンの間のシステム起動時（多くても 1 日 1 回）だけです。起動時の取得はウィンドウなしで一瞬で終わり、オフにできます。新しい版は、ボタンを押したときだけ確認します。
-
-## ブラウザー拡張機能
-
-Firefox と Chromium ベースのブラウザー（Chrome、Yandex ブラウザー、Edge、Opera）で使えます。
-
-<p align="center"><img src="popup.png" width="312" alt="ブラウザー拡張機能"></p>
-
-- 広告のアドレスをブロックし、ページの広告枠を隠します。地域のリストはブラウザーの言語に合わせて選ばれます。
-- YouTube の応答から広告の予定を取り除くので、プレーヤーには表示する広告がありません。
-- リストを 1 日 1 回更新します。規則はブラウザー自身が適用し、その間バックグラウンド部分は読み込まれません。
-- 同じ 14 の言語に対応しています。最初はブラウザーの言語で、拡張機能のウィンドウで変更できます。
-
-## できないこと
-
-hosts ファイルはアドレス全体を扱います。YouTube や SNS のように、内容と同じアドレスから届く広告は残ります。YouTube には拡張機能があります。自分でアドレスを調べるプロキシや VPN は hosts ファイルを通りません。
-
-## 軽さ
-
-2026-11-24、Windows Server 2022、リリースビルドで測定：
-
-| 項目 | 結果 |
-| --- | --- |
-| ウィンドウを閉じているときのプロセス数 | 0 |
-| ウィンドウを開いているときのプロセッサー時間 | 5 秒間で 0～31 ミリ秒 |
-| 起動からウィンドウが出るまで | 4 回の測定で 0.06～0.6 秒 |
-| プログラムの大きさ | 4.4 MB |
-| hosts ファイルの増加 | アドレス 9,800 件で 198 KB |
-
-## リスト
-
-リストはこのリポジトリに含まれません。手元のプログラムがそれぞれのサイトから取得し、リストごとに独自のライセンスがあります。
-
-| リスト | 使う場所 | ライセンス |
-| --- | --- | --- |
-| [Peter Lowe](https://pgl.yoyo.org/adservers/) | 両方 | [McRae GPL](https://pgl.yoyo.org/license/) |
-| [AdAway](https://adaway.org/) | 両方 | CC BY 3.0 |
-| [RU AdList](https://github.com/easylist/ruadlist) | 両方 | CC BY 3.0 |
-| [Liste FR](https://github.com/easylist/listefr) | 両方 | CC BY-SA 3.0 |
-| [EasyList China](https://github.com/easylist/easylistchina) | 両方 | [GPL 3.0 / CC BY-SA 3.0](https://easylist.to/pages/licence.html) |
-| [StevenBlack](https://github.com/StevenBlack/hosts) | プログラム | MIT |
-| [EasyList](https://easylist.to/) | 拡張機能 | [GPL 3.0 / CC BY-SA 3.0](https://easylist.to/pages/licence.html) |
-| [EasyList Germany](https://github.com/easylist/easylistgermany) | 拡張機能 | [GPL 3.0 / CC BY-SA 3.0](https://easylist.to/pages/licence.html) |
-| [EasyList Hebrew](https://github.com/easylist/EasyListHebrew) | 拡張機能 | [GPL 3.0 / CC BY-SA 3.0](https://easylist.to/pages/licence.html) |
-| [EasyList Italy](https://github.com/easylist/easylistitaly) | 拡張機能 | [GPL 3.0 / CC BY-SA 3.0](https://easylist.to/pages/licence.html) |
-| [EasyList Spanish](https://github.com/easylist/easylistspanish) | 拡張機能 | [GPL 3.0 / CC BY-SA 3.0](https://easylist.to/pages/licence.html) |
-| [KoreanList](https://github.com/easylist/KoreanList) | 拡張機能 | [GPL 3.0 / CC BY-SA 3.0](https://easylist.to/pages/licence.html) |
-| [AdGuard Japanese](https://github.com/AdguardTeam/AdguardFilters) | 拡張機能 | GPL 3.0 |
-| [Greek AdBlock Filter](https://github.com/kargig/greek-adblockplus-filter) | 拡張機能 | CC BY-SA 4.0 |
-
-## 状況
-
-| システム | 状況 |
-| --- | --- |
-| Windows | Windows Server 2022 で動作します。実際のリストを使い、hosts ファイルの控えで確認しました。Windows 10 と 11 ではまだ確認していません。 |
-| macOS 10.13+ | ビルドとテストは通り、GitHub のマシンでインストールと起動ができます。まだ誰も手で試していません。 |
-| Ubuntu 24.04+ | ビルドとテストは通り、GitHub のマシンでインストールと起動ができます。まだ誰も手で試していません。 |
-| Firefox 128+ | Firefox 161 で動作します。Mozilla の署名がまだないため、Firefox を再起動すると読み込み直す必要があります。 |
-| Chrome、Yandex ブラウザー、Edge、Opera | Edge 158 で動作します（ウィンドウなしで確認）。ほかは未確認で、Chromium 120 以降が必要です。 |
+ad×0 は広告サーバーのアドレスをシステムの hosts ファイルに書き込み、終了します。その後、コンピューターのプログラムはこれらのアドレスから何も読み込まず、ad×0 自身の動作中のプロセスもありません。ブラウザー拡張機能はページの広告枠を隠し、YouTube 動画の広告を取り除きます。
 
 ## インストール
 
-| システム | ファイル | インストール方法 |
+| システム | ファイル | 方法 |
 | --- | --- | --- |
-| Windows 10 と 11 | [adx0-windows.exe](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-windows.exe) | 実行します。Windows が警告したら「詳細情報」、「実行」を選びます。 |
-| macOS 10.13+ | [adx0-macos.dmg](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-macos.dmg) | プログラムを「アプリケーション」にドラッグして開きます。macOS に拒否されたら、システム設定の「プライバシーとセキュリティ」で「このまま開く」を押します。 |
+| Windows 10, 11 | [adx0-windows.exe](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-windows.exe) | ファイルを実行します。Windows の警告が出たら「詳細情報」、「実行」の順に選びます。 |
+| macOS 10.13+ | [adx0-macos.dmg](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-macos.dmg) | プログラムを「アプリケーション」に移して開きます。macOS に拒否されたら、システム設定の「プライバシーとセキュリティ」で「このまま開く」を押します。 |
 | Ubuntu 24.04+ | [adx0-ubuntu.deb](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-ubuntu.deb) | `sudo apt install ./adx0-ubuntu.deb` |
-| Firefox 128+ | [adx0-firefox.zip](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-firefox.zip) | `about:debugging` を開き、「この Firefox」、「一時的なアドオンを読み込む」、このファイルを選びます。Firefox を再起動したら読み込み直します。 |
-| Chrome、Yandex ブラウザー、Edge、Opera | [adx0-chrome.zip](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-chrome.zip) | 展開して `chrome://extensions` を開き、「デベロッパー モード」をオンにし、「パッケージ化されていない拡張機能を読み込む」でフォルダーを選びます。フォルダーは消さないでください。Yandex ブラウザーはストアだけを信頼するため、無効にすることがあります。 |
+| Firefox 128+ | [adx0-firefox.zip](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-firefox.zip) | `about:debugging` を開き、「この Firefox」、「一時的なアドオンを読み込む」でファイルを選びます。Firefox を再起動したら、もう一度読み込みます。 |
+| Chrome, Edge, Opera, Yandex Browser | [adx0-chrome.zip](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-chrome.zip) | アーカイブを、削除しないフォルダーに展開します。`chrome://extensions` を開き、デベロッパーモードをオンにして「パッケージ化されていない拡張機能を読み込む」でフォルダーを選びます。 |
 
-GitHub はこのリポジトリのコードからこれらのファイルをビルドし、プログラムをインストールして起動し、そのうえですべてを公開します。ファイルには有料の署名がないため、Windows と macOS は初回起動時に警告します。
+ファイルに有料の署名がないため、Windows と macOS は警告を表示します。GitHub がこのリポジトリからファイルを作成し、新しい環境にプログラムをインストールして起動した後に公開します。
 
-自分でビルドすることもできます。Node.js 24 以降と Rust、Windows ではさらに Microsoft C++ Build Tools、Ubuntu ではさらに `libwebkit2gtk-4.1-dev librsvg2-dev` が必要です。
+アンインストールすると、ブロックしたアドレスが hosts ファイルから削除されます。macOS では、先にブロックをオフにしてください。
 
-```sh
-git clone https://github.com/Ilia-Pero/adx0
-cd adx0
-npm ci
-npm run tauri build
-```
+## プログラム
 
-インストーラーは `src-tauri/target/release/bundle` にできます。
+- 広告とトラッキングのサーバー約 10,000 アドレスをブロックします。リストは自分で選び、サイトを追加することもできます。
+- hosts ファイルの自分の行はそのまま残し、最初の変更前にコピーを作り、書き込み後にファイルを確認します。
+- システム起動後まもなく、ウィンドウなしで、多くても 1 日 1 回リストを更新します。オフにできます。
+- 14 言語に対応。
 
-アンインストールすると、ブロックしたアドレスは元に戻ります。macOS では、プログラムを削除する前にブロックをオフにしてください。
+hosts ファイルはアドレス全体をブロックするため、内容と同じアドレスから届く広告は残ります。独自にアドレスを調べるプロキシや VPN を使うプログラムには効きません。
 
-拡張機能：`extension` フォルダーで `npm ci && npm run build` を実行し、Firefox で `about:debugging` を開き、「この Firefox」、「一時的なアドオンを読み込む」、ファイル `extension/packed/firefox/manifest.json` を選びます。Chromium ではフォルダー `extension/packed/chrome` を使います。
+## ブラウザー拡張機能
 
-## 翻訳
+<p align="center"><img src="popup.png" width="312" alt="拡張機能のウィンドウ"></p>
 
-翻訳は機械によるもので、母語話者による確認は受けていません。間違いを見つけたら `locales`、`extension/web/_locales` または `docs` を直してください。
+- 約 64,000 アドレスをブロックし、ページの広告枠を隠します。
+- YouTube の応答から広告の予定を取り除きます。
+- ボタン 1 つでサイトの広告を許可できます。
+- リストを 1 日 1 回更新します。
 
-## 参加とライセンス
+## データとネットワーク
 
-ビルド、テスト、変更の方法：[CONTRIBUTING.md](../CONTRIBUTING.md)。ライセンスは [MIT](../LICENSE) です。
+プログラムと拡張機能はリストをそれぞれのサイトからダウンロードし、データを収集しません。プログラムは「更新を確認」を押したときに GitHub に新しい版を問い合わせます。
+
+## 詳細
+
+リストとライセンス、測定結果、確認済みのシステム、ビルド方法は[英語版](../README.md)にあります。
+
+この文章は機械翻訳で、母語話者による確認を受けていません。修正は `docs` フォルダーにお願いします。
+
+[MIT](../LICENSE)

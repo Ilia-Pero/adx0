@@ -1,6 +1,6 @@
 {
   "name": "adx0-extension",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "private": true,
   "type": "module",
   "description": "A browser extension that blocks ads on pages and in YouTube videos",

@@ -4,7 +4,7 @@
 
 <p align="center"><b>ad × 0 = 0</b></p>
 
-<p align="center">An ad blocker that does not run: for Windows, macOS, Linux and browsers</p>
+<p align="center">Ad blocker for Windows, macOS, Linux and browsers</p>
 
 <p align="center">
 <a href="https://github.com/Ilia-Pero/adx0/actions/workflows/build.yml"><img src="https://github.com/Ilia-Pero/adx0/actions/workflows/build.yml/badge.svg" alt="build"></a>
@@ -20,54 +20,71 @@
 <img src="docs/window-on.png" width="380" alt="The window of the program: ads are blocked">
 </p>
 
-ad×0 writes addresses of ad servers into the hosts file of the system and exits. Ads from these addresses stop loading in every program, and there is no background process: nothing to take memory or processor time. A browser extension does what the hosts file cannot: hides ad blocks on pages and takes ads out of YouTube videos.
+ad×0 writes the addresses of ad servers into the hosts file of the system and exits. After that programs on the computer load nothing from those addresses, and ad×0 itself has no running process. A browser extension handles what the hosts file cannot: it hides ad blocks on pages and removes ads from YouTube videos.
+
+## Install
+
+| System | File | How to install |
+| --- | --- | --- |
+| Windows 10 and 11 | [adx0-windows.exe](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-windows.exe) | Run the file. If Windows shows a warning, choose “More info”, then “Run anyway”. |
+| macOS 10.13 or later | [adx0-macos.dmg](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-macos.dmg) | Drag the program to Applications and open it. After macOS refuses for the first time, open System Settings, “Privacy & Security”, and press “Open Anyway”. |
+| Ubuntu 24.04 or later | [adx0-ubuntu.deb](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-ubuntu.deb) | `sudo apt install ./adx0-ubuntu.deb` |
+| Firefox 128 or later | [adx0-firefox.zip](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-firefox.zip) | Open `about:debugging`, “This Firefox”, “Load Temporary Add-on”, and select the file. Firefox removes such an extension when it closes, so load it again after a restart. |
+| Chrome, Edge, Opera, Yandex Browser | [adx0-chrome.zip](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-chrome.zip) | Unpack the archive into a folder you will keep. Open `chrome://extensions`, turn on “Developer mode”, press “Load unpacked” and select the folder. Yandex Browser may turn off an extension that did not come from a store. |
+
+Windows and macOS warn about the files because they are not signed with a paid certificate. GitHub builds them from this repository, installs the programs on clean machines and starts them before a release is published.
+
+The uninstaller removes the blocked addresses from the hosts file. On macOS, turn blocking off before you delete the program.
 
 ## The program
 
-- Blocks about 10,000 addresses of ad servers and trackers from the lists you choose.
-- Keeps your own lines of the hosts file, leaves a copy of it before the first change, and reads back what it has written.
-- Keeps the last good copy of each list, so blocking does not depend on whether the site of a list is up.
-- Does not let a mistake in a list close sites such as Google, Wikipedia or GitHub: here is [the whole list](data/essential.json). Any other site is opened with the field “Do not block”.
-- Speaks 14 languages: the language is chosen at the top of the window and in the installer for Windows. Sends nothing anywhere: it only downloads the lists, when you press the button and, while blocking is on, when the system starts, at most once a day. The second is done without a window in a moment, and you can turn it off. It looks for a newer version only when you press the button.
+- Blocks about 10,000 addresses of ad servers and trackers. You choose the lists they come from, and can add your own sites to block or to allow.
+- Leaves your own lines of the hosts file as they are, makes a copy of the file before the first change and checks every write by reading the file again.
+- Keeps the last good copy of each list, so blocking works while the site of a list is down.
+- Skips the sites in [this file](data/essential.json), among them Google, Wikipedia and GitHub: finding one of them in a list of ads is a mistake of the list. You can still block them yourself.
+- Updates the lists at most once a day, soon after the system starts and without a window. This can be turned off.
+- Speaks 14 languages.
 
-## The browser extension
+The hosts file works with whole addresses, so ads that come from the same address as the content stay: on YouTube, for example, and in social networks. Programs that use a proxy or a VPN with its own address lookup bypass the hosts file.
 
-For Firefox and for browsers based on Chromium: Chrome, Yandex Browser, Edge, Opera.
+## Browser extension
 
-<p align="center"><img src="docs/popup.png" width="312" alt="The browser extension"></p>
+<p align="center"><img src="docs/popup.png" width="312" alt="The window of the extension"></p>
 
-- Blocks ad addresses and hides ad blocks on pages. Regional lists are chosen by the languages of the browser.
-- Takes the schedule of ads out of the answers of YouTube, so the player has nothing to show.
-- Updates the lists once a day. The browser itself enforces the rules, and the background part is unloaded in between.
-- Speaks the same 14 languages: the one of the browser at first, another one is chosen in the window of the extension.
+- Blocks 55,000 to 64,000 addresses, depending on the regional list, and hides ad blocks on pages. Regional lists are chosen by the languages of the browser.
+- Removes the schedule of ads from the answers of YouTube, so the player does not show them.
+- Allows ads on a site with one button.
+- Updates the lists once a day. The browser applies the rules itself and unloads the background part of the extension when it is idle.
 
-## What it cannot do
+The extension works in Firefox and in browsers based on Chromium.
 
-The hosts file works with whole addresses. Ads that come from the same address as the content, as in YouTube or in social networks, stay; for YouTube there is the extension. A proxy or a VPN that looks addresses up by itself bypasses the hosts file.
+## Privacy
 
-## How light it is
+The program and the extension download the lists from the sites named below and collect no data. The program also asks GitHub about new versions when you press “Check for updates”. There are no accounts and no paid exceptions for ads.
 
-Measured on 2026-11-24 on Windows Server 2022, the release build:
+## Measurements
 
-| What | Result |
+Windows Server 2022, release build, 2026-11-24.
+
+| What was measured | Result |
 | --- | --- |
 | Processes while the window is closed | 0 |
 | Processor time while the window is open | 0–31 ms in 5 s |
 | From the start to the window | 0.06–0.6 s in four runs |
-| Size of the program | 4.4 MB |
+| Size of the program file | 4.4 MB |
 | Growth of the hosts file | 198 KB for 9,800 addresses |
 
 ## Lists
 
-The lists are not a part of this repository. Your copy of the program downloads them from their sites, and each has its own license.
+The lists are not part of this repository. Your copy of the program downloads them from their own sites, and each list has its own license.
 
-| List | Where | License |
+| List | Used by | License |
 | --- | --- | --- |
-| [Peter Lowe](https://pgl.yoyo.org/adservers/) | both | [McRae GPL](https://pgl.yoyo.org/license/) |
-| [AdAway](https://adaway.org/) | both | CC BY 3.0 |
-| [RU AdList](https://github.com/easylist/ruadlist) | both | CC BY 3.0 |
-| [Liste FR](https://github.com/easylist/listefr) | both | CC BY-SA 3.0 |
-| [EasyList China](https://github.com/easylist/easylistchina) | both | [GPL 3.0 / CC BY-SA 3.0](https://easylist.to/pages/licence.html) |
+| [Peter Lowe](https://pgl.yoyo.org/adservers/) | program and extension | [McRae GPL](https://pgl.yoyo.org/license/) |
+| [AdAway](https://adaway.org/) | program and extension | CC BY 3.0 |
+| [RU AdList](https://github.com/easylist/ruadlist) | program and extension | CC BY 3.0 |
+| [Liste FR](https://github.com/easylist/listefr) | program and extension | CC BY-SA 3.0 |
+| [EasyList China](https://github.com/easylist/easylistchina) | program and extension | [GPL 3.0 / CC BY-SA 3.0](https://easylist.to/pages/licence.html) |
 | [StevenBlack](https://github.com/StevenBlack/hosts) | program | MIT |
 | [EasyList](https://easylist.to/) | extension | [GPL 3.0 / CC BY-SA 3.0](https://easylist.to/pages/licence.html) |
 | [EasyList Germany](https://github.com/easylist/easylistgermany) | extension | [GPL 3.0 / CC BY-SA 3.0](https://easylist.to/pages/licence.html) |
@@ -78,29 +95,22 @@ The lists are not a part of this repository. Your copy of the program downloads 
 | [AdGuard Japanese](https://github.com/AdguardTeam/AdguardFilters) | extension | GPL 3.0 |
 | [Greek AdBlock Filter](https://github.com/kargig/greek-adblockplus-filter) | extension | CC BY-SA 4.0 |
 
-## Status
+## Tested on
 
-| System | State |
+| System | What was checked |
 | --- | --- |
-| Windows | Works on Windows Server 2022: checked with real lists on a copy of the hosts file. Not checked on Windows 10 and 11 yet. |
-| macOS 10.13+ | Builds, passes the tests; on a machine at GitHub it installs and starts. Nobody has tried it by hand yet. |
-| Ubuntu 24.04+ | Builds, passes the tests; on a machine at GitHub it installs and starts. Nobody has tried it by hand yet. |
-| Firefox 128+ | Works in Firefox 161. Not signed by Mozilla yet, so it has to be loaded again after Firefox is restarted. |
-| Chrome, Yandex Browser, Edge, Opera | Works in Edge 158, checked without a window. The others have not been checked; they need Chromium 120 or newer. |
+| Windows Server 2022 | Works with real lists on a copy of the hosts file. |
+| Windows Server, a GitHub machine | Installs, starts, blocks and unblocks an address in the hosts file. |
+| Windows 10 and 11 | Not checked yet. |
+| macOS and Ubuntu 24.04, GitHub machines | Builds, passes the tests, installs, starts, blocks and unblocks an address in the hosts file. Not checked by hand. |
+| Ubuntu 26.04, a GitHub machine | Installs and starts. |
+| Firefox 161, Edge 158 | The extension works. Chrome, Opera and Yandex Browser were not checked; they need Chromium 120 or later. |
 
-## Install
+If you run it on a system that has not been checked, please [write how it went](https://github.com/Ilia-Pero/adx0/issues).
 
-| System | File | How to install |
-| --- | --- | --- |
-| Windows 10 and 11 | [adx0-windows.exe](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-windows.exe) | Run it. If Windows does not know the program: “More info”, “Run anyway”. |
-| macOS 10.13+ | [adx0-macos.dmg](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-macos.dmg) | Drag the program into Applications and open it. When macOS refuses, open System Settings, “Privacy & Security”, and press “Open Anyway”. |
-| Ubuntu 24.04+ | [adx0-ubuntu.deb](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-ubuntu.deb) | `sudo apt install ./adx0-ubuntu.deb` |
-| Firefox 128+ | [adx0-firefox.zip](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-firefox.zip) | Open `about:debugging`, “This Firefox”, “Load Temporary Add-on”, and choose the file. After Firefox is restarted, load it again. |
-| Chrome, Yandex Browser, Edge, Opera | [adx0-chrome.zip](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-chrome.zip) | Unpack it, open `chrome://extensions`, turn on “Developer mode”, press “Load unpacked” and choose the folder; the folder has to stay. Yandex Browser trusts only catalogs and may turn the extension off. |
+## Build
 
-GitHub builds these files from the code of this repository, installs the programs and starts them, and only then publishes everything. The files have no paid signature, so Windows and macOS warn at the first start.
-
-You can also build the program yourself. You need Node.js 24 or newer, Rust, on Windows also the Microsoft C++ Build Tools, on Ubuntu also `libwebkit2gtk-4.1-dev librsvg2-dev`.
+You need Node.js 24 or later and Rust; on Windows also the Microsoft C++ Build Tools, on Ubuntu also `libwebkit2gtk-4.1-dev librsvg2-dev`.
 
 ```sh
 git clone https://github.com/Ilia-Pero/adx0
@@ -109,16 +119,12 @@ npm ci
 npm run tauri build
 ```
 
-The installer appears in `src-tauri/target/release/bundle`.
-
-The uninstaller opens the blocked addresses again. On macOS, turn blocking off before you delete the program.
-
-The extension: run `npm ci && npm run build` in the folder `extension`, open `about:debugging` in Firefox, choose “This Firefox”, “Load Temporary Add-on” and the file `extension/packed/firefox/manifest.json`. For Chromium, the folder is `extension/packed/chrome`.
+The installer appears in `src-tauri/target/release/bundle`. To build the extension, run `npm ci && npm run build` in the folder `extension`; the results are `extension/packed/firefox` and `extension/packed/chrome`. Tests, the structure of the code and the rules for changes are described in [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Translations
 
-The translations are machine-made and have not been checked by native speakers. If you see a mistake, please correct it in `locales`, in `extension/web/_locales` or in `docs`.
+English and Russian are the main languages. The other twelve are machine translations that native speakers have not checked. Corrections go to `locales`, `extension/web/_locales` and `docs`.
 
-## Contributing and license
+## License
 
-How to build, test and change the program: [CONTRIBUTING.md](CONTRIBUTING.md). The license is [MIT](LICENSE).
+[MIT](LICENSE)

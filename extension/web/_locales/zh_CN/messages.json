@@ -3,7 +3,7 @@
     "message": "zh"
   },
   "description": {
-    "message": "屏蔽网页和 YouTube 视频中的广告。空闲时不占资源。"
+    "message": "屏蔽网页和 YouTube 视频中的广告。"
   },
   "blocked": {
     "message": "广告已屏蔽"

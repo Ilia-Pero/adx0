@@ -1,9 +1,9 @@
 {
   "name": "adx0",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "private": true,
   "type": "module",
-  "description": "An ad blocker that does not run",
+  "description": "An ad blocker based on the hosts file",
   "license": "MIT",
   "repository": "github:Ilia-Pero/adx0",
   "scripts": {

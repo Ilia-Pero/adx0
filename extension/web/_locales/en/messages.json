@@ -3,7 +3,7 @@
     "message": "en"
   },
   "description": {
-    "message": "Blocks ads on pages and in YouTube videos. No load at rest."
+    "message": "Blocks ads on pages and in YouTube videos."
   },
   "blocked": {
     "message": "Ads are blocked"

@@ -3,7 +3,7 @@
     "message": "es"
   },
   "description": {
-    "message": "Bloquea la publicidad en las páginas y en los vídeos de YouTube. Sin carga en reposo."
+    "message": "Bloquea la publicidad en las páginas y en los vídeos de YouTube."
   },
   "blocked": {
     "message": "La publicidad está bloqueada"

@@ -12,9 +12,9 @@ needless_pass_by_value = "allow"
 
 [package]
 name = "adx0"
-version = "0.4.0"
+version = "0.4.1"
 edition = "2021"
-description = "An ad blocker that does not run"
+description = "An ad blocker based on the hosts file"
 license = "MIT"
 repository = "https://github.com/Ilia-Pero/adx0"
 publish = false

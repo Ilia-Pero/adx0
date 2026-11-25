@@ -6,7 +6,7 @@
 
 <p align="center"><b>ad × 0 = 0</b></p>
 
-<p align="center">חוסם פרסומות שאינו רץ ברקע: עבור Windows‏, macOS‏, Linux ודפדפנים</p>
+<p align="center">חוסם פרסומות עבור Windows‏, macOS‏, Linux ודפדפנים</p>
 
 <p align="center">
 <a href="https://github.com/Ilia-Pero/adx0/actions/workflows/build.yml"><img src="https://github.com/Ilia-Pero/adx0/actions/workflows/build.yml/badge.svg" alt="build"></a>
@@ -22,111 +22,50 @@
 <img src="window-on.png" width="380" alt="חלון התוכנה: הפרסומות חסומות">
 </p>
 
-‏ad×0 כותבת את הכתובות של שרתי פרסום אל קובץ ה־hosts של המערכת ונסגרת. פרסומות מהכתובות האלה מפסיקות להיטען בכל התוכנות, ואין תהליך רקע שתופס זיכרון או מעבד. הרחבה לדפדפן עושה את מה שקובץ ה־hosts אינו יכול: מסתירה בלוקים של פרסום בדפים ומסירה פרסומות מסרטוני YouTube.
-
-## התוכנה
-
-- חוסמת כ־10,000 כתובות של שרתי פרסום ומעקב מתוך הרשימות שתבחרו.
-- שומרת על השורות שלכם בקובץ ה־hosts, משאירה עותק שלו לפני השינוי הראשון וקוראת שוב את מה שכתבה.
-- שומרת את העותק התקין האחרון של כל רשימה, כך שהחסימה אינה תלויה בזמינות האתר של הרשימה.
-- אינה מניחה לטעות ברשימה לסגור אתרים כמו Google‏, Wikipedia או GitHub: הנה [הרשימה המלאה](../data/essential.json). כל אתר אחר פותחים בשדה "לא לחסום".
-- מדברת 14 שפות: את השפה בוחרים בראש החלון ובתוכנית ההתקנה ל־Windows. אינה שולחת דבר לשום מקום: רק מורידה את הרשימות, כשאתם לוחצים על הכפתור וכל עוד החסימה פועלת גם עם הפעלת המערכת, לכל היותר פעם ביום. זה קורה ללא חלון בתוך רגע, ואפשר לכבות את זה. גרסה חדשה נבדקת רק כשאתם לוחצים על הכפתור.
-
-## ההרחבה לדפדפן
-
-עבור Firefox ועבור דפדפנים המבוססים על Chromium‏: Chrome‏, Yandex Browser‏, Edge‏, Opera.
-
-<p align="center"><img src="popup.png" width="312" alt="ההרחבה לדפדפן"></p>
-
-- חוסמת כתובות פרסום ומסתירה בלוקים של פרסום בדפים. רשימות אזוריות נבחרות לפי שפות הדפדפן.
-- מסירה את לוח הפרסומות מהתשובות של YouTube, כך שלנגן אין מה להציג.
-- מעדכנת את הרשימות פעם ביום. הדפדפן עצמו אוכף את הכללים, וחלק הרקע אינו טעון בין לבין.
-- מדברת את אותן 14 שפות: בהתחלה בשפת הדפדפן; שפה אחרת בוחרים בחלון ההרחבה.
-
-## מה היא אינה יכולה
-
-קובץ ה־hosts עובד עם כתובות שלמות. פרסומות שמגיעות מאותה כתובת כמו התוכן, כמו ב־YouTube או ברשתות חברתיות, נשארות; עבור YouTube יש הרחבה. פרוקסי או VPN שמאתרים כתובות בעצמם עוקפים את קובץ ה־hosts.
-
-## כמה היא קלה
-
-נמדד ב־24.11.2026 ב־Windows Server 2022, גרסה ממוטבת:
-
-| מה | תוצאה |
-| --- | --- |
-| תהליכים כשהחלון סגור | 0 |
-| מעבד כשהחלון פתוח | 0–31 אלפיות השנייה ב־5 שניות |
-| מההפעלה ועד החלון | 0.06–0.6 שניות בארבע הפעלות |
-| גודל התוכנה | 4.4 MB |
-| גידול קובץ ה־hosts | 198 KB עבור 9,800 כתובות |
-
-## רשימות
-
-הרשימות אינן חלק ממאגר זה. העותק שלכם של התוכנה מוריד אותן מהאתרים שלהן, ולכל אחת רישיון משלה.
-
-| רשימה | היכן | רישיון |
-| --- | --- | --- |
-| [Peter Lowe](https://pgl.yoyo.org/adservers/) | שתיהן | [McRae GPL](https://pgl.yoyo.org/license/) |
-| [AdAway](https://adaway.org/) | שתיהן | CC BY 3.0 |
-| [RU AdList](https://github.com/easylist/ruadlist) | שתיהן | CC BY 3.0 |
-| [Liste FR](https://github.com/easylist/listefr) | שתיהן | CC BY-SA 3.0 |
-| [EasyList China](https://github.com/easylist/easylistchina) | שתיהן | [GPL 3.0 / CC BY-SA 3.0](https://easylist.to/pages/licence.html) |
-| [StevenBlack](https://github.com/StevenBlack/hosts) | תוכנה | MIT |
-| [EasyList](https://easylist.to/) | הרחבה | [GPL 3.0 / CC BY-SA 3.0](https://easylist.to/pages/licence.html) |
-| [EasyList Germany](https://github.com/easylist/easylistgermany) | הרחבה | [GPL 3.0 / CC BY-SA 3.0](https://easylist.to/pages/licence.html) |
-| [EasyList Hebrew](https://github.com/easylist/EasyListHebrew) | הרחבה | [GPL 3.0 / CC BY-SA 3.0](https://easylist.to/pages/licence.html) |
-| [EasyList Italy](https://github.com/easylist/easylistitaly) | הרחבה | [GPL 3.0 / CC BY-SA 3.0](https://easylist.to/pages/licence.html) |
-| [EasyList Spanish](https://github.com/easylist/easylistspanish) | הרחבה | [GPL 3.0 / CC BY-SA 3.0](https://easylist.to/pages/licence.html) |
-| [KoreanList](https://github.com/easylist/KoreanList) | הרחבה | [GPL 3.0 / CC BY-SA 3.0](https://easylist.to/pages/licence.html) |
-| [AdGuard Japanese](https://github.com/AdguardTeam/AdguardFilters) | הרחבה | GPL 3.0 |
-| [Greek AdBlock Filter](https://github.com/kargig/greek-adblockplus-filter) | הרחבה | CC BY-SA 4.0 |
-
-## מצב
-
-| מערכת | מצב |
-| --- | --- |
-| Windows | עובדת ב־Windows Server 2022: נבדקה עם רשימות אמיתיות על עותק של קובץ ה־hosts. עדיין לא נבדקה ב־Windows 10 ו־11. |
-| macOS 10.13+ | נבנית ועוברת את הבדיקות; במחשב של GitHub היא מותקנת ומופעלת. איש עדיין לא ניסה אותה ביד. |
-| Ubuntu 24.04+ | נבנית ועוברת את הבדיקות; במחשב של GitHub היא מותקנת ומופעלת. איש עדיין לא ניסה אותה ביד. |
-| Firefox 128+ | עובדת ב־Firefox 161. Mozilla עדיין לא חתמה עליה, ולכן צריך לטעון אותה שוב אחרי הפעלה מחדש של Firefox. |
-| Chrome, Yandex Browser, Edge, Opera | עובדת ב־Edge 158, נבדקה ללא חלון. האחרים לא נבדקו; נדרש Chromium 120 ומעלה. |
+התוכנה ad×0 כותבת את כתובות שרתי הפרסום אל קובץ hosts של המערכת ונסגרת. לאחר מכן תוכנות במחשב אינן טוענות דבר מהכתובות האלה, ול־ad×0 עצמה אין תהליך פעיל. תוסף לדפדפן מסתיר פרסומות בדפים ומסיר פרסומות מסרטוני YouTube.
 
 ## התקנה
 
 | מערכת | קובץ | איך מתקינים |
 | --- | --- | --- |
-| Windows 10 ו־11 | [adx0-windows.exe](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-windows.exe) | הפעילו אותו. אם Windows אינה מכירה את התוכנה: "מידע נוסף", "הפעל בכל זאת". |
-| macOS 10.13+ | [adx0-macos.dmg](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-macos.dmg) | גררו את התוכנה ליישומים ופתחו אותה. כש־macOS מסרבת, פתחו את הגדרות המערכת, "פרטיות ואבטחה", ולחצו על "פתח בכל זאת". |
+| Windows 10, 11 | [adx0-windows.exe](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-windows.exe) | הפעילו את הקובץ. אם Windows מציגה אזהרה, בחרו „מידע נוסף” ואז „הפעל בכל זאת”. |
+| macOS 10.13+ | [adx0-macos.dmg](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-macos.dmg) | גררו את התוכנה לתיקיית „יישומים” ופתחו אותה. אחרי הסירוב הראשון של macOS פתחו את הגדרות המערכת, „פרטיות ואבטחה”, ולחצו על „פתח בכל זאת”. |
 | Ubuntu 24.04+ | [adx0-ubuntu.deb](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-ubuntu.deb) | `sudo apt install ./adx0-ubuntu.deb` |
-| Firefox 128+ | [adx0-firefox.zip](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-firefox.zip) | פתחו את `about:debugging`, "This Firefox", "Load Temporary Add-on", ובחרו את הקובץ. אחרי הפעלה מחדש של Firefox טענו אותו שוב. |
-| Chrome, Yandex Browser, Edge, Opera | [adx0-chrome.zip](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-chrome.zip) | פרקו את הקובץ, פתחו את `chrome://extensions`, הפעילו "Developer mode", לחצו "Load unpacked" ובחרו את התיקייה; אל תמחקו אותה. Yandex Browser סומך רק על קטלוגים ועשוי לכבות את ההרחבה. |
+| Firefox 128+ | [adx0-firefox.zip](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-firefox.zip) | פתחו את `about:debugging`, „Firefox זה”, „טעינת תוספת זמנית” ובחרו את הקובץ. אחרי הפעלה מחדש של Firefox טענו אותו שוב. |
+| Chrome, Edge, Opera, Yandex Browser | [adx0-chrome.zip](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-chrome.zip) | חלצו את הארכיון לתיקייה שתישאר במקומה. פתחו את `chrome://extensions`, הפעילו את מצב המפתחים, לחצו על „טעינת פריט unpacked” ובחרו את התיקייה. |
 
-GitHub בונה את הקבצים האלה מהקוד של מאגר זה, מתקין ומפעיל את התוכנות ורק אז מפרסם הכול. לקבצים אין חתימה בתשלום, ולכן Windows ו־macOS מזהירות בהפעלה הראשונה.
+Windows ו־macOS מציגות אזהרה משום שלקבצים אין חתימה בתשלום. GitHub בונה אותם מהמאגר הזה, מתקין את התוכנות במחשבים נקיים ומפעיל אותן לפני פרסום גרסה.
 
-אפשר גם לבנות את התוכנה בעצמכם. דרושים Node.js 24 ומעלה ו־Rust, ב־Windows גם Microsoft C++ Build Tools, ב־Ubuntu גם `libwebkit2gtk-4.1-dev librsvg2-dev`.
+בהסרת ההתקנה הכתובות החסומות נמחקות מקובץ hosts. ב־macOS כבו את החסימה לפני המחיקה.
 
-</div>
+## התוכנה
 
-```sh
-git clone https://github.com/Ilia-Pero/adx0
-cd adx0
-npm ci
-npm run tauri build
-```
+- חוסמת כ־10,000 כתובות של שרתי פרסום ומעקב. אתם בוחרים את הרשימות ויכולים להוסיף אתרים משלכם.
+- אינה נוגעת בשורות שלכם בקובץ hosts, שומרת עותק שלו לפני השינוי הראשון ובודקת את הקובץ אחרי הכתיבה.
+- מעדכנת את הרשימות לכל היותר פעם ביום, זמן קצר אחרי הפעלת המערכת וללא חלון. אפשר לכבות זאת.
+- 14 שפות.
 
-<div dir="rtl">
+קובץ hosts חוסם כתובות שלמות, ולכן פרסומות שמגיעות מאותה כתובת כמו התוכן נשארות. תוכנות שפועלות דרך פרוקסי או VPN עם חיפוש כתובות משלהן עוקפות את הקובץ.
 
-קובץ ההתקנה מופיע בתיקייה `src-tauri/target/release/bundle`.
+## תוסף לדפדפן
 
-הסרת ההתקנה פותחת מחדש את הכתובות החסומות. ב־macOS כבו את החסימה לפני מחיקת התוכנה.
+<p align="center"><img src="popup.png" width="312" alt="חלון התוסף"></p>
 
-ההרחבה: הריצו `npm ci && npm run build` בתיקייה `extension`, פתחו ב־Firefox את `about:debugging`, בחרו "This Firefox", "Load Temporary Add-on" ואת הקובץ `extension/packed/firefox/manifest.json`. עבור Chromium התיקייה היא `extension/packed/chrome`.
+- חוסם כ־55,000 כתובות ומסתיר פרסומות בדפים.
+- מסיר את לוח הפרסומות מהתשובות של YouTube.
+- מתיר פרסומות באתר בלחיצת כפתור.
+- מעדכן את הרשימות פעם ביום.
 
-## תרגומים
+## נתונים ורשת
 
-התרגומים נעשו במכונה ולא נבדקו על ידי דוברי השפה. אם ראיתם טעות, תקנו אותה בתיקייה `locales`, `extension/web/_locales` או `docs`.
+התוכנה והתוסף מורידים את הרשימות מהאתרים שלהן ואינם אוספים נתונים. התוכנה שואלת את GitHub על גרסה חדשה כשאתם לוחצים על „בדיקת עדכונים”.
 
-## השתתפות ורישיון
+## עוד
 
-איך לבנות, לבדוק ולשנות את התוכנה: [CONTRIBUTING.md](../CONTRIBUTING.md). הרישיון הוא [MIT](../LICENSE).
+הרשימות והרישיונות שלהן, המדידות, המערכות שנבדקו ובניית התוכנה מתוארים [באנגלית](../README.md).
+
+הטקסט תורגם במכונה ולא נבדק בידי דוברי השפה. תיקונים נעשים בתיקייה `docs`.
+
+[MIT](../LICENSE)
 
 </div>

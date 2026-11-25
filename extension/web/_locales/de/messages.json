@@ -3,7 +3,7 @@
     "message": "de"
   },
   "description": {
-    "message": "Blockiert Werbung auf Seiten und in YouTube-Videos. Keine Last im Ruhezustand."
+    "message": "Blockiert Werbung auf Seiten und in YouTube-Videos."
   },
   "blocked": {
     "message": "Werbung ist blockiert"

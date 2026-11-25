@@ -1,7 +1,11 @@
 # Security
 
-Please report a vulnerability privately: the page "Security" of this repository, "Report a vulnerability". Do not open an issue for it.
+Please report vulnerabilities privately: open the Security tab of this repository and press “Report a vulnerability”. Please do not open a public issue.
 
-Only the latest release and the latest state of the branch `main` are supported.
+Fixes are made for the latest release and for the branch `main`.
 
-What matters most here: a list must not be able to put anything but blocked addresses into the hosts file, the part that works with the administrator's permission must not touch any other file, and a list must not be able to put CSS or scripts of its own into a page.
+Reports of these problems are especially important:
+
+- a list puts something other than blocked addresses into the hosts file;
+- the part with administrator permission writes to a file that is not its own, or reveals a file the user cannot read;
+- a list adds its own CSS or scripts to a page.

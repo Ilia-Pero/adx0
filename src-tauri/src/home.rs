@@ -45,14 +45,14 @@ impl Home {
         Shelf::new(self.root.join("lists"))
     }
 
-    /// Copies the settings and the chosen lists to the other folder.
+    /// Copies the settings and addresses of the chosen lists to the other folder.
     pub fn copy(&self, vault: &Home) -> Result<(), Failure> {
         let settings = self.settings().read()?;
         vault.settings().write(&settings)?;
-        settings
-            .sources
+        SOURCES
             .iter()
-            .try_for_each(|id| self.shelf().copy(id, &vault.shelf()))
+            .filter(|source| settings.sources.iter().any(|id| id == source.id))
+            .try_for_each(|source| self.shelf().copy(source, &vault.shelf()))
     }
 
     /// Addresses to block. An empty set is a mistake of a person and not a wish to turn off.

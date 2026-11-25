@@ -17,7 +17,11 @@ export interface Sender {
 /** The part of the browser the extension uses. */
 interface Browser {
   readonly alarms: {
-    create(name: string, info: { readonly delayInMinutes: number; readonly periodInMinutes: number }): void;
+    create(
+      name: string,
+      info: { readonly delayInMinutes: number; readonly periodInMinutes: number },
+    ): Promise<void>;
+    get(name: string): Promise<unknown>;
     readonly onAlarm: { addListener(listen: () => void): void };
   };
   readonly declarativeNetRequest: {

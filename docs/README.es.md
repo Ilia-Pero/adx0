@@ -4,7 +4,7 @@
 
 <p align="center"><b>ad × 0 = 0</b></p>
 
-<p align="center">Un bloqueador de anuncios que no se queda en ejecución: para Windows, macOS, Linux y navegadores</p>
+<p align="center">Bloqueador de publicidad para Windows, macOS, Linux y navegadores</p>
 
 <p align="center">
 <a href="https://github.com/Ilia-Pero/adx0/actions/workflows/build.yml"><img src="https://github.com/Ilia-Pero/adx0/actions/workflows/build.yml/badge.svg" alt="build"></a>
@@ -16,109 +16,52 @@
 [English](../README.md) · [Русский](README.ru.md) · **Español** · [Ελληνικά](README.el.md) · [עברית](README.he.md) · [简体中文](README.zh.md) · [日本語](README.ja.md) · [한국어](README.ko.md) · [Српски](README.sr.md) · [Français](README.fr.md) · [Deutsch](README.de.md) · [Italiano](README.it.md) · [Беларуская](README.be.md) · [Қазақша](README.kk.md)
 
 <p align="center">
-<img src="window-off.png" width="380" alt="La ventana del programa: el bloqueo está desactivado">
-<img src="window-on.png" width="380" alt="La ventana del programa: la publicidad está bloqueada">
+<img src="window-off.png" width="380" alt="Ventana del programa: el bloqueo está desactivado">
+<img src="window-on.png" width="380" alt="Ventana del programa: la publicidad está bloqueada">
 </p>
 
-ad×0 escribe las direcciones de los servidores de publicidad en el archivo hosts del sistema y se cierra. Los anuncios de esas direcciones dejan de cargarse en todos los programas y no hay ningún proceso en segundo plano que ocupe memoria o procesador. Una extensión para el navegador hace lo que el archivo hosts no puede: oculta los bloques de publicidad en las páginas y quita los anuncios de los vídeos de YouTube.
-
-## El programa
-
-- Bloquea unas 10 000 direcciones de servidores de publicidad y rastreadores de las listas que usted elija.
-- Conserva sus propias líneas del archivo hosts, deja una copia antes del primer cambio y vuelve a leer lo que ha escrito.
-- Guarda la última copia buena de cada lista, así el bloqueo no depende de que el sitio de la lista funcione.
-- No deja que un error de una lista cierre sitios como Google, Wikipedia o GitHub: esta es [la lista completa](../data/essential.json). Cualquier otro sitio se abre con el campo «No bloquear».
-- Habla 14 idiomas: el idioma se elige en la parte superior de la ventana y en el instalador para Windows. No envía nada: solo descarga las listas, cuando usted pulsa el botón y, con el bloqueo activado, al iniciar el sistema, como mucho una vez al día. Lo segundo ocurre sin ventana en un instante y se puede desactivar. Busca una versión nueva solo cuando usted pulsa el botón.
-
-## La extensión para el navegador
-
-Para Firefox y para los navegadores basados en Chromium: Chrome, Yandex Browser, Edge, Opera.
-
-<p align="center"><img src="popup.png" width="312" alt="La extensión para el navegador"></p>
-
-- Bloquea direcciones de publicidad y oculta bloques en las páginas. Las listas regionales se eligen según los idiomas del navegador.
-- Quita el calendario de anuncios de las respuestas de YouTube, así el reproductor no tiene nada que mostrar.
-- Actualiza las listas una vez al día. El propio navegador aplica las reglas, y la parte de fondo se descarga entre tanto.
-- Habla los mismos 14 idiomas: al principio el del navegador; otro se elige en la ventana de la extensión.
-
-## Qué no puede hacer
-
-El archivo hosts trabaja con direcciones enteras. Los anuncios que vienen de la misma dirección que el contenido, como en YouTube o en las redes sociales, permanecen; para YouTube está la extensión. Un proxy o una VPN que busca las direcciones por su cuenta no pasa por el archivo hosts.
-
-## Cuánto ocupa
-
-Medido el 24.11.2026 en Windows Server 2022, compilación optimizada:
-
-| Qué | Resultado |
-| --- | --- |
-| Procesos con la ventana cerrada | 0 |
-| Procesador con la ventana abierta | 0–31 ms en 5 s |
-| Del inicio a la ventana | 0,06–0,6 s en cuatro ejecuciones |
-| Tamaño del programa | 4,4 MB |
-| Crecimiento del archivo hosts | 198 KB para 9800 direcciones |
-
-## Listas
-
-Las listas no forman parte de este repositorio. Su copia del programa las descarga de sus sitios, y cada una tiene su propia licencia.
-
-| Lista | Dónde | Licencia |
-| --- | --- | --- |
-| [Peter Lowe](https://pgl.yoyo.org/adservers/) | ambos | [McRae GPL](https://pgl.yoyo.org/license/) |
-| [AdAway](https://adaway.org/) | ambos | CC BY 3.0 |
-| [RU AdList](https://github.com/easylist/ruadlist) | ambos | CC BY 3.0 |
-| [Liste FR](https://github.com/easylist/listefr) | ambos | CC BY-SA 3.0 |
-| [EasyList China](https://github.com/easylist/easylistchina) | ambos | [GPL 3.0 / CC BY-SA 3.0](https://easylist.to/pages/licence.html) |
-| [StevenBlack](https://github.com/StevenBlack/hosts) | programa | MIT |
-| [EasyList](https://easylist.to/) | extensión | [GPL 3.0 / CC BY-SA 3.0](https://easylist.to/pages/licence.html) |
-| [EasyList Germany](https://github.com/easylist/easylistgermany) | extensión | [GPL 3.0 / CC BY-SA 3.0](https://easylist.to/pages/licence.html) |
-| [EasyList Hebrew](https://github.com/easylist/EasyListHebrew) | extensión | [GPL 3.0 / CC BY-SA 3.0](https://easylist.to/pages/licence.html) |
-| [EasyList Italy](https://github.com/easylist/easylistitaly) | extensión | [GPL 3.0 / CC BY-SA 3.0](https://easylist.to/pages/licence.html) |
-| [EasyList Spanish](https://github.com/easylist/easylistspanish) | extensión | [GPL 3.0 / CC BY-SA 3.0](https://easylist.to/pages/licence.html) |
-| [KoreanList](https://github.com/easylist/KoreanList) | extensión | [GPL 3.0 / CC BY-SA 3.0](https://easylist.to/pages/licence.html) |
-| [AdGuard Japanese](https://github.com/AdguardTeam/AdguardFilters) | extensión | GPL 3.0 |
-| [Greek AdBlock Filter](https://github.com/kargig/greek-adblockplus-filter) | extensión | CC BY-SA 4.0 |
-
-## Estado
-
-| Sistema | Estado |
-| --- | --- |
-| Windows | Funciona en Windows Server 2022: probado con listas reales en una copia del archivo hosts. Aún no se ha probado en Windows 10 y 11. |
-| macOS 10.13+ | Se compila y pasa las pruebas; en una máquina de GitHub se instala y se inicia. Nadie lo ha probado a mano todavía. |
-| Ubuntu 24.04+ | Se compila y pasa las pruebas; en una máquina de GitHub se instala y se inicia. Nadie lo ha probado a mano todavía. |
-| Firefox 128+ | Funciona en Firefox 161. Mozilla aún no la ha firmado, así que hay que cargarla de nuevo tras reiniciar Firefox. |
-| Chrome, Yandex Browser, Edge, Opera | Funciona en Edge 158, probada sin ventana. Los demás no se han probado; necesitan Chromium 120 o posterior. |
+ad×0 escribe las direcciones de los servidores de publicidad en el archivo hosts del sistema y termina. Después, los programas del ordenador no cargan nada de esas direcciones, y ad×0 no tiene ningún proceso en marcha. Una extensión oculta los bloques de publicidad en las páginas y quita los anuncios de los vídeos de YouTube.
 
 ## Instalación
 
 | Sistema | Archivo | Cómo instalarlo |
 | --- | --- | --- |
-| Windows 10 y 11 | [adx0-windows.exe](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-windows.exe) | Ejecútelo. Si Windows no conoce el programa: «Más información», «Ejecutar de todas formas». |
-| macOS 10.13+ | [adx0-macos.dmg](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-macos.dmg) | Arrastre el programa a Aplicaciones y ábralo. Cuando macOS se niegue, vaya a Ajustes del Sistema, «Privacidad y seguridad», y pulse «Abrir igualmente». |
+| Windows 10, 11 | [adx0-windows.exe](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-windows.exe) | Ejecute el archivo. Si Windows muestra una advertencia, elija «Más información» y después «Ejecutar de todas formas». |
+| macOS 10.13+ | [adx0-macos.dmg](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-macos.dmg) | Arrastre el programa a Aplicaciones y ábralo. Después del primer rechazo de macOS, abra Ajustes del Sistema, «Privacidad y seguridad», y pulse «Abrir igualmente». |
 | Ubuntu 24.04+ | [adx0-ubuntu.deb](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-ubuntu.deb) | `sudo apt install ./adx0-ubuntu.deb` |
-| Firefox 128+ | [adx0-firefox.zip](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-firefox.zip) | Abra `about:debugging`, «Este Firefox», «Cargar complemento temporal», y elija el archivo. Tras reiniciar Firefox, cárguelo de nuevo. |
-| Chrome, Yandex Browser, Edge, Opera | [adx0-chrome.zip](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-chrome.zip) | Descomprímalo, abra `chrome://extensions`, active el «Modo de desarrollador», pulse «Cargar descomprimida» y elija la carpeta; no la borre. Yandex Browser solo confía en los catálogos y puede desactivar la extensión. |
+| Firefox 128+ | [adx0-firefox.zip](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-firefox.zip) | Abra `about:debugging`, «Este Firefox», «Cargar complemento temporal» y elija el archivo. Después de reiniciar Firefox hay que cargarlo de nuevo. |
+| Chrome, Edge, Opera, Yandex Browser | [adx0-chrome.zip](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-chrome.zip) | Descomprima el archivo en una carpeta que vaya a conservar. Abra `chrome://extensions`, active el modo de desarrollador, pulse «Cargar extensión sin empaquetar» y elija la carpeta. |
 
-GitHub compila estos archivos a partir del código de este repositorio, instala e inicia los programas y solo entonces lo publica todo. Los archivos no llevan firma de pago, por eso Windows y macOS avisan en el primer inicio.
+Windows y macOS avisan porque los archivos no tienen una firma de pago. GitHub los compila a partir de este repositorio, instala los programas en equipos limpios y los inicia antes de publicar una versión.
 
-También puede compilar el programa usted mismo. Hacen falta Node.js 24 o posterior y Rust; en Windows, también Microsoft C++ Build Tools; en Ubuntu, también `libwebkit2gtk-4.1-dev librsvg2-dev`.
+Al desinstalar, el programa quita las direcciones bloqueadas del archivo hosts. En macOS desactive antes el bloqueo.
 
-```sh
-git clone https://github.com/Ilia-Pero/adx0
-cd adx0
-npm ci
-npm run tauri build
-```
+## Programa
 
-El instalador aparece en `src-tauri/target/release/bundle`.
+- Bloquea unas 10 000 direcciones de servidores de publicidad y rastreo. Usted elige las listas y puede añadir sus propios sitios.
+- No toca sus líneas del archivo hosts, guarda una copia antes del primer cambio y comprueba el archivo después de escribirlo.
+- Actualiza las listas como máximo una vez al día, poco después de iniciarse el sistema y sin ventana. Se puede desactivar.
+- 14 idiomas.
 
-El desinstalador vuelve a abrir las direcciones bloqueadas. En macOS, desactive el bloqueo antes de borrar el programa.
+El archivo hosts bloquea direcciones completas, por eso queda la publicidad que llega de la misma dirección que el contenido. Los programas con proxy o VPN que buscan las direcciones por su cuenta lo evitan.
 
-La extensión: ejecute `npm ci && npm run build` en la carpeta `extension`, abra `about:debugging` en Firefox, elija «Este Firefox», «Cargar complemento temporal» y el archivo `extension/packed/firefox/manifest.json`. Para Chromium, la carpeta es `extension/packed/chrome`.
+## Extensión del navegador
 
-## Traducciones
+<p align="center"><img src="popup.png" width="312" alt="Ventana de la extensión"></p>
 
-Las traducciones son automáticas y no las ha revisado ningún hablante nativo. Si ve un error, corríjalo en `locales`, en `extension/web/_locales` o en `docs`.
+- Bloquea unas 55 000 direcciones y oculta bloques de publicidad en las páginas.
+- Quita el plan de anuncios de las respuestas de YouTube.
+- Permite la publicidad en un sitio con un botón.
+- Actualiza las listas una vez al día.
 
-## Participar y licencia
+## Datos y red
 
-Cómo compilar, probar y cambiar el programa: [CONTRIBUTING.md](../CONTRIBUTING.md). La licencia es [MIT](../LICENSE).
+El programa y la extensión descargan las listas de sus sitios y no recogen datos. El programa pregunta a GitHub por una versión nueva cuando pulsa «Buscar actualizaciones».
+
+## Más información
+
+Las listas y sus licencias, las mediciones, los sistemas comprobados y la compilación se describen [en inglés](../README.md).
+
+Este texto es una traducción automática que no han revisado hablantes nativos. Las correcciones van en la carpeta `docs`.
+
+[MIT](../LICENSE)

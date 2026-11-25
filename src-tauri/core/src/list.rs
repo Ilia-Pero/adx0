@@ -18,6 +18,17 @@ pub enum Format {
     Adblock,
 }
 
+impl Format {
+    /// The line that says to block the address.
+    #[must_use]
+    pub fn line(self, domain: &Domain) -> String {
+        match self {
+            Format::Hosts => format!("0.0.0.0 {domain}\n"),
+            Format::Adblock => format!("||{domain}^\n"),
+        }
+    }
+}
+
 /// The text of a list.
 pub struct Blocklist<'a> {
     text: &'a str,
@@ -132,6 +143,21 @@ mod tests {
             Blocklist::new("a.com\n0.0.0.0 A.com\r\n", Format::Hosts).domains(),
             BTreeSet::from([Domain::parsed("a.com").unwrap()])
         );
+    }
+
+    /// The address written in the format and read from it.
+    fn returned(format: Format) -> Vec<String> {
+        names(&format.line(&Domain::parsed("a.com").unwrap()), format)
+    }
+
+    #[test]
+    fn reads_its_own_line_of_hosts() {
+        assert_eq!(returned(Format::Hosts), ["a.com"]);
+    }
+
+    #[test]
+    fn reads_its_own_rule() {
+        assert_eq!(returned(Format::Adblock), ["a.com"]);
     }
 
     #[test]

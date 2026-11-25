@@ -1,6 +1,6 @@
 {
   "name": "adx0-extension",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
   "description": "A Firefox extension that blocks ads on pages and in YouTube videos",

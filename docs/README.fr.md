@@ -28,7 +28,7 @@ ad×0 écrit les adresses des serveurs publicitaires dans le fichier hosts du sy
 - Conserve vos propres lignes du fichier hosts, en laisse une copie avant la première modification et relit ce qu’il a écrit.
 - Conserve la dernière bonne copie de chaque liste : le blocage ne dépend pas de la disponibilité du site de la liste.
 - Ne laisse pas une erreur de liste fermer des sites comme Google, Wikipedia ou GitHub : voici [la liste entière](../data/essential.json). Tout autre site s’ouvre avec le champ « Ne pas bloquer ».
-- Parle 12 langues : la langue se choisit en haut de la fenêtre et dans l’installateur pour Windows. N’envoie rien : il télécharge seulement les listes quand vous appuyez sur le bouton.
+- Parle 12 langues : la langue se choisit en haut de la fenêtre et dans l’installateur pour Windows. N’envoie rien : il télécharge seulement les listes, quand vous appuyez sur le bouton et, tant que le blocage est activé, au démarrage du système, une fois par jour au plus. Cela se fait sans fenêtre en un instant et peut être désactivé.
 
 ## L’extension pour Firefox
 

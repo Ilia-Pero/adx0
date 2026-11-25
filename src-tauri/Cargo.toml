@@ -12,7 +12,7 @@ needless_pass_by_value = "allow"
 
 [package]
 name = "adx0"
-version = "0.1.1"
+version = "0.2.0"
 edition = "2021"
 description = "An ad blocker that does not run"
 license = "MIT"

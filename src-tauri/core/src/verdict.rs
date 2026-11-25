@@ -105,6 +105,7 @@ mod tests {
                 blocked: blocked.iter().map(ToString::to_string).collect(),
                 allowed: allowed.iter().map(ToString::to_string).collect(),
                 language: String::new(),
+                fresh: true,
             },
             &Shelf::new(root.path().to_owned()),
             SOURCES,

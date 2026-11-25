@@ -19,6 +19,8 @@
   "lists": "Liste",
   "list.never": "non ancora scaricata",
   "list.date": "scaricata il {date}",
+  "fresh": "Aggiorna gli elenchi all’avvio del sistema",
+  "fresh.hint": "Al massimo una volta al giorno. Il programma si avvia un istante senza finestra e termina.",
   "allowed.title": "Non bloccare",
   "allowed.hint": "Il sito si apre insieme ai suoi sottodomini. Uno per riga.",
   "blocked.title": "Blocca anche",

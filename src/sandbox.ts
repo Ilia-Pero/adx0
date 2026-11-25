@@ -30,6 +30,7 @@ export class Sandbox implements Backend {
     blocked: [],
     allowed: [],
     language: '',
+    fresh: true,
   };
   private downloaded: ReadonlyArray<string> = [];
   private count = 0;

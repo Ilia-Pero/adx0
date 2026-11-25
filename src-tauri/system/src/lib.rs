@@ -39,6 +39,21 @@ pub trait System {
     /// The permission was not given, or the program has failed.
     fn elevate(&self, arguments: &[OsString]) -> Result<(), Failure>;
 
+    /// The folder where only the administrator can write. Nothing if the program itself lies where
+    /// anybody can: then nothing may be started by itself with the administrator's permission.
+    fn vault(&self) -> Option<PathBuf>;
+
+    /// Makes the system start the program with the argument, with the administrator's permission,
+    /// when the system starts. Needs the permission.
+    ///
+    /// # Errors
+    ///
+    /// The system has refused.
+    fn settle(&self, argument: &str) -> Result<(), Failure>;
+
+    /// Makes the system start the program no more. Needs the administrator's permission.
+    fn unsettle(&self);
+
     /// Asks the system to forget remembered addresses of sites. A failure does no harm:
     /// the system forgets them by itself in a few minutes.
     fn forget(&self);

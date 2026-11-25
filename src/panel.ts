@@ -33,6 +33,7 @@ export class Panel {
   private readonly update = element('button', '');
   private readonly alarm = element('p', 'alarm hidden');
   private readonly sources = element('div', 'sources');
+  private readonly fresh = element('input', '');
   private readonly allowed = element('textarea', '');
   private readonly blocked = element('textarea', '');
   private readonly apply = element('button', 'main apply hidden');
@@ -78,7 +79,7 @@ export class Panel {
     );
     this.root.appendChild(head);
     this.root.appendChild(this.alarm);
-    this.section('lists', [], this.sources);
+    this.section('lists', [], this.sources).appendChild(this.freshness());
     this.section('allowed.title', ['allowed.hint'], this.allowed);
     this.section('blocked.title', ['blocked.hint'], this.blocked);
     this.root.appendChild(this.apply);
@@ -96,7 +97,19 @@ export class Panel {
     });
   }
 
-  private section(title: Key, hints: ReadonlyArray<Key>, body: HTMLElement): void {
+  /** The box that makes the lists be downloaded by themselves. */
+  private freshness(): HTMLElement {
+    const label = element('label', 'source');
+    const text = element('span', 'text');
+    this.fresh.type = 'checkbox';
+    text.appendChild(this.labelled(element('b', ''), 'fresh'));
+    text.appendChild(this.labelled(element('span', 'hint'), 'fresh.hint'));
+    label.appendChild(this.fresh);
+    label.appendChild(text);
+    return label;
+  }
+
+  private section(title: Key, hints: ReadonlyArray<Key>, body: HTMLElement): HTMLElement {
     const part = element('section', '');
     const heading = this.labelled(element('h2', ''), title);
     heading.id = `title-${title}`;
@@ -105,6 +118,7 @@ export class Panel {
     body.setAttribute('aria-labelledby', heading.id);
     part.appendChild(body);
     this.root.appendChild(part);
+    return part;
   }
 
   /** The element that always shows the text in the current language. */
@@ -157,6 +171,7 @@ export class Panel {
     this.report.rows.forEach((row) =>
       this.sources.appendChild(this.source(row, settings.sources.indexOf(row.id) >= 0)),
     );
+    this.fresh.checked = settings.fresh;
     this.allowed.value = settings.allowed.join('\n');
     this.blocked.value = settings.blocked.join('\n');
   }
@@ -209,6 +224,7 @@ export class Panel {
       blocked: new Lines(this.blocked.value).list(),
       allowed: new Lines(this.allowed.value).list(),
       language: this.report.settings.language,
+      fresh: this.fresh.checked,
     };
   }
 

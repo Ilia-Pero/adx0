@@ -25,6 +25,10 @@ test('a choice with another allowed site is another choice', () => {
   assert.equal(alike(CHOICE, { ...CHOICE, allowed: [] }), false);
 });
 
+test('a choice without fresh lists is another choice', () => {
+  assert.equal(alike(CHOICE, { ...CHOICE, fresh: false }), false);
+});
+
 test('a choice in another language blocks the same', () => {
   assert.equal(alike(CHOICE, translated(CHOICE, 'el')), true);
 });

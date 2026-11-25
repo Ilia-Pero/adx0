@@ -66,8 +66,23 @@ jobs:
           if ($program.WaitForExit(10000)) { throw "The program has ended: $($program.ExitCode)" }
           $program.Kill()
           $program.WaitForExit()
+          $home_ = New-Item -ItemType Directory "$env:RUNNER_TEMP\choice"
+          '{"sources":["yoyo"],"blocked":["ads.example.com"],"allowed":[],"language":"en","fresh":true}' | Set-Content "$home_\settings.json"
+          $hosts = "$env:SystemRoot\System32\drivers\etc\hosts"
+          foreach ($words in @('--apply', "`"$home_`""), @('--refresh')) {
+            $done = Start-Process "$folder\adx0.exe" $words -Wait -PassThru
+            if ($done.ExitCode -ne 0) { throw "$words has failed: $($done.ExitCode)" }
+            if (-not (Select-String -Quiet 'ads.example.com' $hosts)) { throw "Nothing is blocked after $words" }
+          }
+          schtasks /Query /TN adx0
+          if ($LASTEXITCODE -ne 0) { throw 'The system does not start the program by itself' }
           Start-Process "$folder\uninstall.exe" '/S', "_?=$folder" -Wait
           if (Test-Path "$folder\adx0.exe") { throw 'The program is still there' }
+          if (Select-String -Quiet 'ads.example.com' $hosts) { throw 'The address is still blocked' }
+          if (Test-Path "$folder\kept") { throw 'The lists are still there' }
+          schtasks /Query /TN adx0
+          if ($LASTEXITCODE -eq 0) { throw 'The system still starts the program' }
+          $global:LASTEXITCODE = 0
       - name: Installing on macOS
         if: runner.os == 'macOS'
         run: |
@@ -86,6 +101,17 @@ jobs:
           "$program" &
           sleep 10
           kill $!
+          mkdir "$RUNNER_TEMP/choice"
+          echo '{"sources":["yoyo"],"blocked":["ads.example.com"],"allowed":[],"language":"en","fresh":true}' > "$RUNNER_TEMP/choice/settings.json"
+          sudo "$program" --apply "$RUNNER_TEMP/choice"
+          grep ads.example.com /etc/hosts
+          sudo launchctl print system/io.github.ilia-pero.adx0 | head -5
+          sudo '/Library/Application Support/adx0/adx0' --refresh
+          grep ads.example.com /etc/hosts
+          sudo "$program" --clear
+          if grep ads.example.com /etc/hosts; then exit 1; fi
+          if sudo launchctl print system/io.github.ilia-pero.adx0; then exit 1; fi
+          test ! -e '/Library/Application Support/adx0'
       - name: Installing on Ubuntu
         if: runner.os == 'Linux'
         run: |
@@ -102,6 +128,19 @@ jobs:
               xvfb-run -a dbus-run-session -- timeout 10 adx0 || status=$?
               test "$status" -eq 124'
           done
+          sudo apt-get install -qq -y ./installers/adx0-ubuntu.deb
+          mkdir "$RUNNER_TEMP/choice"
+          echo '{"sources":["yoyo"],"blocked":["ads.example.com"],"allowed":[],"language":"en","fresh":true}' > "$RUNNER_TEMP/choice/settings.json"
+          sudo adx0 --apply "$RUNNER_TEMP/choice"
+          grep ads.example.com /etc/hosts
+          systemctl is-enabled adx0.timer
+          sudo systemctl start adx0.service
+          sudo adx0 --refresh
+          grep ads.example.com /etc/hosts
+          sudo apt-get remove -qq -y adx0
+          if grep ads.example.com /etc/hosts; then exit 1; fi
+          if systemctl is-enabled adx0.timer; then exit 1; fi
+          test ! -e /var/lib/adx0
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: installer-${{ runner.os }}

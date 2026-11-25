@@ -19,6 +19,8 @@
   "lists": "Listes",
   "list.never": "pas encore téléchargée",
   "list.date": "téléchargée le {date}",
+  "fresh": "Mettre à jour les listes au démarrage du système",
+  "fresh.hint": "Une fois par jour au plus. Le programme démarre un instant sans fenêtre et se ferme.",
   "allowed.title": "Ne pas bloquer",
   "allowed.hint": "Le site s’ouvre avec ses sous-domaines. Un par ligne.",
   "blocked.title": "Bloquer aussi",

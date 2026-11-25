@@ -3,12 +3,16 @@
 use std::fs;
 use std::io::ErrorKind;
 use std::path::PathBuf;
-use std::time::SystemTime;
+use std::time::{Duration, SystemTime};
 
 use crate::{Blocklist, Failure, Source, Web};
 
 /// With fewer addresses than this, something else came instead of a list, such as an error page.
 const FEWEST: usize = 100;
+
+/// A list is not downloaded by itself more often than this, with an hour to spare: computers are
+/// turned on at about the same time every day.
+const DAY: Duration = Duration::from_hours(23);
 
 /// A shelf with downloaded lists. The last good list stays on the disk, so blocking does not
 /// depend on whether its site is up.
@@ -57,6 +61,32 @@ impl Shelf {
         }
     }
 
+    /// Puts a copy of the list on the other shelf. There is nothing to copy if the list is not
+    /// downloaded yet.
+    ///
+    /// # Errors
+    ///
+    /// The list cannot be read or written.
+    pub fn copy(&self, id: &str, other: &Shelf) -> Result<(), Failure> {
+        let text = self.text(id)?;
+        if !text.is_empty() {
+            fs::create_dir_all(&other.root)?;
+            let file = other.file(id);
+            let draft = file.with_extension("new");
+            fs::write(&draft, text)?;
+            fs::rename(&draft, &file)?;
+        }
+        Ok(())
+    }
+
+    /// Whether the list was downloaded less than a day ago.
+    #[must_use]
+    pub fn fresh(&self, id: &str) -> bool {
+        self.moment(id)
+            .and_then(|moment| moment.elapsed().ok())
+            .is_some_and(|age| age < DAY)
+    }
+
     /// When the list was downloaded. Nothing if it is not downloaded yet.
     #[must_use]
     pub fn moment(&self, id: &str) -> Option<SystemTime> {
@@ -77,6 +107,7 @@ impl Shelf {
 mod tests {
     use std::fmt::Write;
     use std::fs;
+    use std::time::{Duration, SystemTime};
 
     use tempfile::TempDir;
 
@@ -128,6 +159,54 @@ mod tests {
             Shelf::new(root.path().to_owned()).refresh(source(), &page(99)),
             Err(Failure::Short { count: 99, .. })
         ));
+    }
+
+    #[test]
+    fn has_fresh_list_after_download() {
+        let root = TempDir::new().unwrap();
+        let shelf = Shelf::new(root.path().to_owned());
+        shelf.refresh(source(), &page(100)).unwrap();
+        assert!(shelf.fresh(source().id));
+    }
+
+    #[test]
+    fn has_no_fresh_list_before_download() {
+        let root = TempDir::new().unwrap();
+        assert!(!Shelf::new(root.path().to_owned()).fresh("yoyo"));
+    }
+
+    #[test]
+    fn has_no_fresh_list_after_a_day() {
+        let root = TempDir::new().unwrap();
+        let shelf = Shelf::new(root.path().to_owned());
+        shelf.refresh(source(), &page(100)).unwrap();
+        fs::File::options()
+            .write(true)
+            .open(shelf.file(source().id))
+            .unwrap()
+            .set_modified(SystemTime::now() - Duration::from_hours(24))
+            .unwrap();
+        assert!(!shelf.fresh(source().id));
+    }
+
+    #[test]
+    fn copies_a_list_to_another_shelf() {
+        let root = TempDir::new().unwrap();
+        let shelf = Shelf::new(root.path().join("one"));
+        let other = Shelf::new(root.path().join("other"));
+        shelf.refresh(source(), &page(100)).unwrap();
+        shelf.copy(source().id, &other).unwrap();
+        assert_eq!(other.text(source().id).unwrap(), page(100).0);
+    }
+
+    #[test]
+    fn has_nothing_to_copy_before_download() {
+        let root = TempDir::new().unwrap();
+        let other = Shelf::new(root.path().join("other"));
+        Shelf::new(root.path().join("one"))
+            .copy("yoyo", &other)
+            .unwrap();
+        assert!(other.moment("yoyo").is_none());
     }
 
     #[test]

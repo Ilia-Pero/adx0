@@ -19,6 +19,8 @@
   "lists": "Listen",
   "list.never": "noch nicht heruntergeladen",
   "list.date": "heruntergeladen am {date}",
+  "fresh": "Listen beim Systemstart aktualisieren",
+  "fresh.hint": "Höchstens einmal am Tag. Das Programm startet kurz ohne Fenster und beendet sich.",
   "allowed.title": "Nicht blockieren",
   "allowed.hint": "Die Website öffnet sich samt ihren Subdomains. Eine pro Zeile.",
   "blocked.title": "Zusätzlich blockieren",

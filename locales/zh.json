@@ -19,6 +19,8 @@
   "lists": "列表",
   "list.never": "尚未下载",
   "list.date": "下载于 {date}",
+  "fresh": "系统启动时更新列表",
+  "fresh.hint": "每天最多一次。程序无窗口地运行片刻后退出。",
   "allowed.title": "不屏蔽",
   "allowed.hint": "网站及其子域名都会放行。每行一个。",
   "blocked.title": "额外屏蔽",

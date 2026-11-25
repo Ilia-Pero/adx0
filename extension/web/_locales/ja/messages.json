@@ -3,7 +3,7 @@
     "message": "ja"
   },
   "description": {
-    "message": "ページと YouTube 動画の広告をブロックします。待機中の負荷はありません。"
+    "message": "ページと YouTube 動画の広告をブロックします。"
   },
   "blocked": {
     "message": "広告をブロックしています"

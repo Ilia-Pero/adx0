@@ -3,7 +3,7 @@
     "message": "ko"
   },
   "description": {
-    "message": "웹 페이지와 YouTube 동영상의 광고를 차단합니다. 대기 중에는 부하가 없습니다."
+    "message": "페이지와 YouTube 동영상의 광고를 차단합니다."
   },
   "blocked": {
     "message": "광고를 차단하고 있습니다"

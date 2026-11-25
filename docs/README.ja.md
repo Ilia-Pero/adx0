@@ -10,10 +10,10 @@
 <a href="https://github.com/Ilia-Pero/adx0/actions/workflows/build.yml"><img src="https://github.com/Ilia-Pero/adx0/actions/workflows/build.yml/badge.svg" alt="build"></a>
 <a href="../LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT"></a>
 <a href="https://github.com/Ilia-Pero/adx0/releases/latest"><img src="https://img.shields.io/github/v/release/Ilia-Pero/adx0?label=download&color=0f766e" alt="download"></a>
-<img src="https://img.shields.io/badge/languages-12-0f766e" alt="12 languages">
+<img src="https://img.shields.io/badge/languages-14-0f766e" alt="14 languages">
 </p>
 
-[English](../README.md) · [Русский](README.ru.md) · [Español](README.es.md) · [Ελληνικά](README.el.md) · [עברית](README.he.md) · [简体中文](README.zh.md) · **日本語** · [한국어](README.ko.md) · [Српски](README.sr.md) · [Français](README.fr.md) · [Deutsch](README.de.md) · [Italiano](README.it.md)
+[English](../README.md) · [Русский](README.ru.md) · [Español](README.es.md) · [Ελληνικά](README.el.md) · [עברית](README.he.md) · [简体中文](README.zh.md) · **日本語** · [한국어](README.ko.md) · [Српски](README.sr.md) · [Français](README.fr.md) · [Deutsch](README.de.md) · [Italiano](README.it.md) · [Беларуская](README.be.md) · [Қазақша](README.kk.md)
 
 <p align="center">
 <img src="window-off.png" width="380" alt="プログラムのウィンドウ：ブロックはオフ">
@@ -28,7 +28,7 @@ ad×0 は広告サーバーのアドレスをシステムの hosts ファイル�
 - hosts ファイルの自分の行を残し、最初の変更の前に控えを作り、書き込んだ内容を読み直して確かめます。
 - 各リストの最後に正しく取得できた内容を保存するので、リストのサイトが止まっていてもブロックできます。
 - リストの誤りで Google、Wikipedia、GitHub などのサイト（[一覧](../data/essential.json)）が閉じることはありません。ほかのサイトは「ブロックしない」で開けます。
-- 12 の言語に対応しています。言語はウィンドウの上部と Windows のインストーラーで選べます。何も送信しません。リストを取得するのは、ボタンを押したときと、ブロックがオンの間のシステム起動時（多くても 1 日 1 回）だけです。起動時の取得はウィンドウなしで一瞬で終わり、オフにできます。
+- 14 の言語に対応しています。言語はウィンドウの上部と Windows のインストーラーで選べます。何も送信しません。リストを取得するのは、ボタンを押したときと、ブロックがオンの間のシステム起動時（多くても 1 日 1 回）だけです。起動時の取得はウィンドウなしで一瞬で終わり、オフにできます。
 
 ## Firefox の拡張機能
 
@@ -37,7 +37,7 @@ ad×0 は広告サーバーのアドレスをシステムの hosts ファイル�
 - 広告のアドレスをブロックし、ページの広告枠を隠します。地域のリストはブラウザーの言語に合わせて選ばれます。
 - YouTube の応答から広告の予定を取り除くので、プレーヤーには表示する広告がありません。
 - リストを 1 日 1 回更新します。規則はブラウザー自身が適用し、その間バックグラウンド部分は読み込まれません。
-- 同じ 12 の言語に対応しています。最初はブラウザーの言語で、拡張機能のウィンドウで変更できます。
+- 同じ 14 の言語に対応しています。最初はブラウザーの言語で、拡張機能のウィンドウで変更できます。
 
 ## できないこと
 

@@ -44,7 +44,7 @@ cargo clippy --manifest-path src-tauri/Cargo.toml -p adx0-system --target x86_64
 | `src-tauri/core` | lists, settings and the section of the hosts file |
 | `src-tauri/net` | downloading lists |
 | `src-tauri/system` | the hosts file, the permission and forgetting remembered addresses on each system |
-| `src-tauri/phrase`, `locales` | texts in 12 languages |
+| `src-tauri/phrase`, `locales` | texts in 14 languages |
 | `data` | addresses shared by the program and the extension |
 | `extension` | the Firefox extension |
 

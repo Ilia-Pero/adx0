@@ -10,10 +10,10 @@
 <a href="https://github.com/Ilia-Pero/adx0/actions/workflows/build.yml"><img src="https://github.com/Ilia-Pero/adx0/actions/workflows/build.yml/badge.svg" alt="build"></a>
 <a href="../LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT"></a>
 <a href="https://github.com/Ilia-Pero/adx0/releases/latest"><img src="https://img.shields.io/github/v/release/Ilia-Pero/adx0?label=download&color=0f766e" alt="download"></a>
-<img src="https://img.shields.io/badge/languages-12-0f766e" alt="12 languages">
+<img src="https://img.shields.io/badge/languages-14-0f766e" alt="14 languages">
 </p>
 
-[English](../README.md) · [Русский](README.ru.md) · [Español](README.es.md) · [Ελληνικά](README.el.md) · [עברית](README.he.md) · **简体中文** · [日本語](README.ja.md) · [한국어](README.ko.md) · [Српски](README.sr.md) · [Français](README.fr.md) · [Deutsch](README.de.md) · [Italiano](README.it.md)
+[English](../README.md) · [Русский](README.ru.md) · [Español](README.es.md) · [Ελληνικά](README.el.md) · [עברית](README.he.md) · **简体中文** · [日本語](README.ja.md) · [한국어](README.ko.md) · [Српски](README.sr.md) · [Français](README.fr.md) · [Deutsch](README.de.md) · [Italiano](README.it.md) · [Беларуская](README.be.md) · [Қазақша](README.kk.md)
 
 <p align="center">
 <img src="window-off.png" width="380" alt="程序窗口：屏蔽已关闭">
@@ -28,7 +28,7 @@ ad×0 把广告服务器的地址写入系统的 hosts 文件，然后退出。�
 - 保留 hosts 文件中您自己的内容，首次修改前留下副本，并重新读取写入的内容。
 - 保存每个列表最后一份有效副本，屏蔽不依赖列表网站是否可用。
 - 列表中的错误不会关闭 Google、Wikipedia 或 GitHub 等网站（[完整清单](../data/essential.json)）。其他网站可在“不屏蔽”中放行。
-- 支持 12 种语言，可在窗口顶部和 Windows 安装程序中选择。不向任何地方发送内容，只下载列表：在您按下按钮时，以及屏蔽开启期间系统启动时，每天最多一次。后者无窗口、片刻完成，可以关闭。
+- 支持 14 种语言，可在窗口顶部和 Windows 安装程序中选择。不向任何地方发送内容，只下载列表：在您按下按钮时，以及屏蔽开启期间系统启动时，每天最多一次。后者无窗口、片刻完成，可以关闭。
 
 ## Firefox 扩展
 
@@ -37,7 +37,7 @@ ad×0 把广告服务器的地址写入系统的 hosts 文件，然后退出。�
 - 屏蔽广告地址并隐藏网页上的广告块。区域列表按浏览器语言选择。
 - 从 YouTube 的响应中去掉广告安排，播放器便没有广告可放。
 - 每天更新一次列表。规则由浏览器自身执行，其间后台部分不会加载。
-- 同样支持这 12 种语言：默认使用浏览器的语言，可在扩展的窗口中更换。
+- 同样支持这 14 种语言：默认使用浏览器的语言，可在扩展的窗口中更换。
 
 ## 做不到的事
 

@@ -25,7 +25,7 @@ ad × 0 = 0. Blocks about 64,000 addresses of ad servers and trackers, hides ad 
 
 The rules are run by the browser itself, and the background part of the extension is unloaded between updates and pages, so there is no load at rest. The lists are downloaded from their own sites once a day: Peter Lowe, AdAway, EasyList, and a regional list chosen by the languages of the browser. The last good copy of each list is kept, so blocking does not depend on whether its site is up.
 
-Ads can be allowed on any site with one button. A mistake in a list cannot close sites such as Google, Wikipedia or GitHub. The extension has no account, no telemetry and no server, and it lets no ads through for money. It speaks 14 languages. The code is open, under MIT: https://github.com/Ilia-Pero/adx0
+Ads can be allowed on any site with one button. A mistake in a list cannot close sites such as Google, Wikipedia or GitHub. The extension has no account, no telemetry and no server, and it lets no ads through for money. It speaks 14 languages. The code is open, under MIT: <https://github.com/Ilia-Pero/adx0>
 
 ## Описание
 
@@ -33,7 +33,7 @@ ad × 0 = 0. Закрывает около 64 тысяч адресов рекл
 
 Правила исполняет сам браузер, а фоновая часть расширения между обновлениями и страницами выгружена, поэтому в покое нагрузки нет. Списки скачиваются с их сайтов раз в сутки: Peter Lowe, AdAway, EasyList и региональный список по языкам браузера. Последняя удачная копия каждого списка хранится, поэтому блокировка не зависит от того, работает ли его сайт.
 
-Рекламу на любом сайте можно открыть одной кнопкой. Ошибка в списке не закроет такие сайты, как Яндекс, Google или Госуслуги. У расширения нет учётной записи, телеметрии и сервера, рекламу за деньги оно не пропускает. Говорит на 14 языках. Код открыт, лицензия MIT: https://github.com/Ilia-Pero/adx0
+Рекламу на любом сайте можно открыть одной кнопкой. Ошибка в списке не закроет такие сайты, как Яндекс, Google или Госуслуги. У расширения нет учётной записи, телеметрии и сервера, рекламу за деньги оно не пропускает. Говорит на 14 языках. Код открыт, лицензия MIT: <https://github.com/Ilia-Pero/adx0>
 
 ## Single purpose
 

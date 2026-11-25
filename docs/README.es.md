@@ -9,6 +9,7 @@
 <p align="center">
 <a href="https://github.com/Ilia-Pero/adx0/actions/workflows/build.yml"><img src="https://github.com/Ilia-Pero/adx0/actions/workflows/build.yml/badge.svg" alt="build"></a>
 <a href="../LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT"></a>
+<a href="https://github.com/Ilia-Pero/adx0/releases/latest"><img src="https://img.shields.io/github/v/release/Ilia-Pero/adx0?label=download&color=0f766e" alt="download"></a>
 <img src="https://img.shields.io/badge/languages-12-0f766e" alt="12 languages">
 </p>
 
@@ -80,13 +81,22 @@ Las listas no forman parte de este repositorio. Su copia del programa las descar
 | Sistema | Estado |
 | --- | --- |
 | Windows | Funciona en Windows Server 2022: probado con listas reales en una copia del archivo hosts. Aún no se ha probado en Windows 10 y 11. |
-| macOS 10.13+ | Se compila y pasa las pruebas. Nadie lo ha ejecutado todavía. |
-| Ubuntu 24.04+ | Se compila y pasa las pruebas. Nadie lo ha ejecutado todavía. |
+| macOS 10.13+ | Se compila y pasa las pruebas; en una máquina de GitHub se instala y se inicia. Nadie lo ha probado a mano todavía. |
+| Ubuntu 24.04+ | Se compila y pasa las pruebas; en una máquina de GitHub se instala y se inicia. Nadie lo ha probado a mano todavía. |
 | Firefox 128+ | Funciona en Firefox 160. Mozilla aún no la ha firmado, así que hay que cargarla de nuevo tras reiniciar Firefox. |
 
 ## Instalación
 
-Aún no hay descargas listas, así que hay que compilar el programa. Hacen falta Node.js 24 o posterior y Rust; en Windows, también Microsoft C++ Build Tools; en Ubuntu, también `libwebkit2gtk-4.1-dev librsvg2-dev`.
+| Sistema | Archivo | Cómo instalarlo |
+| --- | --- | --- |
+| Windows 10 y 11 | [adx0-windows.exe](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-windows.exe) | Ejecútelo. Si Windows no conoce el programa: «Más información», «Ejecutar de todas formas». |
+| macOS 10.13+ | [adx0-macos.dmg](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-macos.dmg) | Arrastre el programa a Aplicaciones y ábralo. Cuando macOS se niegue, vaya a Ajustes del Sistema, «Privacidad y seguridad», y pulse «Abrir igualmente». |
+| Ubuntu 24.04+ | [adx0-ubuntu.deb](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-ubuntu.deb) | `sudo apt install ./adx0-ubuntu.deb` |
+| Firefox 128+ | [adx0-firefox.zip](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-firefox.zip) | Abra `about:debugging`, «Este Firefox», «Cargar complemento temporal», y elija el archivo. Tras reiniciar Firefox, cárguelo de nuevo. |
+
+GitHub compila estos archivos a partir del código de este repositorio, instala e inicia los programas y solo entonces lo publica todo. Los archivos no llevan firma de pago, por eso Windows y macOS avisan en el primer inicio.
+
+También puede compilar el programa usted mismo. Hacen falta Node.js 24 o posterior y Rust; en Windows, también Microsoft C++ Build Tools; en Ubuntu, también `libwebkit2gtk-4.1-dev librsvg2-dev`.
 
 ```sh
 git clone https://github.com/Ilia-Pero/adx0
@@ -95,7 +105,7 @@ npm ci
 npm run tauri build
 ```
 
-El instalador aparece en `src-tauri/target/release/bundle`. No está firmado, así que Windows y macOS preguntarán si confía en él.
+El instalador aparece en `src-tauri/target/release/bundle`.
 
 El desinstalador vuelve a abrir las direcciones bloqueadas. En macOS, desactive el bloqueo antes de borrar el programa.
 

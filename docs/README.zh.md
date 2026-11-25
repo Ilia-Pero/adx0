@@ -9,6 +9,7 @@
 <p align="center">
 <a href="https://github.com/Ilia-Pero/adx0/actions/workflows/build.yml"><img src="https://github.com/Ilia-Pero/adx0/actions/workflows/build.yml/badge.svg" alt="build"></a>
 <a href="../LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT"></a>
+<a href="https://github.com/Ilia-Pero/adx0/releases/latest"><img src="https://img.shields.io/github/v/release/Ilia-Pero/adx0?label=download&color=0f766e" alt="download"></a>
 <img src="https://img.shields.io/badge/languages-12-0f766e" alt="12 languages">
 </p>
 
@@ -80,13 +81,22 @@ hosts 文件只能处理整个地址。与内容来自同一地址的广告（�
 | 系统 | 状态 |
 | --- | --- |
 | Windows | 在 Windows Server 2022 上可以使用：已用真实列表在 hosts 文件的副本上检查。尚未在 Windows 10 和 11 上检查。 |
-| macOS 10.13+ | 可以构建并通过测试。还没有人运行过。 |
-| Ubuntu 24.04+ | 可以构建并通过测试。还没有人运行过。 |
+| macOS 10.13+ | 可以构建并通过测试；在 GitHub 的机器上能安装和启动。还没有人手动试过。 |
+| Ubuntu 24.04+ | 可以构建并通过测试；在 GitHub 的机器上能安装和启动。还没有人手动试过。 |
 | Firefox 128+ | 在 Firefox 160 中可用。尚未经 Mozilla 签名，重启 Firefox 后需要重新加载。 |
 
 ## 安装
 
-目前还没有现成的下载文件，需要自行构建。需要 Node.js 24 或更新版本和 Rust；Windows 还需要 Microsoft C++ Build Tools；Ubuntu 还需要 `libwebkit2gtk-4.1-dev librsvg2-dev`。
+| 系统 | 文件 | 安装方法 |
+| --- | --- | --- |
+| Windows 10 和 11 | [adx0-windows.exe](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-windows.exe) | 运行它。如果 Windows 不认识该程序：“更多信息”、“仍要运行”。 |
+| macOS 10.13+ | [adx0-macos.dmg](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-macos.dmg) | 把程序拖到“应用程序”并打开。macOS 拒绝时，打开“系统设置”中的“隐私与安全性”，点按“仍要打开”。 |
+| Ubuntu 24.04+ | [adx0-ubuntu.deb](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-ubuntu.deb) | `sudo apt install ./adx0-ubuntu.deb` |
+| Firefox 128+ | [adx0-firefox.zip](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-firefox.zip) | 打开 `about:debugging`，选择“此 Firefox”、“临时载入附加组件”和该文件。重启 Firefox 后需重新载入。 |
+
+GitHub 用本仓库的代码构建这些文件，安装并启动程序，然后才全部发布。这些文件没有付费签名，因此 Windows 和 macOS 会在首次启动时发出警告。
+
+也可以自行构建程序。需要 Node.js 24 或更新版本和 Rust；Windows 还需要 Microsoft C++ Build Tools；Ubuntu 还需要 `libwebkit2gtk-4.1-dev librsvg2-dev`。
 
 ```sh
 git clone https://github.com/Ilia-Pero/adx0
@@ -95,7 +105,7 @@ npm ci
 npm run tauri build
 ```
 
-安装程序位于 `src-tauri/target/release/bundle`。它没有签名，因此 Windows 和 macOS 会询问您是否信任它。
+安装程序位于 `src-tauri/target/release/bundle`。
 
 卸载程序会重新放行被屏蔽的地址。在 macOS 上，请在删除程序之前关闭屏蔽。
 

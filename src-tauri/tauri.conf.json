@@ -6,7 +6,7 @@
   "identifier": "io.github.ilia-pero.adx0",
   "build": {
     "frontendDist": "../web",
-    "beforeBuildCommand": "npm run bundle",
+    "beforeBuildCommand": "npm run bundle && npm run licenses",
     "beforeDevCommand": "npm run bundle"
   },
   "app": {
@@ -38,6 +38,9 @@
     "license": "MIT",
     "homepage": "https://github.com/Ilia-Pero/adx0",
     "shortDescription": "ad × 0 = 0",
+    "resources": [
+      "licenses.txt"
+    ],
     "icon": [
       "icons/32x32.png",
       "icons/128x128.png",
@@ -79,7 +82,8 @@
       }
     },
     "macOS": {
-      "minimumSystemVersion": "10.13"
+      "minimumSystemVersion": "10.13",
+      "signingIdentity": "-"
     }
   }
 }

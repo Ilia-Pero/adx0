@@ -9,6 +9,7 @@
 <p align="center">
 <a href="https://github.com/Ilia-Pero/adx0/actions/workflows/build.yml"><img src="https://github.com/Ilia-Pero/adx0/actions/workflows/build.yml/badge.svg" alt="build"></a>
 <a href="../LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT"></a>
+<a href="https://github.com/Ilia-Pero/adx0/releases/latest"><img src="https://img.shields.io/github/v/release/Ilia-Pero/adx0?label=download&color=0f766e" alt="download"></a>
 <img src="https://img.shields.io/badge/languages-12-0f766e" alt="12 languages">
 </p>
 
@@ -80,13 +81,22 @@
 | Σύστημα | Κατάσταση |
 | --- | --- |
 | Windows | Λειτουργεί σε Windows Server 2022: δοκιμάστηκε με πραγματικές λίστες σε αντίγραφο του αρχείου hosts. Δεν έχει δοκιμαστεί ακόμη σε Windows 10 και 11. |
-| macOS 10.13+ | Μεταγλωττίζεται και περνά τις δοκιμές. Δεν το έχει εκτελέσει κανείς ακόμη. |
-| Ubuntu 24.04+ | Μεταγλωττίζεται και περνά τις δοκιμές. Δεν το έχει εκτελέσει κανείς ακόμη. |
+| macOS 10.13+ | Μεταγλωττίζεται και περνά τις δοκιμές· σε μηχάνημα του GitHub εγκαθίσταται και εκκινεί. Κανείς δεν το έχει δοκιμάσει με το χέρι ακόμη. |
+| Ubuntu 24.04+ | Μεταγλωττίζεται και περνά τις δοκιμές· σε μηχάνημα του GitHub εγκαθίσταται και εκκινεί. Κανείς δεν το έχει δοκιμάσει με το χέρι ακόμη. |
 | Firefox 128+ | Λειτουργεί στον Firefox 160. Η Mozilla δεν την έχει υπογράψει ακόμη, οπότε πρέπει να φορτωθεί ξανά μετά την επανεκκίνηση του Firefox. |
 
 ## Εγκατάσταση
 
-Δεν υπάρχουν ακόμη έτοιμα αρχεία, οπότε το πρόγραμμα πρέπει να μεταγλωττιστεί. Χρειάζονται Node.js 24 ή νεότερο και Rust, στα Windows επίσης Microsoft C++ Build Tools, στο Ubuntu επίσης `libwebkit2gtk-4.1-dev librsvg2-dev`.
+| Σύστημα | Αρχείο | Πώς εγκαθίσταται |
+| --- | --- | --- |
+| Windows 10 και 11 | [adx0-windows.exe](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-windows.exe) | Εκτελέστε το. Αν τα Windows δεν γνωρίζουν το πρόγραμμα: «Περισσότερες πληροφορίες», «Εκτέλεση ούτως ή άλλως». |
+| macOS 10.13+ | [adx0-macos.dmg](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-macos.dmg) | Σύρετε το πρόγραμμα στις Εφαρμογές και ανοίξτε το. Όταν το macOS αρνηθεί, πηγαίνετε στις Ρυθμίσεις συστήματος, «Απόρρητο και ασφάλεια», και πατήστε «Άνοιγμα οπωσδήποτε». |
+| Ubuntu 24.04+ | [adx0-ubuntu.deb](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-ubuntu.deb) | `sudo apt install ./adx0-ubuntu.deb` |
+| Firefox 128+ | [adx0-firefox.zip](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-firefox.zip) | Ανοίξτε το `about:debugging`, «Αυτός ο Firefox», «Φόρτωση προσωρινού προσθέτου», και επιλέξτε το αρχείο. Μετά την επανεκκίνηση του Firefox φορτώστε το ξανά. |
+
+Το GitHub μεταγλωττίζει αυτά τα αρχεία από τον κώδικα αυτού του αποθετηρίου, εγκαθιστά και εκκινεί τα προγράμματα και μόνο τότε τα δημοσιεύει όλα. Τα αρχεία δεν έχουν υπογραφή επί πληρωμή, γι’ αυτό τα Windows και το macOS προειδοποιούν στην πρώτη εκκίνηση.
+
+Μπορείτε και να μεταγλωττίσετε το πρόγραμμα μόνοι σας. Χρειάζονται Node.js 24 ή νεότερο και Rust, στα Windows επίσης Microsoft C++ Build Tools, στο Ubuntu επίσης `libwebkit2gtk-4.1-dev librsvg2-dev`.
 
 ```sh
 git clone https://github.com/Ilia-Pero/adx0
@@ -95,7 +105,7 @@ npm ci
 npm run tauri build
 ```
 
-Το πρόγραμμα εγκατάστασης εμφανίζεται στο `src-tauri/target/release/bundle`. Δεν είναι υπογεγραμμένο, οπότε τα Windows και το macOS θα ρωτήσουν αν το εμπιστεύεστε.
+Το πρόγραμμα εγκατάστασης εμφανίζεται στο `src-tauri/target/release/bundle`.
 
 Η απεγκατάσταση ανοίγει ξανά τις αποκλεισμένες διευθύνσεις. Στο macOS απενεργοποιήστε τον αποκλεισμό πριν διαγράψετε το πρόγραμμα.
 

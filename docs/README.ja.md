@@ -9,6 +9,7 @@
 <p align="center">
 <a href="https://github.com/Ilia-Pero/adx0/actions/workflows/build.yml"><img src="https://github.com/Ilia-Pero/adx0/actions/workflows/build.yml/badge.svg" alt="build"></a>
 <a href="../LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT"></a>
+<a href="https://github.com/Ilia-Pero/adx0/releases/latest"><img src="https://img.shields.io/github/v/release/Ilia-Pero/adx0?label=download&color=0f766e" alt="download"></a>
 <img src="https://img.shields.io/badge/languages-12-0f766e" alt="12 languages">
 </p>
 
@@ -80,13 +81,22 @@ hosts ファイルはアドレス全体を扱います。YouTube や SNS のよ�
 | システム | 状況 |
 | --- | --- |
 | Windows | Windows Server 2022 で動作します。実際のリストを使い、hosts ファイルの控えで確認しました。Windows 10 と 11 ではまだ確認していません。 |
-| macOS 10.13+ | ビルドとテストは通ります。まだ誰も実行していません。 |
-| Ubuntu 24.04+ | ビルドとテストは通ります。まだ誰も実行していません。 |
+| macOS 10.13+ | ビルドとテストは通り、GitHub のマシンでインストールと起動ができます。まだ誰も手で試していません。 |
+| Ubuntu 24.04+ | ビルドとテストは通り、GitHub のマシンでインストールと起動ができます。まだ誰も手で試していません。 |
 | Firefox 128+ | Firefox 160 で動作します。Mozilla の署名がまだないため、Firefox を再起動すると読み込み直す必要があります。 |
 
 ## インストール
 
-ダウンロードできるファイルはまだないため、ビルドが必要です。Node.js 24 以降と Rust、Windows ではさらに Microsoft C++ Build Tools、Ubuntu ではさらに `libwebkit2gtk-4.1-dev librsvg2-dev` が必要です。
+| システム | ファイル | インストール方法 |
+| --- | --- | --- |
+| Windows 10 と 11 | [adx0-windows.exe](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-windows.exe) | 実行します。Windows が警告したら「詳細情報」、「実行」を選びます。 |
+| macOS 10.13+ | [adx0-macos.dmg](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-macos.dmg) | プログラムを「アプリケーション」にドラッグして開きます。macOS に拒否されたら、システム設定の「プライバシーとセキュリティ」で「このまま開く」を押します。 |
+| Ubuntu 24.04+ | [adx0-ubuntu.deb](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-ubuntu.deb) | `sudo apt install ./adx0-ubuntu.deb` |
+| Firefox 128+ | [adx0-firefox.zip](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-firefox.zip) | `about:debugging` を開き、「この Firefox」、「一時的なアドオンを読み込む」、このファイルを選びます。Firefox を再起動したら読み込み直します。 |
+
+GitHub はこのリポジトリのコードからこれらのファイルをビルドし、プログラムをインストールして起動し、そのうえですべてを公開します。ファイルには有料の署名がないため、Windows と macOS は初回起動時に警告します。
+
+自分でビルドすることもできます。Node.js 24 以降と Rust、Windows ではさらに Microsoft C++ Build Tools、Ubuntu ではさらに `libwebkit2gtk-4.1-dev librsvg2-dev` が必要です。
 
 ```sh
 git clone https://github.com/Ilia-Pero/adx0
@@ -95,7 +105,7 @@ npm ci
 npm run tauri build
 ```
 
-インストーラーは `src-tauri/target/release/bundle` にできます。署名がないため、Windows と macOS は信頼するかどうかを尋ねます。
+インストーラーは `src-tauri/target/release/bundle` にできます。
 
 アンインストールすると、ブロックしたアドレスは元に戻ります。macOS では、プログラムを削除する前にブロックをオフにしてください。
 

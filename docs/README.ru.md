@@ -9,6 +9,7 @@
 <p align="center">
 <a href="https://github.com/Ilia-Pero/adx0/actions/workflows/build.yml"><img src="https://github.com/Ilia-Pero/adx0/actions/workflows/build.yml/badge.svg" alt="build"></a>
 <a href="../LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT"></a>
+<a href="https://github.com/Ilia-Pero/adx0/releases/latest"><img src="https://img.shields.io/github/v/release/Ilia-Pero/adx0?label=download&color=0f766e" alt="download"></a>
 <img src="https://img.shields.io/badge/languages-12-0f766e" alt="12 languages">
 </p>
 
@@ -80,13 +81,22 @@ ad×0 записывает адреса рекламных серверов в �
 | Система | Что известно |
 | --- | --- |
 | Windows | Работает на Windows Server 2022: проверен с настоящими списками на копии файла hosts. На Windows 10 и 11 ещё не проверяли. |
-| macOS 10.13+ | Собирается, тесты проходят. Его ещё никто не запускал. |
-| Ubuntu 24.04+ | Собирается, тесты проходят. Его ещё никто не запускал. |
+| macOS 10.13+ | Собирается, тесты проходят; на машине GitHub устанавливается и запускается. Руками его ещё никто не проверял. |
+| Ubuntu 24.04+ | Собирается, тесты проходят; на машине GitHub устанавливается и запускается. Руками его ещё никто не проверял. |
 | Firefox 128+ | Работает в Firefox 160. Mozilla его ещё не подписала, поэтому после перезапуска Firefox его загружают заново. |
 
 ## Установка
 
-Готовых файлов для скачивания пока нет, программу нужно собрать. Понадобятся Node.js 24 или новее и Rust, на Windows ещё Microsoft C++ Build Tools, на Ubuntu ещё `libwebkit2gtk-4.1-dev librsvg2-dev`.
+| Система | Файл | Как установить |
+| --- | --- | --- |
+| Windows 10 и 11 | [adx0-windows.exe](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-windows.exe) | Запустите его. Если Windows не знает программу: «Подробнее», «Выполнить в любом случае». |
+| macOS 10.13+ | [adx0-macos.dmg](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-macos.dmg) | Перетащите программу в «Программы» и откройте. Когда macOS откажет, откройте системные настройки, «Конфиденциальность и безопасность», и нажмите «Подтвердить вход». |
+| Ubuntu 24.04+ | [adx0-ubuntu.deb](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-ubuntu.deb) | `sudo apt install ./adx0-ubuntu.deb` |
+| Firefox 128+ | [adx0-firefox.zip](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-firefox.zip) | Откройте `about:debugging`, «Этот Firefox», «Загрузить временное дополнение» и выберите файл. После перезапуска Firefox загрузите его снова. |
+
+GitHub собирает эти файлы из кода этого репозитория, устанавливает и запускает программы и только потом всё публикует. Платной подписи у файлов нет, поэтому при первом запуске Windows и macOS предупреждают.
+
+Программу можно собрать и самому. Понадобятся Node.js 24 или новее и Rust, на Windows ещё Microsoft C++ Build Tools, на Ubuntu ещё `libwebkit2gtk-4.1-dev librsvg2-dev`.
 
 ```sh
 git clone https://github.com/Ilia-Pero/adx0
@@ -95,7 +105,7 @@ npm ci
 npm run tauri build
 ```
 
-Установщик появится в `src-tauri/target/release/bundle`. Он не подписан, поэтому Windows и macOS спросят, доверяете ли вы ему.
+Установщик появится в `src-tauri/target/release/bundle`.
 
 При удалении программа снова открывает закрытые адреса. На macOS выключите блокировку до удаления.
 

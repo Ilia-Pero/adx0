@@ -7,11 +7,12 @@ import { browsers, messages } from './own.ts';
 import { place, Shelf } from './shelf.ts';
 import { suitable } from './lists.ts';
 import { NUMBERS, Rules } from './rules.ts';
+import { PERIOD, due } from './schedule.ts';
 import { Site, sheet } from './site.ts';
 import { spoken } from './speech.ts';
 
-/** Once a day. Between updates and pages the browser unloads this part of the extension. */
-const PERIOD = 24 * 60;
+/** The name of the alarm that rings when the lists have to be downloaded. */
+const ALARM = 'refresh';
 
 const store = browser.storage.local;
 
@@ -140,14 +141,31 @@ function renew(): void {
   refresh().catch((error: unknown) => store.set({ failures: [String(error)] }));
 }
 
-browser.runtime.onInstalled.addListener(() => {
-  browser.alarms.create('refresh', { delayInMinutes: PERIOD, periodInMinutes: PERIOD });
-  renew();
-});
+/** Sets the alarm if there is none: Firefox forgets alarms when it is closed, Chromium may do so. */
+async function wind(): Promise<void> {
+  if ((await browser.alarms.get(ALARM)) === undefined) {
+    const updated = number((await store.get(['updated']))['updated']);
+    await browser.alarms.create(ALARM, {
+      delayInMinutes: due(updated, Date.now()),
+      periodInMinutes: PERIOD,
+    });
+  }
+}
 
+browser.runtime.onInstalled.addListener(renew);
 browser.alarms.onAlarm.addListener(renew);
+// This part starts whenever it is needed: between updates and pages the browser unloads it.
+wind().catch(() => 'there will be another start');
+
+/** Whether the message has come from a window of the extension and not from a page. */
+function inside(sender: Sender): boolean {
+  return sender.url?.startsWith(browser.runtime.getURL('')) ?? false;
+}
 
 async function answered(message: Message, sender: Sender): Promise<ReadonlyArray<Status>> {
+  if (message.kind !== 'page' && !inside(sender)) {
+    throw new Error('A page may not ask for this');
+  }
   switch (message.kind) {
     case 'page':
       await dress(sender);

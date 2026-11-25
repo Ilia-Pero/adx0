@@ -58,12 +58,16 @@ cargo clippy --manifest-path src-tauri/Cargo.toml -p adx0-system --target x86_64
 
 **macOS 10.13.** On High Sierra the system WebKit draws the window, so it is built for Safari 11: no `gap` in flex, no logical properties, no destructuring.
 
-**Objects.** They are immutable, there is no `null`, and names are not made with "-er". A test has one assertion, and its name says what the program does. What is left undone is marked in the code with `@todo #issue` next to the place it concerns, as in [puzzle driven development](https://www.yegor256.com/2010/03/04/pdd.html). Such a comment is enough to take the work up.
+**Objects.** They are immutable, there is no `null`, and names are not made with "-er". A test has one assertion, and its name says what the program does. What is left undone is marked in the code with `@todo #issue` next to the place it concerns, as in [puzzle driven development](https://www.yegor256.com/2010/03/04/pdd.html). Such a comment is enough to take the work up. What is planned: [ROADMAP.md](ROADMAP.md).
 
 ## Translations
 
 A language of the program is a file in `locales`, of the extension a folder in `extension/web/_locales`. To correct one, change its texts and leave the keys and the `{holes}` as they are: tests check that all languages have the same ones. The translated descriptions are `docs/README.*.md`.
 
+## Releases
+
+Set the version in `package.json`, `src-tauri/Cargo.toml`, `src-tauri/tauri.conf.json`, `extension/package.json` and `extension/web/manifest.json`, write the changes and the date into `CHANGELOG.md`, and push a tag such as `0.2.0`. GitHub then builds the installers, installs each of them, starts the program, and only after that publishes the release.
+
 ## Licenses of dependencies
 
-The code is under MIT. Dependencies are under MIT, Apache 2.0, BSD, ISC, Zlib, Unicode, BSL, MPL 2.0 and CDLA Permissive 2.0. The full list: `cargo tree --manifest-path src-tauri/Cargo.toml --format "{p} {l}"`.
+The code is under MIT. Dependencies are under MIT, Apache 2.0, BSD, ISC, Zlib, Unicode, BSL, MPL 2.0 and CDLA Permissive 2.0. The full list: `cargo tree --manifest-path src-tauri/Cargo.toml --format "{p} {l}"`. The installers carry the texts: `npm run licenses` collects them into `src-tauri/licenses.txt`.

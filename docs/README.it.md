@@ -9,6 +9,7 @@
 <p align="center">
 <a href="https://github.com/Ilia-Pero/adx0/actions/workflows/build.yml"><img src="https://github.com/Ilia-Pero/adx0/actions/workflows/build.yml/badge.svg" alt="build"></a>
 <a href="../LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT"></a>
+<a href="https://github.com/Ilia-Pero/adx0/releases/latest"><img src="https://img.shields.io/github/v/release/Ilia-Pero/adx0?label=download&color=0f766e" alt="download"></a>
 <img src="https://img.shields.io/badge/languages-12-0f766e" alt="12 languages">
 </p>
 
@@ -27,7 +28,7 @@ ad×0 scrive gli indirizzi dei server pubblicitari nel file hosts del sistema e 
 - Conserva le tue righe del file hosts, ne lascia una copia prima della prima modifica e rilegge ciò che ha scritto.
 - Conserva l’ultima copia valida di ogni lista, così il blocco non dipende dal sito della lista.
 - Non permette a un errore in una lista di chiudere siti come Google, Wikipedia o GitHub: ecco [la lista completa](../data/essential.json). Ogni altro sito si apre con il campo «Non bloccare».
-- Parla 12 lingue. Non invia nulla: scarica soltanto le liste quando premi il pulsante.
+- Parla 12 lingue: la lingua si sceglie in alto nella finestra e nel programma di installazione per Windows. Non invia nulla: scarica soltanto le liste quando premi il pulsante.
 
 ## L’estensione per Firefox
 
@@ -36,6 +37,7 @@ ad×0 scrive gli indirizzi dei server pubblicitari nel file hosts del sistema e 
 - Blocca gli indirizzi pubblicitari e nasconde i blocchi pubblicitari nelle pagine. Le liste regionali si scelgono in base alle lingue del browser.
 - Toglie il programma della pubblicità dalle risposte di YouTube, così il lettore non ha nulla da mostrare.
 - Aggiorna le liste una volta al giorno. È il browser ad applicare le regole, e la parte in background nel frattempo non è caricata.
+- Parla le stesse 12 lingue: all’inizio quella del browser; un’altra si sceglie nella finestra dell’estensione.
 
 ## Che cosa non può fare
 
@@ -79,13 +81,22 @@ Le liste non fanno parte di questo repository. La tua copia del programma le sca
 | Sistema | Stato |
 | --- | --- |
 | Windows | Funziona su Windows Server 2022: verificato con liste reali su una copia del file hosts. Non ancora verificato su Windows 10 e 11. |
-| macOS 10.13+ | Si compila e supera i test. Nessuno l’ha ancora avviato. |
-| Ubuntu 24.04+ | Si compila e supera i test. Nessuno l’ha ancora avviato. |
+| macOS 10.13+ | Si compila e supera i test; su una macchina di GitHub si installa e si avvia. Nessuno l’ha ancora provato a mano. |
+| Ubuntu 24.04+ | Si compila e supera i test; su una macchina di GitHub si installa e si avvia. Nessuno l’ha ancora provato a mano. |
 | Firefox 128+ | Funziona in Firefox 160. Non ancora firmata da Mozilla, quindi va ricaricata dopo il riavvio di Firefox. |
 
 ## Installazione
 
-Non ci sono ancora file pronti da scaricare, quindi il programma va compilato. Servono Node.js 24 o successivo e Rust, su Windows anche Microsoft C++ Build Tools, su Ubuntu anche `libwebkit2gtk-4.1-dev librsvg2-dev`.
+| Sistema | File | Come si installa |
+| --- | --- | --- |
+| Windows 10 e 11 | [adx0-windows.exe](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-windows.exe) | Avvialo. Se Windows non conosce il programma: «Ulteriori informazioni», «Esegui comunque». |
+| macOS 10.13+ | [adx0-macos.dmg](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-macos.dmg) | Trascina il programma in Applicazioni e aprilo. Quando macOS rifiuta, vai in Impostazioni di Sistema, «Privacy e sicurezza», e fai clic su «Apri comunque». |
+| Ubuntu 24.04+ | [adx0-ubuntu.deb](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-ubuntu.deb) | `sudo apt install ./adx0-ubuntu.deb` |
+| Firefox 128+ | [adx0-firefox.zip](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-firefox.zip) | Apri `about:debugging`, «Questo Firefox», «Carica componente aggiuntivo temporaneo», e scegli il file. Dopo il riavvio di Firefox ricaricalo. |
+
+GitHub compila questi file dal codice di questo repository, installa e avvia i programmi e solo dopo pubblica tutto. I file non hanno una firma a pagamento, quindi Windows e macOS avvisano al primo avvio.
+
+Puoi anche compilare il programma da te. Servono Node.js 24 o successivo e Rust, su Windows anche Microsoft C++ Build Tools, su Ubuntu anche `libwebkit2gtk-4.1-dev librsvg2-dev`.
 
 ```sh
 git clone https://github.com/Ilia-Pero/adx0
@@ -94,7 +105,7 @@ npm ci
 npm run tauri build
 ```
 
-L’installer compare in `src-tauri/target/release/bundle`. Non è firmato, quindi Windows e macOS chiederanno se ti fidi.
+L’installer compare in `src-tauri/target/release/bundle`.
 
 La disinstallazione riapre gli indirizzi bloccati. Su macOS disattiva il blocco prima di eliminare il programma.
 

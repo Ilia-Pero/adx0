@@ -32,6 +32,7 @@ interface Browser {
     getUILanguage(): string;
   };
   readonly runtime: {
+    getURL(path: string): string;
     readonly onInstalled: { addListener(listen: () => void): void };
     readonly onMessage: {
       addListener(listen: (message: Message, sender: Sender) => Promise<unknown>): void;

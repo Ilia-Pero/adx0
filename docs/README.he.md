@@ -11,6 +11,7 @@
 <p align="center">
 <a href="https://github.com/Ilia-Pero/adx0/actions/workflows/build.yml"><img src="https://github.com/Ilia-Pero/adx0/actions/workflows/build.yml/badge.svg" alt="build"></a>
 <a href="../LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT"></a>
+<a href="https://github.com/Ilia-Pero/adx0/releases/latest"><img src="https://img.shields.io/github/v/release/Ilia-Pero/adx0?label=download&color=0f766e" alt="download"></a>
 <img src="https://img.shields.io/badge/languages-12-0f766e" alt="12 languages">
 </p>
 
@@ -29,7 +30,7 @@
 - שומרת על השורות שלכם בקובץ ה־hosts, משאירה עותק שלו לפני השינוי הראשון וקוראת שוב את מה שכתבה.
 - שומרת את העותק התקין האחרון של כל רשימה, כך שהחסימה אינה תלויה בזמינות האתר של הרשימה.
 - אינה מניחה לטעות ברשימה לסגור אתרים כמו Google‏, Wikipedia או GitHub: הנה [הרשימה המלאה](../data/essential.json). כל אתר אחר פותחים בשדה "לא לחסום".
-- מדברת 12 שפות. אינה שולחת דבר לשום מקום: רק מורידה את הרשימות כשאתם לוחצים על הכפתור.
+- מדברת 12 שפות: את השפה בוחרים בראש החלון ובתוכנית ההתקנה ל־Windows. אינה שולחת דבר לשום מקום: רק מורידה את הרשימות כשאתם לוחצים על הכפתור.
 
 ## ההרחבה ל־Firefox
 
@@ -38,6 +39,7 @@
 - חוסמת כתובות פרסום ומסתירה בלוקים של פרסום בדפים. רשימות אזוריות נבחרות לפי שפות הדפדפן.
 - מסירה את לוח הפרסומות מהתשובות של YouTube, כך שלנגן אין מה להציג.
 - מעדכנת את הרשימות פעם ביום. הדפדפן עצמו אוכף את הכללים, וחלק הרקע אינו טעון בין לבין.
+- מדברת את אותן 12 שפות: בהתחלה בשפת הדפדפן; שפה אחרת בוחרים בחלון ההרחבה.
 
 ## מה היא אינה יכולה
 
@@ -81,13 +83,22 @@
 | מערכת | מצב |
 | --- | --- |
 | Windows | עובדת ב־Windows Server 2022: נבדקה עם רשימות אמיתיות על עותק של קובץ ה־hosts. עדיין לא נבדקה ב־Windows 10 ו־11. |
-| macOS 10.13+ | נבנית ועוברת את הבדיקות. איש עדיין לא הפעיל אותה. |
-| Ubuntu 24.04+ | נבנית ועוברת את הבדיקות. איש עדיין לא הפעיל אותה. |
+| macOS 10.13+ | נבנית ועוברת את הבדיקות; במחשב של GitHub היא מותקנת ומופעלת. איש עדיין לא ניסה אותה ביד. |
+| Ubuntu 24.04+ | נבנית ועוברת את הבדיקות; במחשב של GitHub היא מותקנת ומופעלת. איש עדיין לא ניסה אותה ביד. |
 | Firefox 128+ | עובדת ב־Firefox 160. Mozilla עדיין לא חתמה עליה, ולכן צריך לטעון אותה שוב אחרי הפעלה מחדש של Firefox. |
 
 ## התקנה
 
-עדיין אין קבצים מוכנים להורדה, ולכן צריך לבנות את התוכנה. דרושים Node.js 24 ומעלה ו־Rust, ב־Windows גם Microsoft C++ Build Tools, ב־Ubuntu גם `libwebkit2gtk-4.1-dev librsvg2-dev`.
+| מערכת | קובץ | איך מתקינים |
+| --- | --- | --- |
+| Windows 10 ו־11 | [adx0-windows.exe](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-windows.exe) | הפעילו אותו. אם Windows אינה מכירה את התוכנה: "מידע נוסף", "הפעל בכל זאת". |
+| macOS 10.13+ | [adx0-macos.dmg](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-macos.dmg) | גררו את התוכנה ליישומים ופתחו אותה. כש־macOS מסרבת, פתחו את הגדרות המערכת, "פרטיות ואבטחה", ולחצו על "פתח בכל זאת". |
+| Ubuntu 24.04+ | [adx0-ubuntu.deb](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-ubuntu.deb) | `sudo apt install ./adx0-ubuntu.deb` |
+| Firefox 128+ | [adx0-firefox.zip](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-firefox.zip) | פתחו את `about:debugging`, "This Firefox", "Load Temporary Add-on", ובחרו את הקובץ. אחרי הפעלה מחדש של Firefox טענו אותו שוב. |
+
+GitHub בונה את הקבצים האלה מהקוד של מאגר זה, מתקין ומפעיל את התוכנות ורק אז מפרסם הכול. לקבצים אין חתימה בתשלום, ולכן Windows ו־macOS מזהירות בהפעלה הראשונה.
+
+אפשר גם לבנות את התוכנה בעצמכם. דרושים Node.js 24 ומעלה ו־Rust, ב־Windows גם Microsoft C++ Build Tools, ב־Ubuntu גם `libwebkit2gtk-4.1-dev librsvg2-dev`.
 
 </div>
 
@@ -100,7 +111,7 @@ npm run tauri build
 
 <div dir="rtl">
 
-קובץ ההתקנה מופיע בתיקייה `src-tauri/target/release/bundle`. הוא אינו חתום, ולכן Windows ו־macOS ישאלו אם אתם סומכים עליו.
+קובץ ההתקנה מופיע בתיקייה `src-tauri/target/release/bundle`.
 
 הסרת ההתקנה פותחת מחדש את הכתובות החסומות. ב־macOS כבו את החסימה לפני מחיקת התוכנה.
 

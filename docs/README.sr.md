@@ -9,6 +9,7 @@
 <p align="center">
 <a href="https://github.com/Ilia-Pero/adx0/actions/workflows/build.yml"><img src="https://github.com/Ilia-Pero/adx0/actions/workflows/build.yml/badge.svg" alt="build"></a>
 <a href="../LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT"></a>
+<a href="https://github.com/Ilia-Pero/adx0/releases/latest"><img src="https://img.shields.io/github/v/release/Ilia-Pero/adx0?label=download&color=0f766e" alt="download"></a>
 <img src="https://img.shields.io/badge/languages-12-0f766e" alt="12 languages">
 </p>
 
@@ -27,7 +28,7 @@ ad×0 уписује адресе огласних сервера у систе�
 - Чува ваше редове у датотеци hosts, пре прве измене оставља њену копију и поново чита оно што је уписао.
 - Чува последњу исправну копију сваке листе, па блокирање не зависи од тога да ли сајт листе ради.
 - Не дозвољава да грешка у листи затвори сајтове као што су Google, Wikipedia или GitHub: ево [целог списка](../data/essential.json). Сваки други сајт отвара се у пољу „Не блокирај“.
-- Говори 12 језика. Никуда ништа не шаље: само преузима листе када притиснете дугме.
+- Говори 12 језика: језик се бира на врху прозора и у инсталацији за Windows. Никуда ништа не шаље: само преузима листе када притиснете дугме.
 
 ## Додатак за Firefox
 
@@ -36,6 +37,7 @@ ad×0 уписује адресе огласних сервера у систе�
 - Блокира огласне адресе и скрива огласне блокове на страницама. Регионалне листе бирају се по језицима прегледача.
 - Уклања распоред огласа из одговора YouTube-а, па плејер нема шта да прикаже.
 - Ажурира листе једном дневно. Правила спроводи сам прегледач, а позадински део у међувремену није учитан.
+- Говори истих 12 језика: на почетку језик прегледача, а други се бира у прозору додатка.
 
 ## Шта не може
 
@@ -79,13 +81,22 @@ ad×0 уписује адресе огласних сервера у систе�
 | Систем | Стање |
 | --- | --- |
 | Windows | Ради на Windows Server 2022: проверено са правим листама на копији датотеке hosts. На Windows 10 и 11 још није проверено. |
-| macOS 10.13+ | Гради се и пролази тестове. Нико га још није покренуо. |
-| Ubuntu 24.04+ | Гради се и пролази тестове. Нико га још није покренуо. |
+| macOS 10.13+ | Гради се и пролази тестове; на машини GitHub-а се инсталира и покреће. Ручно га још нико није испробао. |
+| Ubuntu 24.04+ | Гради се и пролази тестове; на машини GitHub-а се инсталира и покреће. Ручно га још нико није испробао. |
 | Firefox 128+ | Ради у Firefox-у 160. Mozilla га још није потписала, па га после поновног покретања Firefox-а треба поново учитати. |
 
 ## Инсталација
 
-Готових датотека још нема, па програм треба изградити. Потребни су Node.js 24 или новији и Rust, на Windows-у и Microsoft C++ Build Tools, на Ubuntu-у и `libwebkit2gtk-4.1-dev librsvg2-dev`.
+| Систем | Датотека | Како се инсталира |
+| --- | --- | --- |
+| Windows 10 и 11 | [adx0-windows.exe](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-windows.exe) | Покрените је. Ако Windows не познаје програм: „Више информација“, „Ипак покрени“. |
+| macOS 10.13+ | [adx0-macos.dmg](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-macos.dmg) | Превуците програм у Applications и отворите га. Кад macOS одбије, отворите System Settings, „Privacy & Security“, и притисните „Open Anyway“. |
+| Ubuntu 24.04+ | [adx0-ubuntu.deb](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-ubuntu.deb) | `sudo apt install ./adx0-ubuntu.deb` |
+| Firefox 128+ | [adx0-firefox.zip](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-firefox.zip) | Отворите `about:debugging`, „Овај Firefox“, „Учитај привремени додатак“, и изаберите датотеку. После поновног покретања Firefox-а учитајте је поново. |
+
+GitHub гради ове датотеке из кода овог репозиторијума, инсталира и покреће програме, па тек онда све објављује. Датотеке немају плаћени потпис, зато Windows и macOS упозоравају при првом покретању.
+
+Програм можете изградити и сами. Потребни су Node.js 24 или новији и Rust, на Windows-у и Microsoft C++ Build Tools, на Ubuntu-у и `libwebkit2gtk-4.1-dev librsvg2-dev`.
 
 ```sh
 git clone https://github.com/Ilia-Pero/adx0
@@ -94,7 +105,7 @@ npm ci
 npm run tauri build
 ```
 
-Инсталациони програм се појављује у `src-tauri/target/release/bundle`. Није потписан, па ће Windows и macOS питати да ли му верујете.
+Инсталациони програм се појављује у `src-tauri/target/release/bundle`.
 
 Деинсталација поново отвара блокиране адресе. На macOS-у искључите блокирање пре брисања програма.
 

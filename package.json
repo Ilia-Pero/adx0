@@ -1,18 +1,19 @@
 {
   "name": "adx0",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "type": "module",
   "description": "An ad blocker that does not run",
   "license": "MIT",
   "repository": "github:Ilia-Pero/adx0",
   "scripts": {
-    "lint": "oxlint --deny-warnings src test",
+    "lint": "oxlint --deny-warnings src test tools",
     "types": "tsc --noEmit",
     "test": "node --test \"test/**/*.test.ts\"",
     "bundle": "esbuild app=src/main.ts --bundle --minify --charset=utf8 --format=iife --target=safari11 --outdir=web",
+    "licenses": "node tools/licenses.ts",
     "rust": "cargo fmt --manifest-path src-tauri/Cargo.toml --all --check && cargo clippy --manifest-path src-tauri/Cargo.toml --workspace --all-targets --locked && cargo test --manifest-path src-tauri/Cargo.toml --locked -p adx0-core -p adx0-net -p adx0-phrase -p adx0-system",
-    "build": "npm run lint && npm run types && npm test && npm run bundle && npm run rust",
+    "build": "npm run lint && npm run types && npm test && npm run bundle && npm run licenses && npm run rust",
     "dev": "esbuild app=src/demo.ts --bundle --format=iife --target=safari11 --charset=utf8 --sourcemap --outdir=web --servedir=web --serve=127.0.0.1:5392",
     "tauri": "tauri"
   },

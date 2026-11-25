@@ -37,5 +37,11 @@
   },
   "short": {
     "message": "La lista $1 no se ha actualizado: tiene muy pocas direcciones ($2)."
+  },
+  "speech": {
+    "message": "Idioma"
+  },
+  "auto": {
+    "message": "El del navegador"
   }
 }

@@ -2,11 +2,11 @@
   "$schema": "https://schema.tauri.app/config/2",
   "productName": "adx0",
   "mainBinaryName": "adx0",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "identifier": "io.github.ilia-pero.adx0",
   "build": {
     "frontendDist": "../web",
-    "beforeBuildCommand": "npm run bundle",
+    "beforeBuildCommand": "npm run bundle && npm run licenses",
     "beforeDevCommand": "npm run bundle"
   },
   "app": {
@@ -34,10 +34,14 @@
       "deb"
     ],
     "category": "Utility",
+    "publisher": "Ilia-Pero",
     "copyright": "Copyright (c) 2026 Ilia-Pero",
     "license": "MIT",
     "homepage": "https://github.com/Ilia-Pero/adx0",
     "shortDescription": "ad × 0 = 0",
+    "resources": [
+      "licenses.txt"
+    ],
     "icon": [
       "icons/32x32.png",
       "icons/128x128.png",
@@ -48,6 +52,7 @@
     "windows": {
       "nsis": {
         "installMode": "perMachine",
+        "displayLanguageSelector": true,
         "languages": [
           "English",
           "Russian",
@@ -78,7 +83,8 @@
       }
     },
     "macOS": {
-      "minimumSystemVersion": "10.13"
+      "minimumSystemVersion": "10.13",
+      "signingIdentity": "-"
     }
   }
 }

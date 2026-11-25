@@ -37,5 +37,11 @@
   },
   "short": {
     "message": "La liste $1 n’a pas été mise à jour : elle contient trop peu d’adresses ($2)."
+  },
+  "speech": {
+    "message": "Langue"
+  },
+  "auto": {
+    "message": "Celle du navigateur"
   }
 }

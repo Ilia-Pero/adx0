@@ -9,6 +9,7 @@
 <p align="center">
 <a href="https://github.com/Ilia-Pero/adx0/actions/workflows/build.yml"><img src="https://github.com/Ilia-Pero/adx0/actions/workflows/build.yml/badge.svg" alt="build"></a>
 <a href="../LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT"></a>
+<a href="https://github.com/Ilia-Pero/adx0/releases/latest"><img src="https://img.shields.io/github/v/release/Ilia-Pero/adx0?label=download&color=0f766e" alt="download"></a>
 <img src="https://img.shields.io/badge/languages-12-0f766e" alt="12 languages">
 </p>
 
@@ -27,7 +28,7 @@ ad×0 schreibt Adressen von Werbeservern in die Datei hosts des Systems und been
 - Behält Ihre eigenen Zeilen in der Datei hosts, legt vor der ersten Änderung eine Kopie an und liest zurück, was es geschrieben hat.
 - Bewahrt die letzte gute Kopie jeder Liste auf, sodass die Blockierung nicht davon abhängt, ob die Website der Liste erreichbar ist.
 - Lässt nicht zu, dass ein Fehler in einer Liste Seiten wie Google, Wikipedia oder GitHub sperrt: hier ist [die ganze Liste](../data/essential.json). Jede andere Seite wird im Feld „Nicht blockieren“ geöffnet.
-- Spricht 12 Sprachen. Sendet nichts: Es lädt nur die Listen herunter, wenn Sie auf die Schaltfläche klicken.
+- Spricht 12 Sprachen: Die Sprache wird oben im Fenster und im Installationsprogramm für Windows gewählt. Sendet nichts: Es lädt nur die Listen herunter, wenn Sie auf die Schaltfläche klicken.
 
 ## Die Erweiterung für Firefox
 
@@ -36,6 +37,7 @@ ad×0 schreibt Adressen von Werbeservern in die Datei hosts des Systems und been
 - Blockiert Werbeadressen und blendet Werbeblöcke auf Seiten aus. Regionale Listen werden nach den Sprachen des Browsers gewählt.
 - Entfernt den Werbeplan aus den Antworten von YouTube, sodass der Player nichts zu zeigen hat.
 - Aktualisiert die Listen einmal am Tag. Der Browser selbst setzt die Regeln durch, der Hintergrundteil ist dazwischen nicht geladen.
+- Spricht dieselben 12 Sprachen: zuerst die des Browsers; eine andere wird im Fenster der Erweiterung gewählt.
 
 ## Was es nicht kann
 
@@ -79,13 +81,22 @@ Die Listen gehören nicht zu diesem Repository. Ihre Kopie des Programms lädt s
 | System | Stand |
 | --- | --- |
 | Windows | Funktioniert unter Windows Server 2022: mit echten Listen an einer Kopie der Datei hosts geprüft. Unter Windows 10 und 11 noch nicht geprüft. |
-| macOS 10.13+ | Lässt sich bauen und besteht die Tests. Noch niemand hat es gestartet. |
-| Ubuntu 24.04+ | Lässt sich bauen und besteht die Tests. Noch niemand hat es gestartet. |
+| macOS 10.13+ | Lässt sich bauen und besteht die Tests; auf einer Maschine bei GitHub lässt es sich installieren und startet. Von Hand hat es noch niemand ausprobiert. |
+| Ubuntu 24.04+ | Lässt sich bauen und besteht die Tests; auf einer Maschine bei GitHub lässt es sich installieren und startet. Von Hand hat es noch niemand ausprobiert. |
 | Firefox 128+ | Funktioniert in Firefox 160. Von Mozilla noch nicht signiert und muss nach einem Neustart von Firefox erneut geladen werden. |
 
 ## Installation
 
-Fertige Dateien gibt es noch nicht, das Programm muss gebaut werden. Nötig sind Node.js 24 oder neuer und Rust, unter Windows auch die Microsoft C++ Build Tools, unter Ubuntu auch `libwebkit2gtk-4.1-dev librsvg2-dev`.
+| System | Datei | So wird installiert |
+| --- | --- | --- |
+| Windows 10 und 11 | [adx0-windows.exe](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-windows.exe) | Starten Sie sie. Wenn Windows das Programm nicht kennt: „Weitere Informationen“, „Trotzdem ausführen“. |
+| macOS 10.13+ | [adx0-macos.dmg](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-macos.dmg) | Ziehen Sie das Programm in „Programme“ und öffnen Sie es. Wenn macOS es ablehnt, öffnen Sie die Systemeinstellungen, „Datenschutz und Sicherheit“, und klicken Sie auf „Dennoch öffnen“. |
+| Ubuntu 24.04+ | [adx0-ubuntu.deb](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-ubuntu.deb) | `sudo apt install ./adx0-ubuntu.deb` |
+| Firefox 128+ | [adx0-firefox.zip](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-firefox.zip) | Öffnen Sie `about:debugging`, „Dieser Firefox“, „Temporäres Add-on laden“, und wählen Sie die Datei. Nach einem Neustart von Firefox laden Sie sie erneut. |
+
+GitHub baut diese Dateien aus dem Code dieses Repositorys, installiert und startet die Programme und veröffentlicht erst dann alles. Die Dateien haben keine bezahlte Signatur, deshalb warnen Windows und macOS beim ersten Start.
+
+Sie können das Programm auch selbst bauen. Nötig sind Node.js 24 oder neuer und Rust, unter Windows auch die Microsoft C++ Build Tools, unter Ubuntu auch `libwebkit2gtk-4.1-dev librsvg2-dev`.
 
 ```sh
 git clone https://github.com/Ilia-Pero/adx0
@@ -94,7 +105,7 @@ npm ci
 npm run tauri build
 ```
 
-Das Installationsprogramm erscheint in `src-tauri/target/release/bundle`. Es ist nicht signiert, deshalb fragen Windows und macOS, ob Sie ihm vertrauen.
+Das Installationsprogramm erscheint in `src-tauri/target/release/bundle`.
 
 Die Deinstallation gibt die blockierten Adressen wieder frei. Unter macOS schalten Sie die Blockierung aus, bevor Sie das Programm löschen.
 

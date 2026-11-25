@@ -42,5 +42,12 @@
   "error.silent": "リストを更新できません：{url} が応答しません。（{reason}）",
   "error.short": "リスト {title} を更新できません：アドレスが少なすぎます（{count} 件）。",
   "error.disk": "ディスクエラー：{reason}",
-  "error.empty": "ブロックするものがありません。リストを 1 つ以上選んでください。"
+  "error.empty": "ブロックするものがありません。リストを 1 つ以上選んでください。",
+  "update.check": "更新を確認",
+  "update.checking": "確認中…",
+  "update.latest": "最新版です。",
+  "update.found": "バージョン {version} が公開されています。",
+  "update.get": "ダウンロード",
+  "update.news": "変更点",
+  "error.update": "更新を確認できませんでした: {reason}"
 }

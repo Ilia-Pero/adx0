@@ -1,4 +1,6 @@
+import { Regional } from '../../src/regional.ts';
 import type { Status } from './browser.ts';
+import { asked, browser } from './browser.ts';
 import { browsers, messages } from './own.ts';
 import type { Speech } from './speech.ts';
 import { TONGUES, choice, choose, spoken } from './speech.ts';
@@ -22,15 +24,19 @@ async function host(): Promise<string> {
   return /^https?:/.test(url) ? new URL(url).hostname : '';
 }
 
-function day(moment: number, code: string): string {
-  return new Date(moment).toLocaleDateString(code, { day: 'numeric', month: 'long' });
+async function status(site: string): Promise<Status> {
+  const [found] = await asked({ kind: 'status', host: site });
+  if (found === undefined) {
+    throw new Error('The extension does not answer');
+  }
+  return found;
 }
 
 function lists(state: Status, speech: Speech): string {
-  const code = speech.text('code', []);
+  const written = new Regional(speech.text('code', []));
   return state.updated === 0
     ? speech.text('never', [])
-    : speech.text('lists', [state.addresses.toLocaleString(code), day(state.updated, code)]);
+    : speech.text('lists', [written.number(state.addresses), written.day(state.updated)]);
 }
 
 /** Fills the list of languages. */
@@ -51,7 +57,7 @@ async function show(): Promise<void> {
   const speech = await spoken(store, browsers, messages);
   const code = speech.text('code', []);
   const site = await host();
-  const state = await browser.runtime.sendMessage<Status>({ kind: 'status', host: site });
+  const state = await status(site);
   document.documentElement.lang = code;
   document.documentElement.dir = code === 'he' ? 'rtl' : 'ltr';
   part('refresh', HTMLButtonElement).textContent = speech.text('update', []);
@@ -69,8 +75,8 @@ async function show(): Promise<void> {
 
 async function toggle(): Promise<void> {
   const site = await host();
-  const state = await browser.runtime.sendMessage<Status>({ kind: 'status', host: site });
-  await browser.runtime.sendMessage<void>({ kind: 'allow', host: site, on: !state.allowed });
+  const state = await status(site);
+  await asked({ kind: 'allow', host: site, on: !state.allowed });
   const tabs = await browser.tabs.query({ active: true, currentWindow: true });
   const id = tabs[0]?.id;
   if (id !== undefined) {
@@ -82,7 +88,7 @@ async function toggle(): Promise<void> {
 async function refresh(): Promise<void> {
   const speech = await spoken(store, browsers, messages);
   part('lists', HTMLElement).textContent = speech.text('loading', []);
-  await browser.runtime.sendMessage<void>({ kind: 'refresh' });
+  await asked({ kind: 'refresh' });
   await show();
 }
 

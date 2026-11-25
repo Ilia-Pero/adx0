@@ -1,5 +1,6 @@
 import own from '../../data/own.json' with { type: 'json' };
 import type { Message, Sender, Status } from './browser.ts';
+import { browser } from './browser.ts';
 import { harmless } from './essential.ts';
 import { joined } from './filters.ts';
 import { browsers, messages } from './own.ts';
@@ -146,15 +147,29 @@ browser.runtime.onInstalled.addListener(() => {
 
 browser.alarms.onAlarm.addListener(renew);
 
-browser.runtime.onMessage.addListener((message: Message, sender: Sender): Promise<unknown> => {
+async function answered(message: Message, sender: Sender): Promise<ReadonlyArray<Status>> {
   switch (message.kind) {
     case 'page':
-      return dress(sender);
+      await dress(sender);
+      return [];
     case 'status':
-      return status(message.host);
+      return [await status(message.host)];
     case 'allow':
-      return allow(message.host, message.on);
+      await allow(message.host, message.on);
+      return [];
     case 'refresh':
-      return refresh();
+      await refresh();
+      return [];
   }
+}
+
+// Chromium waits for an answer if it is told that there will be one; it does not wait for promises.
+browser.runtime.onMessage.addListener((message, sender, answer) => {
+  answered(message, sender)
+    .then(
+      (found) => answer({ reason: '', status: found }),
+      (error: unknown) => answer({ reason: String(error), status: [] }),
+    )
+    .catch(() => 'the one who asked has gone');
+  return true;
 });

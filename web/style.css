@@ -1,6 +1,10 @@
 /* No flex gap, logical properties and other things Safari 11 lacks: it draws the window
    on High Sierra. */
 
+:root {
+  color-scheme: light dark;
+}
+
 html,
 body {
   margin: 0;
@@ -73,7 +77,7 @@ section {
 
 button,
 select {
-  border: 1px solid #a9b8bb;
+  border: 1px solid #7f8d90;
   border-radius: 7px;
   background: #fff;
   color: #17252a;
@@ -101,8 +105,16 @@ button.main {
   color: #fff;
 }
 
+button:active {
+  background: #d8e2e2;
+}
+
 button.main:hover {
   background: #0b5d57;
+}
+
+button.main:active {
+  background: #084943;
 }
 
 .on .head button {
@@ -185,7 +197,7 @@ textarea {
   width: 100%;
   margin-top: 8px;
   padding: 8px 10px;
-  border: 1px solid #a9b8bb;
+  border: 1px solid #7f8d90;
   border-radius: 7px;
   background: #fff;
   color: inherit;
@@ -196,6 +208,18 @@ textarea {
 .foot {
   color: #52646a;
   font-size: 13px;
+}
+
+.edition {
+  margin-top: 16px;
+}
+
+.edition button {
+  margin: 0 8px 8px 0;
+}
+
+[dir="rtl"] .edition button {
+  margin: 0 0 8px 8px;
 }
 
 .speech {
@@ -233,15 +257,19 @@ textarea {
     color: #e3ebec;
   }
 
-  section,
-  textarea {
+  section {
     border-color: #2f3d40;
     background: #1b2528;
   }
 
+  textarea {
+    border-color: #637377;
+    background: #141c1e;
+  }
+
   button,
   select {
-    border-color: #465659;
+    border-color: #637377;
     background: #1b2528;
     color: #e3ebec;
   }
@@ -249,6 +277,26 @@ textarea {
   button:hover,
   select:hover {
     background: #263336;
+  }
+
+  button:active {
+    background: #34454a;
+  }
+
+  button.main {
+    border-color: #117d75;
+    background: #117d75;
+    color: #fff;
+  }
+
+  button.main:hover {
+    background: #0f6f68;
+  }
+
+  button:focus,
+  select:focus,
+  textarea:focus {
+    outline-color: #2dbdae;
   }
 
   .hint,

@@ -1,4 +1,4 @@
-import type { Backend, Report, Settings } from './backend.ts';
+import type { Backend, Release, Report, Settings } from './backend.ts';
 import { LANGUAGES, code, spoken } from './languages.ts';
 import { filled } from './words.ts';
 
@@ -58,6 +58,7 @@ export class Sandbox implements Backend {
         title: spoken(name).language,
       })),
       words,
+      version: '0.0.0',
     });
   }
 
@@ -81,6 +82,18 @@ export class Sandbox implements Backend {
   turn(on: boolean): Promise<void> {
     this.count = on ? 10086 : 0;
     return later(void 0);
+  }
+
+  update(): Promise<Release> {
+    return later({ version: '0.1.0', newer: true });
+  }
+
+  download(): Promise<void> {
+    return Promise.reject(new Error('A browser tab has nothing to update.'));
+  }
+
+  news(): Promise<void> {
+    return Promise.reject(new Error('A browser tab has nothing new.'));
   }
 
   private words(): ReturnType<typeof spoken> {

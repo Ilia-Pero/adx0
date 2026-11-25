@@ -1,4 +1,4 @@
-import type { Backend, Report, Settings } from './backend.ts';
+import type { Backend, Release, Report, Settings } from './backend.ts';
 
 /** The bridge to the Tauri shell: calls commands written in Rust. */
 export interface Bridge {
@@ -27,5 +27,17 @@ export class Shell implements Backend {
 
   turn(on: boolean): Promise<void> {
     return this.bridge.invoke<void>('turn', { on });
+  }
+
+  update(): Promise<Release> {
+    return this.bridge.invoke<Release>('update');
+  }
+
+  download(): Promise<void> {
+    return this.bridge.invoke<void>('download');
+  }
+
+  news(): Promise<void> {
+    return this.bridge.invoke<void>('news');
   }
 }

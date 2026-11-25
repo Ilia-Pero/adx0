@@ -119,6 +119,13 @@ impl System for Mac {
         let _ = fs::remove_file(DAEMON);
     }
 
+    fn browse(&self, url: &str) -> Result<(), Failure> {
+        Ok(Command::new("/usr/bin/open")
+            .arg(url)
+            .status()
+            .map(|_| ())?)
+    }
+
     fn forget(&self) {
         for (program, arguments) in [
             ("/usr/bin/dscacheutil", ["-flushcache"].as_slice()),

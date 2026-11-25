@@ -42,5 +42,12 @@
   "error.silent": "La liste n’a pas été mise à jour : {url} ne répond pas. ({reason})",
   "error.short": "La liste {title} n’a pas été mise à jour : elle contient trop peu d’adresses ({count}).",
   "error.disk": "Erreur de disque : {reason}",
-  "error.empty": "Il n’y a rien à bloquer : choisissez au moins une liste."
+  "error.empty": "Il n’y a rien à bloquer : choisissez au moins une liste.",
+  "update.check": "Rechercher des mises à jour",
+  "update.checking": "Recherche…",
+  "update.latest": "C’est la dernière version.",
+  "update.found": "La version {version} est disponible.",
+  "update.get": "Télécharger",
+  "update.news": "Nouveautés",
+  "error.update": "Impossible de rechercher des mises à jour : {reason}"
 }

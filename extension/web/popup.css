@@ -1,3 +1,7 @@
+:root {
+  color-scheme: light dark;
+}
+
 body {
   width: 280px;
   margin: 0;
@@ -57,7 +61,7 @@ select {
   box-sizing: border-box;
   width: 100%;
   padding: 8px 12px;
-  border: 1px solid #b9bfc8;
+  border: 1px solid #868d97;
   border-radius: 6px;
   background: #fff;
   color: inherit;
@@ -72,6 +76,10 @@ select {
 button:hover,
 select:hover {
   background: #eef0f3;
+}
+
+button:active {
+  background: #e0e4e9;
 }
 
 button:focus-visible,
@@ -94,12 +102,21 @@ select:focus-visible {
 
   button,
   select {
-    border-color: #4a505a;
+    border-color: #6c737d;
   }
 
   button:hover,
   select:hover {
     background: #30343b;
+  }
+
+  button:active {
+    background: #3a4049;
+  }
+
+  button:focus-visible,
+  select:focus-visible {
+    outline-color: #2dbdae;
   }
 
   p {

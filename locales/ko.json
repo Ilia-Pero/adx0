@@ -42,5 +42,12 @@
   "error.silent": "목록을 업데이트하지 못했습니다: {url}이(가) 응답하지 않습니다. ({reason})",
   "error.short": "목록 {title}을(를) 업데이트하지 못했습니다: 주소가 너무 적습니다({count}개).",
   "error.disk": "디스크 오류: {reason}",
-  "error.empty": "차단할 것이 없습니다. 목록을 하나 이상 선택하세요."
+  "error.empty": "차단할 것이 없습니다. 목록을 하나 이상 선택하세요.",
+  "update.check": "업데이트 확인",
+  "update.checking": "확인 중…",
+  "update.latest": "최신 버전입니다.",
+  "update.found": "버전 {version}이(가) 나왔습니다.",
+  "update.get": "내려받기",
+  "update.news": "바뀐 점",
+  "error.update": "업데이트를 확인하지 못했습니다: {reason}"
 }

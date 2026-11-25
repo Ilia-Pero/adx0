@@ -15,5 +15,6 @@ export function report(tag: string, count: number, rows: ReadonlyArray<Row>): Re
     spoken: code(tag),
     languages: [],
     words: spoken(tag),
+    version: '0.0.0',
   };
 }

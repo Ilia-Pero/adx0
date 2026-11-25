@@ -21,7 +21,10 @@ fn main() -> ExitCode {
             commands::state,
             commands::save,
             commands::refresh,
-            commands::turn
+            commands::turn,
+            commands::update,
+            commands::download,
+            commands::news
         ])
         .run(tauri::generate_context!());
     match ran {

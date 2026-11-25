@@ -4,7 +4,7 @@
 
 <p align="center"><b>ad × 0 = 0</b></p>
 
-<p align="center">백그라운드에서 돌지 않는 광고 차단기 (Windows, macOS, Linux, Firefox)</p>
+<p align="center">백그라운드에서 돌지 않는 광고 차단기 (Windows, macOS, Linux, 브라우저)</p>
 
 <p align="center">
 <a href="https://github.com/Ilia-Pero/adx0/actions/workflows/build.yml"><img src="https://github.com/Ilia-Pero/adx0/actions/workflows/build.yml/badge.svg" alt="build"></a>
@@ -20,7 +20,7 @@
 <img src="window-on.png" width="380" alt="프로그램 창: 광고를 차단하고 있음">
 </p>
 
-ad×0은 광고 서버의 주소를 시스템의 hosts 파일에 쓰고 종료합니다. 모든 프로그램에서 이 주소들의 광고가 더 이상 로드되지 않으며, 메모리나 프로세서를 쓰는 백그라운드 프로세스가 없습니다. Firefox 확장 기능은 hosts 파일이 할 수 없는 일을 합니다. 페이지의 광고 영역을 숨기고 YouTube 동영상에서 광고를 없앱니다.
+ad×0은 광고 서버의 주소를 시스템의 hosts 파일에 쓰고 종료합니다. 모든 프로그램에서 이 주소들의 광고가 더 이상 로드되지 않으며, 메모리나 프로세서를 쓰는 백그라운드 프로세스가 없습니다. 브라우저 확장 기능은 hosts 파일이 할 수 없는 일을 합니다. 페이지의 광고 영역을 숨기고 YouTube 동영상에서 광고를 없앱니다.
 
 ## 프로그램
 
@@ -28,11 +28,13 @@ ad×0은 광고 서버의 주소를 시스템의 hosts 파일에 쓰고 종료�
 - hosts 파일에 있던 내용을 그대로 두고, 처음 고치기 전에 사본을 남기며, 쓴 내용을 다시 읽어 확인합니다.
 - 목록마다 마지막으로 제대로 받은 사본을 보관하므로 목록 사이트가 멈춰도 차단됩니다.
 - 목록의 잘못으로 Google, Wikipedia, GitHub 같은 사이트([전체 목록](../data/essential.json))가 막히지 않습니다. 다른 사이트는 "차단하지 않음"에서 열 수 있습니다.
-- 14개 언어를 지원합니다. 언어는 창 위쪽과 Windows 설치 프로그램에서 고릅니다. 아무 데도 보내지 않습니다. 목록만 내려받는데, 단추를 누를 때와 차단이 켜져 있는 동안 시스템이 시작될 때 하루에 한 번 이하로 받습니다. 뒤의 것은 창 없이 잠깐 이루어지며 끌 수 있습니다.
+- 14개 언어를 지원합니다. 언어는 창 위쪽과 Windows 설치 프로그램에서 고릅니다. 아무 데도 보내지 않습니다. 목록만 내려받는데, 단추를 누를 때와 차단이 켜져 있는 동안 시스템이 시작될 때 하루에 한 번 이하로 받습니다. 뒤의 것은 창 없이 잠깐 이루어지며 끌 수 있습니다. 새 버전은 단추를 누를 때만 확인합니다.
 
-## Firefox 확장 기능
+## 브라우저 확장 기능
 
-<p align="center"><img src="popup.png" width="312" alt="Firefox 확장 기능"></p>
+Firefox와 Chromium 기반 브라우저(Chrome, Yandex 브라우저, Edge, Opera)에서 씁니다.
+
+<p align="center"><img src="popup.png" width="312" alt="브라우저 확장 기능"></p>
 
 - 광고 주소를 차단하고 페이지의 광고 영역을 숨깁니다. 지역 목록은 브라우저 언어에 따라 고릅니다.
 - YouTube의 응답에서 광고 일정을 없애므로 플레이어가 보여 줄 광고가 없습니다.
@@ -83,7 +85,8 @@ hosts 파일은 주소 전체를 다룹니다. YouTube나 소셜 네트워크처
 | Windows | Windows Server 2022에서 동작합니다. 실제 목록으로 hosts 파일의 사본에서 확인했습니다. Windows 10과 11에서는 아직 확인하지 않았습니다. |
 | macOS 10.13+ | 빌드되고 테스트를 통과하며, GitHub의 컴퓨터에서 설치되고 실행됩니다. 아직 아무도 직접 써 보지 않았습니다. |
 | Ubuntu 24.04+ | 빌드되고 테스트를 통과하며, GitHub의 컴퓨터에서 설치되고 실행됩니다. 아직 아무도 직접 써 보지 않았습니다. |
-| Firefox 128+ | Firefox 160에서 동작합니다. 아직 Mozilla의 서명이 없어 Firefox를 다시 시작하면 다시 로드해야 합니다. |
+| Firefox 128+ | Firefox 161에서 동작합니다. 아직 Mozilla의 서명이 없어 Firefox를 다시 시작하면 다시 로드해야 합니다. |
+| Chrome, Yandex 브라우저, Edge, Opera | Edge 158에서 동작합니다(창 없이 확인). 다른 브라우저는 확인하지 않았으며 Chromium 120 이상이 필요합니다. |
 
 ## 설치
 
@@ -93,6 +96,7 @@ hosts 파일은 주소 전체를 다룹니다. YouTube나 소셜 네트워크처
 | macOS 10.13+ | [adx0-macos.dmg](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-macos.dmg) | 프로그램을 응용 프로그램으로 끌어다 놓고 엽니다. macOS가 거부하면 시스템 설정의 "개인정보 보호 및 보안"에서 "그래도 열기"를 누릅니다. |
 | Ubuntu 24.04+ | [adx0-ubuntu.deb](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-ubuntu.deb) | `sudo apt install ./adx0-ubuntu.deb` |
 | Firefox 128+ | [adx0-firefox.zip](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-firefox.zip) | `about:debugging`을 열어 "현재 Firefox", "임시 부가 기능 로드", 이 파일을 고릅니다. Firefox를 다시 시작하면 다시 로드합니다. |
+| Chrome, Yandex 브라우저, Edge, Opera | [adx0-chrome.zip](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-chrome.zip) | 압축을 풀고 `chrome://extensions`를 열어 "개발자 모드"를 켠 다음 "압축해제된 확장 프로그램 로드"로 폴더를 고릅니다. 폴더는 지우지 마세요. Yandex 브라우저는 스토어만 믿으므로 확장 기능을 끌 수 있습니다. |
 
 GitHub가 이 저장소의 코드로 파일을 빌드하고 프로그램을 설치해 실행해 본 뒤에 모두 공개합니다. 파일에 유료 서명이 없어 Windows와 macOS가 첫 실행 때 경고합니다.
 
@@ -109,7 +113,7 @@ npm run tauri build
 
 제거하면 차단된 주소가 다시 열립니다. macOS에서는 프로그램을 지우기 전에 차단을 끄세요.
 
-확장 기능: `extension` 폴더에서 `npm ci && npm run build`를 실행하고, Firefox에서 `about:debugging`을 열어 "현재 Firefox", "임시 부가 기능 로드", `extension/web/manifest.json` 파일을 고릅니다.
+확장 기능: `extension` 폴더에서 `npm ci && npm run build`를 실행하고, Firefox에서 `about:debugging`을 열어 "현재 Firefox", "임시 부가 기능 로드", `extension/packed/firefox/manifest.json` 파일을 고릅니다. Chromium에서는 `extension/packed/chrome` 폴더를 씁니다.
 
 ## 번역
 

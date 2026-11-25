@@ -4,13 +4,26 @@ use std::collections::HashMap;
 use std::time::UNIX_EPOCH;
 
 use adx0_core::{Failure, Settings, SOURCES};
-use adx0_net::Http;
+use adx0_net::{Http, Latest};
 use adx0_phrase::{Language, Phrase, LANGUAGES};
+use adx0_system::{Native, System};
 use serde::Serialize;
 use tauri::{AppHandle, Manager};
 
 use crate::guard;
 use crate::home::Home;
+
+/// The page of the program on GitHub.
+const HOME: &str = env!("CARGO_PKG_REPOSITORY");
+
+/// The installer for this system.
+const INSTALLER: &str = if cfg!(target_os = "windows") {
+    "adx0-windows.exe"
+} else if cfg!(target_os = "macos") {
+    "adx0-macos.dmg"
+} else {
+    "adx0-ubuntu.deb"
+};
 
 /// A list in the window.
 #[derive(Serialize)]
@@ -41,6 +54,16 @@ pub struct Report {
     spoken: &'static str,
     languages: Vec<Tongue>,
     words: HashMap<String, String>,
+    /// The version of the program.
+    version: String,
+}
+
+/// The latest release.
+#[derive(Serialize)]
+pub struct Release {
+    version: String,
+    /// Whether it is newer than this program.
+    newer: bool,
 }
 
 /// The folder of the program. In debug builds `ADX0_HOME` replaces it.
@@ -90,11 +113,20 @@ fn report(home: &Home) -> Result<Report, Failure> {
             })
             .collect(),
         words: Language::current().texts(),
+        version: env!("CARGO_PKG_VERSION").to_owned(),
+    })
+}
+
+fn released() -> Result<Release, Failure> {
+    let latest = Latest::new(HOME).version()?;
+    Ok(Release {
+        version: latest.to_string(),
+        newer: latest > env!("CARGO_PKG_VERSION").parse()?,
     })
 }
 
 /// Downloads the chosen lists. Returns messages about those that could not be downloaded.
-fn download(home: &Home) -> Result<Vec<String>, Failure> {
+fn renewed(home: &Home) -> Result<Vec<String>, Failure> {
     let settings = home.settings().read()?;
     let shelf = home.shelf();
     Ok(SOURCES
@@ -125,7 +157,7 @@ pub fn save(app: AppHandle, settings: Settings) -> Result<(), String> {
 #[tauri::command(async)]
 pub fn refresh(app: AppHandle) -> Result<Vec<String>, String> {
     home(&app)
-        .and_then(|home| download(&home))
+        .and_then(|home| renewed(&home))
         .map_err(|failure| failure.to_string())
 }
 
@@ -135,4 +167,26 @@ pub fn turn(app: AppHandle, on: bool) -> Result<(), String> {
     home(&app)
         .and_then(|home| guard::switch(&home, on))
         .map_err(|failure| failure.to_string())
+}
+
+/// Looks for a newer version. The program does this only when a person asks.
+#[tauri::command(async)]
+pub fn update() -> Result<Release, String> {
+    released().map_err(|failure| failure.to_string())
+}
+
+/// Downloads the installer of the latest release with the browser.
+#[tauri::command(async)]
+pub fn download() -> Result<(), String> {
+    browse(&Latest::new(HOME).file(INSTALLER))
+}
+
+/// Shows what is new in the latest release.
+#[tauri::command(async)]
+pub fn news() -> Result<(), String> {
+    browse(&Latest::new(HOME).page())
+}
+
+fn browse(url: &str) -> Result<(), String> {
+    Native.browse(url).map_err(|failure| failure.to_string())
 }

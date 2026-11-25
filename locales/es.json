@@ -42,5 +42,12 @@
   "error.silent": "La lista no se ha actualizado: {url} no responde. ({reason})",
   "error.short": "La lista {title} no se ha actualizado: tiene muy pocas direcciones ({count}).",
   "error.disk": "Error de disco: {reason}",
-  "error.empty": "No hay nada que bloquear: elija al menos una lista."
+  "error.empty": "No hay nada que bloquear: elija al menos una lista.",
+  "update.check": "Buscar actualizaciones",
+  "update.checking": "Buscando…",
+  "update.latest": "Esta es la última versión.",
+  "update.found": "Ha salido la versión {version}.",
+  "update.get": "Descargar",
+  "update.news": "Novedades",
+  "error.update": "No se pudo buscar actualizaciones: {reason}"
 }

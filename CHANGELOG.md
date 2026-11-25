@@ -1,5 +1,12 @@
 # Changes
 
+## 0.4.0 (2026-11-25)
+
+- A button at the bottom of the window looks for a newer version. The program does not do this by itself.
+- The extension for Chrome, Yandex Browser, Edge and Opera.
+- Days and numbers in Belarusian and Kazakh on systems that do not know these languages.
+- Lines of controls have enough contrast in both themes; scroll bars follow the dark theme.
+
 ## 0.3.0 (2026-11-25)
 
 - Kazakh and Belarusian: 14 languages. The installer for Windows does not know Kazakh; it is chosen at the top of the window.

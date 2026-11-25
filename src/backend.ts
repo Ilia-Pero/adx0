@@ -37,6 +37,15 @@ export interface Report {
   readonly spoken: string;
   readonly languages: ReadonlyArray<Tongue>;
   readonly words: Words;
+  /** The version of the program. */
+  readonly version: string;
+}
+
+/** The latest release of the program. */
+export interface Release {
+  readonly version: string;
+  /** Whether it is newer than this program. */
+  readonly newer: boolean;
 }
 
 /** The part of the program that works with files and the internet. */
@@ -47,4 +56,10 @@ export interface Backend {
   refresh(): Promise<ReadonlyArray<string>>;
   /** Turns blocking on or off. */
   turn(on: boolean): Promise<void>;
+  /** Looks for a newer version. */
+  update(): Promise<Release>;
+  /** Downloads the installer of the latest release. */
+  download(): Promise<void>;
+  /** Shows what is new in the latest release. */
+  news(): Promise<void>;
 }

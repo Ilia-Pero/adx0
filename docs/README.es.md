@@ -4,7 +4,7 @@
 
 <p align="center"><b>ad × 0 = 0</b></p>
 
-<p align="center">Un bloqueador de anuncios que no se queda en ejecución: para Windows, macOS, Linux y Firefox</p>
+<p align="center">Un bloqueador de anuncios que no se queda en ejecución: para Windows, macOS, Linux y navegadores</p>
 
 <p align="center">
 <a href="https://github.com/Ilia-Pero/adx0/actions/workflows/build.yml"><img src="https://github.com/Ilia-Pero/adx0/actions/workflows/build.yml/badge.svg" alt="build"></a>
@@ -20,7 +20,7 @@
 <img src="window-on.png" width="380" alt="La ventana del programa: la publicidad está bloqueada">
 </p>
 
-ad×0 escribe las direcciones de los servidores de publicidad en el archivo hosts del sistema y se cierra. Los anuncios de esas direcciones dejan de cargarse en todos los programas y no hay ningún proceso en segundo plano que ocupe memoria o procesador. Una extensión para Firefox hace lo que el archivo hosts no puede: oculta los bloques de publicidad en las páginas y quita los anuncios de los vídeos de YouTube.
+ad×0 escribe las direcciones de los servidores de publicidad en el archivo hosts del sistema y se cierra. Los anuncios de esas direcciones dejan de cargarse en todos los programas y no hay ningún proceso en segundo plano que ocupe memoria o procesador. Una extensión para el navegador hace lo que el archivo hosts no puede: oculta los bloques de publicidad en las páginas y quita los anuncios de los vídeos de YouTube.
 
 ## El programa
 
@@ -28,11 +28,13 @@ ad×0 escribe las direcciones de los servidores de publicidad en el archivo host
 - Conserva sus propias líneas del archivo hosts, deja una copia antes del primer cambio y vuelve a leer lo que ha escrito.
 - Guarda la última copia buena de cada lista, así el bloqueo no depende de que el sitio de la lista funcione.
 - No deja que un error de una lista cierre sitios como Google, Wikipedia o GitHub: esta es [la lista completa](../data/essential.json). Cualquier otro sitio se abre con el campo «No bloquear».
-- Habla 14 idiomas: el idioma se elige en la parte superior de la ventana y en el instalador para Windows. No envía nada: solo descarga las listas, cuando usted pulsa el botón y, con el bloqueo activado, al iniciar el sistema, como mucho una vez al día. Lo segundo ocurre sin ventana en un instante y se puede desactivar.
+- Habla 14 idiomas: el idioma se elige en la parte superior de la ventana y en el instalador para Windows. No envía nada: solo descarga las listas, cuando usted pulsa el botón y, con el bloqueo activado, al iniciar el sistema, como mucho una vez al día. Lo segundo ocurre sin ventana en un instante y se puede desactivar. Busca una versión nueva solo cuando usted pulsa el botón.
 
-## La extensión para Firefox
+## La extensión para el navegador
 
-<p align="center"><img src="popup.png" width="312" alt="La extensión para Firefox"></p>
+Para Firefox y para los navegadores basados en Chromium: Chrome, Yandex Browser, Edge, Opera.
+
+<p align="center"><img src="popup.png" width="312" alt="La extensión para el navegador"></p>
 
 - Bloquea direcciones de publicidad y oculta bloques en las páginas. Las listas regionales se eligen según los idiomas del navegador.
 - Quita el calendario de anuncios de las respuestas de YouTube, así el reproductor no tiene nada que mostrar.
@@ -83,7 +85,8 @@ Las listas no forman parte de este repositorio. Su copia del programa las descar
 | Windows | Funciona en Windows Server 2022: probado con listas reales en una copia del archivo hosts. Aún no se ha probado en Windows 10 y 11. |
 | macOS 10.13+ | Se compila y pasa las pruebas; en una máquina de GitHub se instala y se inicia. Nadie lo ha probado a mano todavía. |
 | Ubuntu 24.04+ | Se compila y pasa las pruebas; en una máquina de GitHub se instala y se inicia. Nadie lo ha probado a mano todavía. |
-| Firefox 128+ | Funciona en Firefox 160. Mozilla aún no la ha firmado, así que hay que cargarla de nuevo tras reiniciar Firefox. |
+| Firefox 128+ | Funciona en Firefox 161. Mozilla aún no la ha firmado, así que hay que cargarla de nuevo tras reiniciar Firefox. |
+| Chrome, Yandex Browser, Edge, Opera | Funciona en Edge 158, probada sin ventana. Los demás no se han probado; necesitan Chromium 120 o posterior. |
 
 ## Instalación
 
@@ -93,6 +96,7 @@ Las listas no forman parte de este repositorio. Su copia del programa las descar
 | macOS 10.13+ | [adx0-macos.dmg](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-macos.dmg) | Arrastre el programa a Aplicaciones y ábralo. Cuando macOS se niegue, vaya a Ajustes del Sistema, «Privacidad y seguridad», y pulse «Abrir igualmente». |
 | Ubuntu 24.04+ | [adx0-ubuntu.deb](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-ubuntu.deb) | `sudo apt install ./adx0-ubuntu.deb` |
 | Firefox 128+ | [adx0-firefox.zip](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-firefox.zip) | Abra `about:debugging`, «Este Firefox», «Cargar complemento temporal», y elija el archivo. Tras reiniciar Firefox, cárguelo de nuevo. |
+| Chrome, Yandex Browser, Edge, Opera | [adx0-chrome.zip](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-chrome.zip) | Descomprímalo, abra `chrome://extensions`, active el «Modo de desarrollador», pulse «Cargar descomprimida» y elija la carpeta; no la borre. Yandex Browser solo confía en los catálogos y puede desactivar la extensión. |
 
 GitHub compila estos archivos a partir del código de este repositorio, instala e inicia los programas y solo entonces lo publica todo. Los archivos no llevan firma de pago, por eso Windows y macOS avisan en el primer inicio.
 
@@ -109,7 +113,7 @@ El instalador aparece en `src-tauri/target/release/bundle`.
 
 El desinstalador vuelve a abrir las direcciones bloqueadas. En macOS, desactive el bloqueo antes de borrar el programa.
 
-La extensión: ejecute `npm ci && npm run build` en la carpeta `extension`, abra `about:debugging` en Firefox, elija «Este Firefox», «Cargar complemento temporal» y el archivo `extension/web/manifest.json`.
+La extensión: ejecute `npm ci && npm run build` en la carpeta `extension`, abra `about:debugging` en Firefox, elija «Este Firefox», «Cargar complemento temporal» y el archivo `extension/packed/firefox/manifest.json`. Para Chromium, la carpeta es `extension/packed/chrome`.
 
 ## Traducciones
 

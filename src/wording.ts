@@ -1,13 +1,10 @@
 import type { Report, Row } from './backend.ts';
+import { Regional } from './regional.ts';
 import { filled } from './words.ts';
 
 /** A day in the given language. */
 function day(seconds: number, code: string): string {
-  return new Date(seconds * 1000).toLocaleDateString(code, {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-  });
+  return new Regional(code).day(seconds * 1000);
 }
 
 /**
@@ -31,7 +28,7 @@ export function summary(report: Report): string {
   }
   const moments = report.rows.filter((row) => row.on && row.updated > 0).map((row) => row.updated);
   return text([
-    filled(words['note.on'], 'count', report.count.toLocaleString(report.spoken)),
+    filled(words['note.on'], 'count', new Regional(report.spoken).number(report.count)),
     ...moments
       .slice(0, 1)
       .map(() => filled(words['note.date'], 'date', day(Math.min(...moments), report.spoken))),

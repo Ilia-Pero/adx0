@@ -54,6 +54,13 @@ pub trait System {
     /// Makes the system start the program no more. Needs the administrator's permission.
     fn unsettle(&self);
 
+    /// Opens the address in the browser.
+    ///
+    /// # Errors
+    ///
+    /// The system has not opened it.
+    fn browse(&self, url: &str) -> Result<(), Failure>;
+
     /// Asks the system to forget remembered addresses of sites. A failure does no harm:
     /// the system forgets them by itself in a few minutes.
     fn forget(&self);

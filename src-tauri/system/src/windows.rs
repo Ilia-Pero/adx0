@@ -152,6 +152,13 @@ impl System for Windows {
         }
     }
 
+    fn browse(&self, url: &str) -> Result<(), Failure> {
+        Ok(Command::new(Self::folder()?.join("rundll32.exe"))
+            .args(["url.dll,FileProtocolHandler", url])
+            .status()
+            .map(|_| ())?)
+    }
+
     fn forget(&self) {
         if let Ok(folder) = Self::folder() {
             let _ = Command::new(folder.join("ipconfig.exe"))

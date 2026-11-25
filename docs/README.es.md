@@ -49,7 +49,7 @@ El archivo hosts bloquea direcciones completas, por eso queda la publicidad que 
 
 <p align="center"><img src="popup.png" width="312" alt="Ventana de la extensión"></p>
 
-- Bloquea unas 64 000 direcciones y oculta bloques de publicidad en las páginas.
+- Bloquea unas 55 000 direcciones y oculta bloques de publicidad en las páginas.
 - Quita el plan de anuncios de las respuestas de YouTube.
 - Permite la publicidad en un sitio con un botón.
 - Actualiza las listas una vez al día.

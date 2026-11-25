@@ -49,7 +49,7 @@ Le fichier hosts bloque des adresses entières : la publicité qui vient de la m
 
 <p align="center"><img src="popup.png" width="312" alt="Fenêtre de l’extension"></p>
 
-- Bloque environ 64 000 adresses et masque les blocs publicitaires sur les pages.
+- Bloque environ 61 000 adresses et masque les blocs publicitaires sur les pages.
 - Retire le programme publicitaire des réponses de YouTube.
 - Autorise la publicité sur un site avec un bouton.
 - Met à jour les listes une fois par jour.

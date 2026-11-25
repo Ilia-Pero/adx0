@@ -51,7 +51,7 @@ The hosts file works with whole addresses, so ads that come from the same addres
 
 <p align="center"><img src="docs/popup.png" width="312" alt="The window of the extension"></p>
 
-- Blocks about 64,000 addresses and hides ad blocks on pages. Regional lists are chosen by the languages of the browser.
+- Blocks 55,000 to 64,000 addresses, depending on the regional list, and hides ad blocks on pages. Regional lists are chosen by the languages of the browser.
 - Removes the schedule of ads from the answers of YouTube, so the player does not show them.
 - Allows ads on a site with one button.
 - Updates the lists once a day. The browser applies the rules itself and unloads the background part of the extension when it is idle.

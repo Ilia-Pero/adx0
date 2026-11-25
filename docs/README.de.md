@@ -49,7 +49,7 @@ Die hosts-Datei blockiert ganze Adressen, deshalb bleibt Werbung, die von dersel
 
 <p align="center"><img src="popup.png" width="312" alt="Fenster der Erweiterung"></p>
 
-- Blockiert etwa 64.000 Adressen und blendet Werbeblöcke auf Seiten aus.
+- Blockiert etwa 55.000 Adressen und blendet Werbeblöcke auf Seiten aus.
 - Entfernt den Werbeplan aus den Antworten von YouTube.
 - Erlaubt Werbung auf einer Website mit einer Schaltfläche.
 - Aktualisiert die Listen einmal am Tag.

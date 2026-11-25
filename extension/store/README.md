@@ -21,7 +21,7 @@ Blocks ads on pages and in YouTube videos.
 
 ## Description
 
-Blocks about 64,000 addresses of ad servers and trackers, hides ad blocks on pages and removes the schedule of ads from the answers of YouTube, so the player does not show them.
+Blocks 55,000 to 64,000 addresses of ad servers and trackers, depending on the regional list, hides ad blocks on pages and removes the schedule of ads from the answers of YouTube, so the player does not show them.
 
 The browser applies the rules itself and unloads the background part of the extension when it is idle. The lists are downloaded from their own sites once a day: Peter Lowe, AdAway, EasyList and a regional list chosen by the languages of the browser. The last good copy of each list is kept, so blocking works while the site of a list is down.
 

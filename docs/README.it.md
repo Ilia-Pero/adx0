@@ -49,7 +49,7 @@ Il file hosts blocca indirizzi interi, quindi resta la pubblicità che arriva da
 
 <p align="center"><img src="popup.png" width="312" alt="Finestra dell’estensione"></p>
 
-- Blocca circa 64.000 indirizzi e nasconde i blocchi pubblicitari nelle pagine.
+- Blocca circa 55.000 indirizzi e nasconde i blocchi pubblicitari nelle pagine.
 - Toglie il programma degli annunci dalle risposte di YouTube.
 - Consente la pubblicità su un sito con un pulsante.
 - Aggiorna gli elenchi una volta al giorno.

@@ -17,6 +17,7 @@ export interface Tongue {
 
 /** Languages of the extension, each in its own language. The codes are folders in _locales. */
 export const TONGUES: ReadonlyArray<Tongue> = [
+  { code: 'be', title: 'Беларуская' },
   { code: 'de', title: 'Deutsch' },
   { code: 'el', title: 'Ελληνικά' },
   { code: 'en', title: 'English' },
@@ -25,6 +26,7 @@ export const TONGUES: ReadonlyArray<Tongue> = [
   { code: 'he', title: 'עברית' },
   { code: 'it', title: 'Italiano' },
   { code: 'ja', title: '日本語' },
+  { code: 'kk', title: 'Қазақша' },
   { code: 'ko', title: '한국어' },
   { code: 'ru', title: 'Русский' },
   { code: 'sr', title: 'Српски' },

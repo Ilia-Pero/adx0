@@ -12,10 +12,10 @@
 <a href="https://github.com/Ilia-Pero/adx0/actions/workflows/build.yml"><img src="https://github.com/Ilia-Pero/adx0/actions/workflows/build.yml/badge.svg" alt="build"></a>
 <a href="../LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT"></a>
 <a href="https://github.com/Ilia-Pero/adx0/releases/latest"><img src="https://img.shields.io/github/v/release/Ilia-Pero/adx0?label=download&color=0f766e" alt="download"></a>
-<img src="https://img.shields.io/badge/languages-12-0f766e" alt="12 languages">
+<img src="https://img.shields.io/badge/languages-14-0f766e" alt="14 languages">
 </p>
 
-[English](../README.md) · [Русский](README.ru.md) · [Español](README.es.md) · [Ελληνικά](README.el.md) · **עברית** · [简体中文](README.zh.md) · [日本語](README.ja.md) · [한국어](README.ko.md) · [Српски](README.sr.md) · [Français](README.fr.md) · [Deutsch](README.de.md) · [Italiano](README.it.md)
+[English](../README.md) · [Русский](README.ru.md) · [Español](README.es.md) · [Ελληνικά](README.el.md) · **עברית** · [简体中文](README.zh.md) · [日本語](README.ja.md) · [한국어](README.ko.md) · [Српски](README.sr.md) · [Français](README.fr.md) · [Deutsch](README.de.md) · [Italiano](README.it.md) · [Беларуская](README.be.md) · [Қазақша](README.kk.md)
 
 <p align="center">
 <img src="window-off.png" width="380" alt="חלון התוכנה: החסימה כבויה">
@@ -30,7 +30,7 @@
 - שומרת על השורות שלכם בקובץ ה־hosts, משאירה עותק שלו לפני השינוי הראשון וקוראת שוב את מה שכתבה.
 - שומרת את העותק התקין האחרון של כל רשימה, כך שהחסימה אינה תלויה בזמינות האתר של הרשימה.
 - אינה מניחה לטעות ברשימה לסגור אתרים כמו Google‏, Wikipedia או GitHub: הנה [הרשימה המלאה](../data/essential.json). כל אתר אחר פותחים בשדה "לא לחסום".
-- מדברת 12 שפות: את השפה בוחרים בראש החלון ובתוכנית ההתקנה ל־Windows. אינה שולחת דבר לשום מקום: רק מורידה את הרשימות, כשאתם לוחצים על הכפתור וכל עוד החסימה פועלת גם עם הפעלת המערכת, לכל היותר פעם ביום. זה קורה ללא חלון בתוך רגע, ואפשר לכבות את זה.
+- מדברת 14 שפות: את השפה בוחרים בראש החלון ובתוכנית ההתקנה ל־Windows. אינה שולחת דבר לשום מקום: רק מורידה את הרשימות, כשאתם לוחצים על הכפתור וכל עוד החסימה פועלת גם עם הפעלת המערכת, לכל היותר פעם ביום. זה קורה ללא חלון בתוך רגע, ואפשר לכבות את זה.
 
 ## ההרחבה ל־Firefox
 
@@ -39,7 +39,7 @@
 - חוסמת כתובות פרסום ומסתירה בלוקים של פרסום בדפים. רשימות אזוריות נבחרות לפי שפות הדפדפן.
 - מסירה את לוח הפרסומות מהתשובות של YouTube, כך שלנגן אין מה להציג.
 - מעדכנת את הרשימות פעם ביום. הדפדפן עצמו אוכף את הכללים, וחלק הרקע אינו טעון בין לבין.
-- מדברת את אותן 12 שפות: בהתחלה בשפת הדפדפן; שפה אחרת בוחרים בחלון ההרחבה.
+- מדברת את אותן 14 שפות: בהתחלה בשפת הדפדפן; שפה אחרת בוחרים בחלון ההרחבה.
 
 ## מה היא אינה יכולה
 

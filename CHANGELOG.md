@@ -1,5 +1,9 @@
 # Changes
 
+## 0.3.0 (2026-11-25)
+
+- Kazakh and Belarusian: 14 languages. The installer for Windows does not know Kazakh; it is chosen at the top of the window.
+
 ## 0.2.0 (2026-11-25)
 
 - While blocking is on, the lists are downloaded again when the system starts, at most once a day. The program starts for a moment without a window and exits. A person can turn this off.

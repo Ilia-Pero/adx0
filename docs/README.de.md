@@ -10,10 +10,10 @@
 <a href="https://github.com/Ilia-Pero/adx0/actions/workflows/build.yml"><img src="https://github.com/Ilia-Pero/adx0/actions/workflows/build.yml/badge.svg" alt="build"></a>
 <a href="../LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT"></a>
 <a href="https://github.com/Ilia-Pero/adx0/releases/latest"><img src="https://img.shields.io/github/v/release/Ilia-Pero/adx0?label=download&color=0f766e" alt="download"></a>
-<img src="https://img.shields.io/badge/languages-12-0f766e" alt="12 languages">
+<img src="https://img.shields.io/badge/languages-14-0f766e" alt="14 languages">
 </p>
 
-[English](../README.md) · [Русский](README.ru.md) · [Español](README.es.md) · [Ελληνικά](README.el.md) · [עברית](README.he.md) · [简体中文](README.zh.md) · [日本語](README.ja.md) · [한국어](README.ko.md) · [Српски](README.sr.md) · [Français](README.fr.md) · **Deutsch** · [Italiano](README.it.md)
+[English](../README.md) · [Русский](README.ru.md) · [Español](README.es.md) · [Ελληνικά](README.el.md) · [עברית](README.he.md) · [简体中文](README.zh.md) · [日本語](README.ja.md) · [한국어](README.ko.md) · [Српски](README.sr.md) · [Français](README.fr.md) · **Deutsch** · [Italiano](README.it.md) · [Беларуская](README.be.md) · [Қазақша](README.kk.md)
 
 <p align="center">
 <img src="window-off.png" width="380" alt="Das Fenster des Programms: Die Blockierung ist aus">
@@ -28,7 +28,7 @@ ad×0 schreibt Adressen von Werbeservern in die Datei hosts des Systems und been
 - Behält Ihre eigenen Zeilen in der Datei hosts, legt vor der ersten Änderung eine Kopie an und liest zurück, was es geschrieben hat.
 - Bewahrt die letzte gute Kopie jeder Liste auf, sodass die Blockierung nicht davon abhängt, ob die Website der Liste erreichbar ist.
 - Lässt nicht zu, dass ein Fehler in einer Liste Seiten wie Google, Wikipedia oder GitHub sperrt: hier ist [die ganze Liste](../data/essential.json). Jede andere Seite wird im Feld „Nicht blockieren“ geöffnet.
-- Spricht 12 Sprachen: Die Sprache wird oben im Fenster und im Installationsprogramm für Windows gewählt. Sendet nichts: Es lädt nur die Listen herunter, wenn Sie auf die Schaltfläche klicken und, solange die Blockierung an ist, beim Systemstart, höchstens einmal am Tag. Letzteres geschieht ohne Fenster in einem Augenblick und lässt sich ausschalten.
+- Spricht 14 Sprachen: Die Sprache wird oben im Fenster und im Installationsprogramm für Windows gewählt. Sendet nichts: Es lädt nur die Listen herunter, wenn Sie auf die Schaltfläche klicken und, solange die Blockierung an ist, beim Systemstart, höchstens einmal am Tag. Letzteres geschieht ohne Fenster in einem Augenblick und lässt sich ausschalten.
 
 ## Die Erweiterung für Firefox
 
@@ -37,7 +37,7 @@ ad×0 schreibt Adressen von Werbeservern in die Datei hosts des Systems und been
 - Blockiert Werbeadressen und blendet Werbeblöcke auf Seiten aus. Regionale Listen werden nach den Sprachen des Browsers gewählt.
 - Entfernt den Werbeplan aus den Antworten von YouTube, sodass der Player nichts zu zeigen hat.
 - Aktualisiert die Listen einmal am Tag. Der Browser selbst setzt die Regeln durch, der Hintergrundteil ist dazwischen nicht geladen.
-- Spricht dieselben 12 Sprachen: zuerst die des Browsers; eine andere wird im Fenster der Erweiterung gewählt.
+- Spricht dieselben 14 Sprachen: zuerst die des Browsers; eine andere wird im Fenster der Erweiterung gewählt.
 
 ## Was es nicht kann
 

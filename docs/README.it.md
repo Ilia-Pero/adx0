@@ -10,10 +10,10 @@
 <a href="https://github.com/Ilia-Pero/adx0/actions/workflows/build.yml"><img src="https://github.com/Ilia-Pero/adx0/actions/workflows/build.yml/badge.svg" alt="build"></a>
 <a href="../LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT"></a>
 <a href="https://github.com/Ilia-Pero/adx0/releases/latest"><img src="https://img.shields.io/github/v/release/Ilia-Pero/adx0?label=download&color=0f766e" alt="download"></a>
-<img src="https://img.shields.io/badge/languages-12-0f766e" alt="12 languages">
+<img src="https://img.shields.io/badge/languages-14-0f766e" alt="14 languages">
 </p>
 
-[English](../README.md) · [Русский](README.ru.md) · [Español](README.es.md) · [Ελληνικά](README.el.md) · [עברית](README.he.md) · [简体中文](README.zh.md) · [日本語](README.ja.md) · [한국어](README.ko.md) · [Српски](README.sr.md) · [Français](README.fr.md) · [Deutsch](README.de.md) · **Italiano**
+[English](../README.md) · [Русский](README.ru.md) · [Español](README.es.md) · [Ελληνικά](README.el.md) · [עברית](README.he.md) · [简体中文](README.zh.md) · [日本語](README.ja.md) · [한국어](README.ko.md) · [Српски](README.sr.md) · [Français](README.fr.md) · [Deutsch](README.de.md) · **Italiano** · [Беларуская](README.be.md) · [Қазақша](README.kk.md)
 
 <p align="center">
 <img src="window-off.png" width="380" alt="La finestra del programma: il blocco è disattivato">
@@ -28,7 +28,7 @@ ad×0 scrive gli indirizzi dei server pubblicitari nel file hosts del sistema e 
 - Conserva le tue righe del file hosts, ne lascia una copia prima della prima modifica e rilegge ciò che ha scritto.
 - Conserva l’ultima copia valida di ogni lista, così il blocco non dipende dal sito della lista.
 - Non permette a un errore in una lista di chiudere siti come Google, Wikipedia o GitHub: ecco [la lista completa](../data/essential.json). Ogni altro sito si apre con il campo «Non bloccare».
-- Parla 12 lingue: la lingua si sceglie in alto nella finestra e nel programma di installazione per Windows. Non invia nulla: scarica soltanto le liste, quando premi il pulsante e, finché il blocco è attivo, all’avvio del sistema, al massimo una volta al giorno. Questo avviene senza finestra in un istante e si può disattivare.
+- Parla 14 lingue: la lingua si sceglie in alto nella finestra e nel programma di installazione per Windows. Non invia nulla: scarica soltanto le liste, quando premi il pulsante e, finché il blocco è attivo, all’avvio del sistema, al massimo una volta al giorno. Questo avviene senza finestra in un istante e si può disattivare.
 
 ## L’estensione per Firefox
 
@@ -37,7 +37,7 @@ ad×0 scrive gli indirizzi dei server pubblicitari nel file hosts del sistema e 
 - Blocca gli indirizzi pubblicitari e nasconde i blocchi pubblicitari nelle pagine. Le liste regionali si scelgono in base alle lingue del browser.
 - Toglie il programma della pubblicità dalle risposte di YouTube, così il lettore non ha nulla da mostrare.
 - Aggiorna le liste una volta al giorno. È il browser ad applicare le regole, e la parte in background nel frattempo non è caricata.
-- Parla le stesse 12 lingue: all’inizio quella del browser; un’altra si sceglie nella finestra dell’estensione.
+- Parla le stesse 14 lingue: all’inizio quella del browser; un’altra si sceglie nella finestra dell’estensione.
 
 ## Che cosa non può fare
 

@@ -10,10 +10,10 @@
 <a href="https://github.com/Ilia-Pero/adx0/actions/workflows/build.yml"><img src="https://github.com/Ilia-Pero/adx0/actions/workflows/build.yml/badge.svg" alt="build"></a>
 <a href="../LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT"></a>
 <a href="https://github.com/Ilia-Pero/adx0/releases/latest"><img src="https://img.shields.io/github/v/release/Ilia-Pero/adx0?label=download&color=0f766e" alt="download"></a>
-<img src="https://img.shields.io/badge/languages-12-0f766e" alt="12 languages">
+<img src="https://img.shields.io/badge/languages-14-0f766e" alt="14 languages">
 </p>
 
-[English](../README.md) · [Русский](README.ru.md) · [Español](README.es.md) · [Ελληνικά](README.el.md) · [עברית](README.he.md) · [简体中文](README.zh.md) · [日本語](README.ja.md) · **한국어** · [Српски](README.sr.md) · [Français](README.fr.md) · [Deutsch](README.de.md) · [Italiano](README.it.md)
+[English](../README.md) · [Русский](README.ru.md) · [Español](README.es.md) · [Ελληνικά](README.el.md) · [עברית](README.he.md) · [简体中文](README.zh.md) · [日本語](README.ja.md) · **한국어** · [Српски](README.sr.md) · [Français](README.fr.md) · [Deutsch](README.de.md) · [Italiano](README.it.md) · [Беларуская](README.be.md) · [Қазақша](README.kk.md)
 
 <p align="center">
 <img src="window-off.png" width="380" alt="프로그램 창: 차단이 꺼져 있음">
@@ -28,7 +28,7 @@ ad×0은 광고 서버의 주소를 시스템의 hosts 파일에 쓰고 종료�
 - hosts 파일에 있던 내용을 그대로 두고, 처음 고치기 전에 사본을 남기며, 쓴 내용을 다시 읽어 확인합니다.
 - 목록마다 마지막으로 제대로 받은 사본을 보관하므로 목록 사이트가 멈춰도 차단됩니다.
 - 목록의 잘못으로 Google, Wikipedia, GitHub 같은 사이트([전체 목록](../data/essential.json))가 막히지 않습니다. 다른 사이트는 "차단하지 않음"에서 열 수 있습니다.
-- 12개 언어를 지원합니다. 언어는 창 위쪽과 Windows 설치 프로그램에서 고릅니다. 아무 데도 보내지 않습니다. 목록만 내려받는데, 단추를 누를 때와 차단이 켜져 있는 동안 시스템이 시작될 때 하루에 한 번 이하로 받습니다. 뒤의 것은 창 없이 잠깐 이루어지며 끌 수 있습니다.
+- 14개 언어를 지원합니다. 언어는 창 위쪽과 Windows 설치 프로그램에서 고릅니다. 아무 데도 보내지 않습니다. 목록만 내려받는데, 단추를 누를 때와 차단이 켜져 있는 동안 시스템이 시작될 때 하루에 한 번 이하로 받습니다. 뒤의 것은 창 없이 잠깐 이루어지며 끌 수 있습니다.
 
 ## Firefox 확장 기능
 
@@ -37,7 +37,7 @@ ad×0은 광고 서버의 주소를 시스템의 hosts 파일에 쓰고 종료�
 - 광고 주소를 차단하고 페이지의 광고 영역을 숨깁니다. 지역 목록은 브라우저 언어에 따라 고릅니다.
 - YouTube의 응답에서 광고 일정을 없애므로 플레이어가 보여 줄 광고가 없습니다.
 - 목록을 하루에 한 번 업데이트합니다. 규칙은 브라우저가 직접 적용하고, 그동안 백그라운드 부분은 올라와 있지 않습니다.
-- 같은 12개 언어를 지원합니다. 처음에는 브라우저 언어를 쓰며 확장 기능 창에서 바꿀 수 있습니다.
+- 같은 14개 언어를 지원합니다. 처음에는 브라우저 언어를 쓰며 확장 기능 창에서 바꿀 수 있습니다.
 
 ## 할 수 없는 일
 

@@ -10,10 +10,10 @@
 <a href="https://github.com/Ilia-Pero/adx0/actions/workflows/build.yml"><img src="https://github.com/Ilia-Pero/adx0/actions/workflows/build.yml/badge.svg" alt="build"></a>
 <a href="../LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT"></a>
 <a href="https://github.com/Ilia-Pero/adx0/releases/latest"><img src="https://img.shields.io/github/v/release/Ilia-Pero/adx0?label=download&color=0f766e" alt="download"></a>
-<img src="https://img.shields.io/badge/languages-12-0f766e" alt="12 languages">
+<img src="https://img.shields.io/badge/languages-14-0f766e" alt="14 languages">
 </p>
 
-[English](../README.md) · **Русский** · [Español](README.es.md) · [Ελληνικά](README.el.md) · [עברית](README.he.md) · [简体中文](README.zh.md) · [日本語](README.ja.md) · [한국어](README.ko.md) · [Српски](README.sr.md) · [Français](README.fr.md) · [Deutsch](README.de.md) · [Italiano](README.it.md)
+[English](../README.md) · **Русский** · [Español](README.es.md) · [Ελληνικά](README.el.md) · [עברית](README.he.md) · [简体中文](README.zh.md) · [日本語](README.ja.md) · [한국어](README.ko.md) · [Српски](README.sr.md) · [Français](README.fr.md) · [Deutsch](README.de.md) · [Italiano](README.it.md) · [Беларуская](README.be.md) · [Қазақша](README.kk.md)
 
 <p align="center">
 <img src="window-off.png" width="380" alt="Окно программы: блокировка выключена">
@@ -28,7 +28,7 @@ ad×0 записывает адреса рекламных серверов в �
 - Сохраняет ваши строки в файле hosts, перед первой правкой оставляет его копию и перечитывает то, что записала.
 - Хранит последний удачно скачанный список, поэтому блокировка не зависит от того, работает ли сайт списка.
 - Не даёт ошибке в списке закрыть такие сайты, как Яндекс, Google или Госуслуги: вот [весь перечень](../data/essential.json). Любой другой сайт открывают в поле «Не закрывать».
-- Говорит на 12 языках: язык выбирают вверху окна и в установщике для Windows. Никуда ничего не отправляет: только скачивает списки, когда вы нажимаете кнопку, а при включённой блокировке ещё и при входе в систему, не чаще раза в сутки. Второе происходит без окна и за мгновение, его можно выключить.
+- Говорит на 14 языках: язык выбирают вверху окна и в установщике для Windows. Никуда ничего не отправляет: только скачивает списки, когда вы нажимаете кнопку, а при включённой блокировке ещё и при входе в систему, не чаще раза в сутки. Второе происходит без окна и за мгновение, его можно выключить.
 
 ## Расширение для Firefox
 
@@ -37,7 +37,7 @@ ad×0 записывает адреса рекламных серверов в �
 - Закрывает рекламные адреса и скрывает рекламные блоки на страницах. Региональные списки выбираются по языкам браузера.
 - Убирает расписание рекламы из ответов YouTube, и проигрывателю нечего показывать.
 - Обновляет списки раз в сутки. Правила исполняет сам браузер, фоновая часть между обновлениями выгружена.
-- Говорит на тех же 12 языках: сначала на языке браузера, другой выбирают в окошке расширения.
+- Говорит на тех же 14 языках: сначала на языке браузера, другой выбирают в окошке расширения.
 
 ## Чего он не может
 

@@ -10,10 +10,10 @@
 <a href="https://github.com/Ilia-Pero/adx0/actions/workflows/build.yml"><img src="https://github.com/Ilia-Pero/adx0/actions/workflows/build.yml/badge.svg" alt="build"></a>
 <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT"></a>
 <a href="https://github.com/Ilia-Pero/adx0/releases/latest"><img src="https://img.shields.io/github/v/release/Ilia-Pero/adx0?label=download&color=0f766e" alt="download"></a>
-<img src="https://img.shields.io/badge/languages-12-0f766e" alt="12 languages">
+<img src="https://img.shields.io/badge/languages-14-0f766e" alt="14 languages">
 </p>
 
-**English** · [Русский](docs/README.ru.md) · [Español](docs/README.es.md) · [Ελληνικά](docs/README.el.md) · [עברית](docs/README.he.md) · [简体中文](docs/README.zh.md) · [日本語](docs/README.ja.md) · [한국어](docs/README.ko.md) · [Српски](docs/README.sr.md) · [Français](docs/README.fr.md) · [Deutsch](docs/README.de.md) · [Italiano](docs/README.it.md)
+**English** · [Русский](docs/README.ru.md) · [Español](docs/README.es.md) · [Ελληνικά](docs/README.el.md) · [עברית](docs/README.he.md) · [简体中文](docs/README.zh.md) · [日本語](docs/README.ja.md) · [한국어](docs/README.ko.md) · [Српски](docs/README.sr.md) · [Français](docs/README.fr.md) · [Deutsch](docs/README.de.md) · [Italiano](docs/README.it.md) · [Беларуская](docs/README.be.md) · [Қазақша](docs/README.kk.md)
 
 <p align="center">
 <img src="docs/window-off.png" width="380" alt="The window of the program: blocking is off">
@@ -28,7 +28,7 @@ ad×0 writes addresses of ad servers into the hosts file of the system and exits
 - Keeps your own lines of the hosts file, leaves a copy of it before the first change, and reads back what it has written.
 - Keeps the last good copy of each list, so blocking does not depend on whether the site of a list is up.
 - Does not let a mistake in a list close sites such as Google, Wikipedia or GitHub: here is [the whole list](data/essential.json). Any other site is opened with the field “Do not block”.
-- Speaks 12 languages: the language is chosen at the top of the window and in the installer for Windows. Sends nothing anywhere: it only downloads the lists, when you press the button and, while blocking is on, when the system starts, at most once a day. The second is done without a window in a moment, and you can turn it off.
+- Speaks 14 languages: the language is chosen at the top of the window and in the installer for Windows. Sends nothing anywhere: it only downloads the lists, when you press the button and, while blocking is on, when the system starts, at most once a day. The second is done without a window in a moment, and you can turn it off.
 
 ## The Firefox extension
 
@@ -37,7 +37,7 @@ ad×0 writes addresses of ad servers into the hosts file of the system and exits
 - Blocks ad addresses and hides ad blocks on pages. Regional lists are chosen by the languages of the browser.
 - Takes the schedule of ads out of the answers of YouTube, so the player has nothing to show.
 - Updates the lists once a day. The browser itself enforces the rules, and the background part is unloaded in between.
-- Speaks the same 12 languages: the one of the browser at first, another one is chosen in the window of the extension.
+- Speaks the same 14 languages: the one of the browser at first, another one is chosen in the window of the extension.
 
 ## What it cannot do
 

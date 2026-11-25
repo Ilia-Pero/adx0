@@ -10,10 +10,10 @@
 <a href="https://github.com/Ilia-Pero/adx0/actions/workflows/build.yml"><img src="https://github.com/Ilia-Pero/adx0/actions/workflows/build.yml/badge.svg" alt="build"></a>
 <a href="../LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT"></a>
 <a href="https://github.com/Ilia-Pero/adx0/releases/latest"><img src="https://img.shields.io/github/v/release/Ilia-Pero/adx0?label=download&color=0f766e" alt="download"></a>
-<img src="https://img.shields.io/badge/languages-12-0f766e" alt="12 languages">
+<img src="https://img.shields.io/badge/languages-14-0f766e" alt="14 languages">
 </p>
 
-[English](../README.md) · [Русский](README.ru.md) · [Español](README.es.md) · [Ελληνικά](README.el.md) · [עברית](README.he.md) · [简体中文](README.zh.md) · [日本語](README.ja.md) · [한국어](README.ko.md) · **Српски** · [Français](README.fr.md) · [Deutsch](README.de.md) · [Italiano](README.it.md)
+[English](../README.md) · [Русский](README.ru.md) · [Español](README.es.md) · [Ελληνικά](README.el.md) · [עברית](README.he.md) · [简体中文](README.zh.md) · [日本語](README.ja.md) · [한국어](README.ko.md) · **Српски** · [Français](README.fr.md) · [Deutsch](README.de.md) · [Italiano](README.it.md) · [Беларуская](README.be.md) · [Қазақша](README.kk.md)
 
 <p align="center">
 <img src="window-off.png" width="380" alt="Прозор програма: блокирање је искључено">
@@ -28,7 +28,7 @@ ad×0 уписује адресе огласних сервера у систе�
 - Чува ваше редове у датотеци hosts, пре прве измене оставља њену копију и поново чита оно што је уписао.
 - Чува последњу исправну копију сваке листе, па блокирање не зависи од тога да ли сајт листе ради.
 - Не дозвољава да грешка у листи затвори сајтове као што су Google, Wikipedia или GitHub: ево [целог списка](../data/essential.json). Сваки други сајт отвара се у пољу „Не блокирај“.
-- Говори 12 језика: језик се бира на врху прозора и у инсталацији за Windows. Никуда ништа не шаље: само преузима листе, када притиснете дугме и, док је блокирање укључено, при покретању система, највише једном дневно. Ово друго се дешава без прозора за тренутак и може се искључити.
+- Говори 14 језика: језик се бира на врху прозора и у инсталацији за Windows. Никуда ништа не шаље: само преузима листе, када притиснете дугме и, док је блокирање укључено, при покретању система, највише једном дневно. Ово друго се дешава без прозора за тренутак и може се искључити.
 
 ## Додатак за Firefox
 
@@ -37,7 +37,7 @@ ad×0 уписује адресе огласних сервера у систе�
 - Блокира огласне адресе и скрива огласне блокове на страницама. Регионалне листе бирају се по језицима прегледача.
 - Уклања распоред огласа из одговора YouTube-а, па плејер нема шта да прикаже.
 - Ажурира листе једном дневно. Правила спроводи сам прегледач, а позадински део у међувремену није учитан.
-- Говори истих 12 језика: на почетку језик прегледача, а други се бира у прозору додатка.
+- Говори истих 14 језика: на почетку језик прегледача, а други се бира у прозору додатка.
 
 ## Шта не може
 

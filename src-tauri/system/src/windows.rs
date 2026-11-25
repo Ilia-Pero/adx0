@@ -3,10 +3,11 @@
 #![allow(unsafe_code)]
 
 use std::ffi::{OsStr, OsString};
+use std::fs;
 use std::mem::{size_of, zeroed};
 use std::os::windows::ffi::{OsStrExt, OsStringExt};
 use std::os::windows::process::CommandExt;
-use std::path::PathBuf;
+use std::path::{Path, PathBuf};
 use std::process::{Command, Stdio};
 use std::ptr::null_mut;
 
@@ -67,14 +68,14 @@ impl Windows {
         }
     }
 
-    /// The scheduler.
-    fn scheduler() -> Result<Command, Failure> {
-        let mut scheduler = Command::new(Self::folder()?.join("schtasks.exe"));
-        scheduler
+    /// A program of the system that works without a window.
+    fn silent(name: &str) -> Result<Command, Failure> {
+        let mut program = Command::new(Self::folder()?.join(name));
+        program
             .creation_flags(CREATE_NO_WINDOW)
             .stdout(Stdio::null())
             .stderr(Stdio::null());
-        Ok(scheduler)
+        Ok(program)
     }
 }
 
@@ -128,18 +129,21 @@ impl System for Windows {
             .then(|| program.with_file_name("kept"))
     }
 
-    /// The task belongs to the system itself, so it has no window and asks for nothing. It waits
-    /// for two minutes: there is enough to do when the system starts.
     fn settle(&self, argument: &str) -> Result<(), Failure> {
-        let program = std::env::current_exe()?;
-        let status = Self::scheduler()?
-            .args([
-                "/Create", "/F", "/TN", TASK, "/RU", "SYSTEM", "/RL", "HIGHEST",
-            ])
-            .args(["/SC", "ONLOGON", "/DELAY", "0002:00", "/TR"])
-            .arg(format!("\"{}\" {argument}", program.display()))
-            .status()?;
-        if status.success() {
+        let vault = self
+            .vault()
+            .ok_or_else(|| Failure::Disk("Program Files".to_owned()))?;
+        let file = vault.join("task.xml");
+        let text = task(&std::env::current_exe()?, argument);
+        fs::create_dir_all(&vault)?;
+        fs::write(&file, encoded(&text))?;
+        let status = Self::silent("schtasks.exe")?
+            .args(["/Create", "/F", "/TN", TASK, "/RU", "SYSTEM", "/XML"])
+            .arg(&file)
+            .status();
+        // The scheduler has read it already.
+        let _ = fs::remove_file(&file);
+        if status?.success() {
             Ok(())
         } else {
             Err(Failure::Disk("schtasks".to_owned()))
@@ -147,7 +151,7 @@ impl System for Windows {
     }
 
     fn unsettle(&self) {
-        if let Ok(mut scheduler) = Self::scheduler() {
+        if let Ok(mut scheduler) = Self::silent("schtasks.exe") {
             let _ = scheduler.args(["/Delete", "/F", "/TN", TASK]).status();
         }
     }
@@ -160,14 +164,58 @@ impl System for Windows {
     }
 
     fn forget(&self) {
-        if let Ok(folder) = Self::folder() {
-            let _ = Command::new(folder.join("ipconfig.exe"))
-                .arg("/flushdns")
-                .stdout(Stdio::null())
-                .stderr(Stdio::null())
-                .status();
+        if let Ok(mut configuration) = Self::silent("ipconfig.exe") {
+            let _ = configuration.arg("/flushdns").status();
         }
     }
+}
+
+/// What the scheduler has to do. The task belongs to the system itself, so it has no window and asks
+/// for nothing. It waits for two minutes: there is enough to do when the system starts. A task
+/// works on batteries only if it is told so, and most laptops are on batteries.
+fn task(program: &Path, argument: &str) -> String {
+    let program = program.display().to_string().replace('&', "&amp;");
+    format!(
+        r#"<?xml version="1.0" encoding="UTF-16"?>
+<Task version="1.2" xmlns="http://schemas.microsoft.com/windows/2004/02/mit/task">
+  <RegistrationInfo>
+    <Description>Fresh lists for adx0</Description>
+  </RegistrationInfo>
+  <Triggers>
+    <LogonTrigger>
+      <Delay>PT2M</Delay>
+    </LogonTrigger>
+  </Triggers>
+  <Principals>
+    <Principal id="System">
+      <UserId>S-1-5-18</UserId>
+      <RunLevel>HighestAvailable</RunLevel>
+    </Principal>
+  </Principals>
+  <Settings>
+    <DisallowStartIfOnBatteries>false</DisallowStartIfOnBatteries>
+    <StopIfGoingOnBatteries>false</StopIfGoingOnBatteries>
+    <ExecutionTimeLimit>PT15M</ExecutionTimeLimit>
+  </Settings>
+  <Actions Context="System">
+    <Exec>
+      <Command>"{program}"</Command>
+      <Arguments>{argument}</Arguments>
+    </Exec>
+  </Actions>
+</Task>
+"#
+    )
+}
+
+/// The text as the scheduler reads it: UTF-16 with a mark at the beginning.
+fn encoded(text: &str) -> Vec<u8> {
+    ['\u{feff}']
+        .into_iter()
+        .chain(text.chars())
+        .flat_map(|sign| sign.encode_utf16(&mut [0; 2]).to_vec())
+        .flat_map(u16::to_le_bytes)
+        .collect()
 }
 
 /// The text the way Windows takes it: UTF-16 with zero at the end.
@@ -193,13 +241,30 @@ fn joined(arguments: &[OsString]) -> OsString {
 #[cfg(test)]
 mod tests {
     use std::ffi::OsString;
+    use std::path::Path;
 
-    use super::{joined, Windows};
+    use super::{encoded, joined, task, Windows};
     use crate::System;
 
     #[test]
     fn keeps_hosts_in_system_folder() {
         assert!(Windows.hosts().unwrap().ends_with("drivers/etc/hosts"));
+    }
+
+    #[test]
+    fn starts_the_program_by_itself() {
+        assert!(task(Path::new("C:\\My dir\\adx0.exe"), "--refresh")
+            .contains("<Command>\"C:\\My dir\\adx0.exe\"</Command>"));
+    }
+
+    #[test]
+    fn keeps_a_sign_of_xml_in_the_path() {
+        assert!(task(Path::new("C:\\A&B\\adx0.exe"), "--refresh").contains("C:\\A&amp;B\\adx0.exe"));
+    }
+
+    #[test]
+    fn begins_the_task_with_a_mark() {
+        assert_eq!(encoded("<"), [0xff, 0xfe, b'<', 0]);
     }
 
     #[test]

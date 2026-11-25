@@ -74,8 +74,13 @@ jobs:
             if ($done.ExitCode -ne 0) { throw "$words has failed: $($done.ExitCode)" }
             if (-not (Select-String -Quiet 'ads.example.com' $hosts)) { throw "Nothing is blocked after $words" }
           }
-          schtasks /Query /TN adx0
+          $task = schtasks /Query /TN adx0 /XML
           if ($LASTEXITCODE -ne 0) { throw 'The system does not start the program by itself' }
+          $task
+          foreach ($part in '<UserId>S-1-5-18</UserId>', '<DisallowStartIfOnBatteries>false', "<Command>`"$folder\adx0.exe`"</Command>") {
+            if (-not ("$task".Contains($part))) { throw "There is no $part in the task" }
+          }
+          if (Test-Path "$folder\kept\task.xml") { throw 'The task is still in the folder' }
           Start-Process "$folder\uninstall.exe" '/S', "_?=$folder" -Wait
           if (Test-Path "$folder\adx0.exe") { throw 'The program is still there' }
           if (Select-String -Quiet 'ads.example.com' $hosts) { throw 'The address is still blocked' }

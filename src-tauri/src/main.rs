@@ -1,5 +1,5 @@
-//! An ad blocker that does not run: it writes ad addresses into the hosts file and exits.
-//! While its window is closed, there is no process and no load.
+//! An ad blocker that writes ad addresses into the hosts file and exits. While its window is closed,
+//! it has no process.
 
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 

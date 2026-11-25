@@ -1,7 +1,7 @@
 //! Downloaded lists on the disk.
 
-use std::fs;
-use std::io::ErrorKind;
+use std::fs::{self, File};
+use std::io::{ErrorKind, Write};
 use std::path::PathBuf;
 use std::time::{Duration, SystemTime};
 
@@ -40,12 +40,7 @@ impl Shelf {
                 count,
             });
         }
-        fs::create_dir_all(&self.root)?;
-        let file = self.file(source.id);
-        let draft = file.with_extension("new");
-        fs::write(&draft, text)?;
-        fs::rename(&draft, &file)?;
-        Ok(())
+        self.put(source.id, &text)
     }
 
     /// The text of the list. Empty if the list is not downloaded yet.
@@ -61,21 +56,36 @@ impl Shelf {
         }
     }
 
-    /// Puts a copy of the list on the other shelf. There is nothing to copy if the list is not
-    /// downloaded yet.
+    /// Puts addresses of the list on the other shelf. Nothing else gets there: the administrator
+    /// copies the lists of a person to where anybody can read them, and in place of a list there
+    /// may be a link to a file which this person cannot read. There is nothing to copy if the list
+    /// is not downloaded yet.
     ///
     /// # Errors
     ///
     /// The list cannot be read or written.
-    pub fn copy(&self, id: &str, other: &Shelf) -> Result<(), Failure> {
-        let text = self.text(id)?;
-        if !text.is_empty() {
-            fs::create_dir_all(&other.root)?;
-            let file = other.file(id);
-            let draft = file.with_extension("new");
-            fs::write(&draft, text)?;
-            fs::rename(&draft, &file)?;
+    pub fn copy(&self, source: &Source, other: &Shelf) -> Result<(), Failure> {
+        let text: String = Blocklist::new(&self.text(source.id)?, source.format)
+            .domains()
+            .iter()
+            .map(|domain| source.format.line(domain))
+            .collect();
+        if text.is_empty() {
+            return Ok(());
         }
+        other.put(source.id, &text)
+    }
+
+    /// Writes the list as a whole: a crash in the middle leaves the old one.
+    fn put(&self, id: &str, text: &str) -> Result<(), Failure> {
+        fs::create_dir_all(&self.root)?;
+        let file = self.file(id);
+        let draft = file.with_extension("new");
+        let mut fresh = File::create(&draft)?;
+        fresh.write_all(text.as_bytes())?;
+        fresh.sync_all()?;
+        drop(fresh);
+        fs::rename(&draft, &file)?;
         Ok(())
     }
 
@@ -195,8 +205,29 @@ mod tests {
         let shelf = Shelf::new(root.path().join("one"));
         let other = Shelf::new(root.path().join("other"));
         shelf.refresh(source(), &page(100)).unwrap();
-        shelf.copy(source().id, &other).unwrap();
-        assert_eq!(other.text(source().id).unwrap(), page(100).0);
+        shelf.copy(source(), &other).unwrap();
+        assert_eq!(
+            other.text(source().id).unwrap().lines().count(),
+            page(100).0.lines().count()
+        );
+    }
+
+    #[test]
+    fn copies_nothing_but_addresses() {
+        let root = TempDir::new().unwrap();
+        let other = Shelf::new(root.path().join("other"));
+        fs::write(
+            root.path().join(format!("{}.txt", source().id)),
+            "root:$y$secret:19000:0:99999:7:::\n0.0.0.0 ads.example.com # note\n",
+        )
+        .unwrap();
+        Shelf::new(root.path().to_owned())
+            .copy(source(), &other)
+            .unwrap();
+        assert_eq!(
+            other.text(source().id).unwrap(),
+            "0.0.0.0 ads.example.com\n"
+        );
     }
 
     #[test]
@@ -204,9 +235,9 @@ mod tests {
         let root = TempDir::new().unwrap();
         let other = Shelf::new(root.path().join("other"));
         Shelf::new(root.path().join("one"))
-            .copy("yoyo", &other)
+            .copy(source(), &other)
             .unwrap();
-        assert!(other.moment("yoyo").is_none());
+        assert!(other.moment(source().id).is_none());
     }
 
     #[test]

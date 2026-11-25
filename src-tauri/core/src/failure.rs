@@ -28,6 +28,8 @@ pub enum Failure {
     Disk(String),
     /// There is nothing to block: no list is chosen, or none is downloaded.
     Empty,
+    /// It is not known whether there is a newer version of the program.
+    Unknown(String),
 }
 
 impl Failure {
@@ -41,7 +43,10 @@ impl Failure {
             Failure::Unverified => 13,
             Failure::Refused => 14,
             Failure::Empty => 16,
-            Failure::Silent { .. } | Failure::Short { .. } | Failure::Disk(_) => 15,
+            Failure::Silent { .. }
+            | Failure::Short { .. }
+            | Failure::Disk(_)
+            | Failure::Unknown(_) => 15,
         }
     }
 
@@ -74,6 +79,7 @@ impl Failure {
                 .with("count", count),
             Failure::Disk(reason) => Phrase::new("error.disk").with("reason", reason),
             Failure::Empty => Phrase::new("error.empty"),
+            Failure::Unknown(reason) => Phrase::new("error.update").with("reason", reason),
         }
     }
 }

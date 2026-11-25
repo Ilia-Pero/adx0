@@ -198,6 +198,18 @@ textarea {
   font-size: 13px;
 }
 
+.edition {
+  margin-top: 16px;
+}
+
+.edition button {
+  margin: 0 8px 8px 0;
+}
+
+[dir="rtl"] .edition button {
+  margin: 0 0 8px 8px;
+}
+
 .speech {
   position: absolute;
   top: 18px;

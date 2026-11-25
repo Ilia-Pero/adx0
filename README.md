@@ -4,7 +4,7 @@
 
 <p align="center"><b>ad × 0 = 0</b></p>
 
-<p align="center">An ad blocker that does not run: for Windows, macOS, Linux and Firefox</p>
+<p align="center">An ad blocker that does not run: for Windows, macOS, Linux and browsers</p>
 
 <p align="center">
 <a href="https://github.com/Ilia-Pero/adx0/actions/workflows/build.yml"><img src="https://github.com/Ilia-Pero/adx0/actions/workflows/build.yml/badge.svg" alt="build"></a>
@@ -20,7 +20,7 @@
 <img src="docs/window-on.png" width="380" alt="The window of the program: ads are blocked">
 </p>
 
-ad×0 writes addresses of ad servers into the hosts file of the system and exits. Ads from these addresses stop loading in every program, and there is no background process: nothing to take memory or processor time. A Firefox extension does what the hosts file cannot: hides ad blocks on pages and takes ads out of YouTube videos.
+ad×0 writes addresses of ad servers into the hosts file of the system and exits. Ads from these addresses stop loading in every program, and there is no background process: nothing to take memory or processor time. A browser extension does what the hosts file cannot: hides ad blocks on pages and takes ads out of YouTube videos.
 
 ## The program
 
@@ -28,11 +28,13 @@ ad×0 writes addresses of ad servers into the hosts file of the system and exits
 - Keeps your own lines of the hosts file, leaves a copy of it before the first change, and reads back what it has written.
 - Keeps the last good copy of each list, so blocking does not depend on whether the site of a list is up.
 - Does not let a mistake in a list close sites such as Google, Wikipedia or GitHub: here is [the whole list](data/essential.json). Any other site is opened with the field “Do not block”.
-- Speaks 14 languages: the language is chosen at the top of the window and in the installer for Windows. Sends nothing anywhere: it only downloads the lists, when you press the button and, while blocking is on, when the system starts, at most once a day. The second is done without a window in a moment, and you can turn it off.
+- Speaks 14 languages: the language is chosen at the top of the window and in the installer for Windows. Sends nothing anywhere: it only downloads the lists, when you press the button and, while blocking is on, when the system starts, at most once a day. The second is done without a window in a moment, and you can turn it off. It looks for a newer version only when you press the button.
 
-## The Firefox extension
+## The browser extension
 
-<p align="center"><img src="docs/popup.png" width="312" alt="The Firefox extension"></p>
+For Firefox and for browsers based on Chromium: Chrome, Yandex Browser, Edge, Opera.
+
+<p align="center"><img src="docs/popup.png" width="312" alt="The browser extension"></p>
 
 - Blocks ad addresses and hides ad blocks on pages. Regional lists are chosen by the languages of the browser.
 - Takes the schedule of ads out of the answers of YouTube, so the player has nothing to show.
@@ -83,7 +85,8 @@ The lists are not a part of this repository. Your copy of the program downloads 
 | Windows | Works on Windows Server 2022: checked with real lists on a copy of the hosts file. Not checked on Windows 10 and 11 yet. |
 | macOS 10.13+ | Builds, passes the tests; on a machine at GitHub it installs and starts. Nobody has tried it by hand yet. |
 | Ubuntu 24.04+ | Builds, passes the tests; on a machine at GitHub it installs and starts. Nobody has tried it by hand yet. |
-| Firefox 128+ | Works in Firefox 160. Not signed by Mozilla yet, so it has to be loaded again after Firefox is restarted. |
+| Firefox 128+ | Works in Firefox 161. Not signed by Mozilla yet, so it has to be loaded again after Firefox is restarted. |
+| Chrome, Yandex Browser, Edge, Opera | Works in Edge 158, checked without a window. The others have not been checked; they need Chromium 120 or newer. |
 
 ## Install
 
@@ -93,6 +96,7 @@ The lists are not a part of this repository. Your copy of the program downloads 
 | macOS 10.13+ | [adx0-macos.dmg](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-macos.dmg) | Drag the program into Applications and open it. When macOS refuses, open System Settings, “Privacy & Security”, and press “Open Anyway”. |
 | Ubuntu 24.04+ | [adx0-ubuntu.deb](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-ubuntu.deb) | `sudo apt install ./adx0-ubuntu.deb` |
 | Firefox 128+ | [adx0-firefox.zip](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-firefox.zip) | Open `about:debugging`, “This Firefox”, “Load Temporary Add-on”, and choose the file. After Firefox is restarted, load it again. |
+| Chrome, Yandex Browser, Edge, Opera | [adx0-chrome.zip](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-chrome.zip) | Unpack it, open `chrome://extensions`, turn on “Developer mode”, press “Load unpacked” and choose the folder; the folder has to stay. Yandex Browser trusts only catalogs and may turn the extension off. |
 
 GitHub builds these files from the code of this repository, installs the programs and starts them, and only then publishes everything. The files have no paid signature, so Windows and macOS warn at the first start.
 
@@ -109,7 +113,7 @@ The installer appears in `src-tauri/target/release/bundle`.
 
 The uninstaller opens the blocked addresses again. On macOS, turn blocking off before you delete the program.
 
-The extension: run `npm ci && npm run build` in the folder `extension`, open `about:debugging` in Firefox, choose “This Firefox”, “Load Temporary Add-on” and the file `extension/web/manifest.json`.
+The extension: run `npm ci && npm run build` in the folder `extension`, open `about:debugging` in Firefox, choose “This Firefox”, “Load Temporary Add-on” and the file `extension/packed/firefox/manifest.json`. For Chromium, the folder is `extension/packed/chrome`.
 
 ## Translations
 

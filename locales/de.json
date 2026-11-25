@@ -42,5 +42,12 @@
   "error.silent": "Die Liste wurde nicht aktualisiert: {url} antwortet nicht. ({reason})",
   "error.short": "Die Liste {title} wurde nicht aktualisiert: Sie enthält zu wenige Adressen ({count}).",
   "error.disk": "Festplattenfehler: {reason}",
-  "error.empty": "Es gibt nichts zu blockieren: Wählen Sie mindestens eine Liste."
+  "error.empty": "Es gibt nichts zu blockieren: Wählen Sie mindestens eine Liste.",
+  "update.check": "Nach Updates suchen",
+  "update.checking": "Suche läuft…",
+  "update.latest": "Das ist die neueste Version.",
+  "update.found": "Version {version} ist erschienen.",
+  "update.get": "Herunterladen",
+  "update.news": "Was ist neu",
+  "error.update": "Die Suche nach Updates ist fehlgeschlagen: {reason}"
 }

@@ -4,7 +4,7 @@
 
 <p align="center"><b>ad × 0 = 0</b></p>
 
-<p align="center">常駐しない広告ブロッカー（Windows、macOS、Linux、Firefox）</p>
+<p align="center">常駐しない広告ブロッカー（Windows、macOS、Linux、ブラウザー）</p>
 
 <p align="center">
 <a href="https://github.com/Ilia-Pero/adx0/actions/workflows/build.yml"><img src="https://github.com/Ilia-Pero/adx0/actions/workflows/build.yml/badge.svg" alt="build"></a>
@@ -20,7 +20,7 @@
 <img src="window-on.png" width="380" alt="プログラムのウィンドウ：広告をブロック中">
 </p>
 
-ad×0 は広告サーバーのアドレスをシステムの hosts ファイルに書き込み、終了します。すべてのプログラムで、これらのアドレスからの広告が読み込まれなくなり、メモリーやプロセッサーを使う常駐プロセスはありません。Firefox の拡張機能は hosts ファイルではできないことをします。ページの広告枠を隠し、YouTube の動画から広告を取り除きます。
+ad×0 は広告サーバーのアドレスをシステムの hosts ファイルに書き込み、終了します。すべてのプログラムで、これらのアドレスからの広告が読み込まれなくなり、メモリーやプロセッサーを使う常駐プロセスはありません。ブラウザー拡張機能は hosts ファイルではできないことをします。ページの広告枠を隠し、YouTube の動画から広告を取り除きます。
 
 ## プログラム
 
@@ -28,11 +28,13 @@ ad×0 は広告サーバーのアドレスをシステムの hosts ファイル�
 - hosts ファイルの自分の行を残し、最初の変更の前に控えを作り、書き込んだ内容を読み直して確かめます。
 - 各リストの最後に正しく取得できた内容を保存するので、リストのサイトが止まっていてもブロックできます。
 - リストの誤りで Google、Wikipedia、GitHub などのサイト（[一覧](../data/essential.json)）が閉じることはありません。ほかのサイトは「ブロックしない」で開けます。
-- 14 の言語に対応しています。言語はウィンドウの上部と Windows のインストーラーで選べます。何も送信しません。リストを取得するのは、ボタンを押したときと、ブロックがオンの間のシステム起動時（多くても 1 日 1 回）だけです。起動時の取得はウィンドウなしで一瞬で終わり、オフにできます。
+- 14 の言語に対応しています。言語はウィンドウの上部と Windows のインストーラーで選べます。何も送信しません。リストを取得するのは、ボタンを押したときと、ブロックがオンの間のシステム起動時（多くても 1 日 1 回）だけです。起動時の取得はウィンドウなしで一瞬で終わり、オフにできます。新しい版は、ボタンを押したときだけ確認します。
 
-## Firefox の拡張機能
+## ブラウザー拡張機能
 
-<p align="center"><img src="popup.png" width="312" alt="Firefox の拡張機能"></p>
+Firefox と Chromium ベースのブラウザー（Chrome、Yandex ブラウザー、Edge、Opera）で使えます。
+
+<p align="center"><img src="popup.png" width="312" alt="ブラウザー拡張機能"></p>
 
 - 広告のアドレスをブロックし、ページの広告枠を隠します。地域のリストはブラウザーの言語に合わせて選ばれます。
 - YouTube の応答から広告の予定を取り除くので、プレーヤーには表示する広告がありません。
@@ -83,7 +85,8 @@ hosts ファイルはアドレス全体を扱います。YouTube や SNS のよ�
 | Windows | Windows Server 2022 で動作します。実際のリストを使い、hosts ファイルの控えで確認しました。Windows 10 と 11 ではまだ確認していません。 |
 | macOS 10.13+ | ビルドとテストは通り、GitHub のマシンでインストールと起動ができます。まだ誰も手で試していません。 |
 | Ubuntu 24.04+ | ビルドとテストは通り、GitHub のマシンでインストールと起動ができます。まだ誰も手で試していません。 |
-| Firefox 128+ | Firefox 160 で動作します。Mozilla の署名がまだないため、Firefox を再起動すると読み込み直す必要があります。 |
+| Firefox 128+ | Firefox 161 で動作します。Mozilla の署名がまだないため、Firefox を再起動すると読み込み直す必要があります。 |
+| Chrome、Yandex ブラウザー、Edge、Opera | Edge 158 で動作します（ウィンドウなしで確認）。ほかは未確認で、Chromium 120 以降が必要です。 |
 
 ## インストール
 
@@ -93,6 +96,7 @@ hosts ファイルはアドレス全体を扱います。YouTube や SNS のよ�
 | macOS 10.13+ | [adx0-macos.dmg](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-macos.dmg) | プログラムを「アプリケーション」にドラッグして開きます。macOS に拒否されたら、システム設定の「プライバシーとセキュリティ」で「このまま開く」を押します。 |
 | Ubuntu 24.04+ | [adx0-ubuntu.deb](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-ubuntu.deb) | `sudo apt install ./adx0-ubuntu.deb` |
 | Firefox 128+ | [adx0-firefox.zip](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-firefox.zip) | `about:debugging` を開き、「この Firefox」、「一時的なアドオンを読み込む」、このファイルを選びます。Firefox を再起動したら読み込み直します。 |
+| Chrome、Yandex ブラウザー、Edge、Opera | [adx0-chrome.zip](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-chrome.zip) | 展開して `chrome://extensions` を開き、「デベロッパー モード」をオンにし、「パッケージ化されていない拡張機能を読み込む」でフォルダーを選びます。フォルダーは消さないでください。Yandex ブラウザーはストアだけを信頼するため、無効にすることがあります。 |
 
 GitHub はこのリポジトリのコードからこれらのファイルをビルドし、プログラムをインストールして起動し、そのうえですべてを公開します。ファイルには有料の署名がないため、Windows と macOS は初回起動時に警告します。
 
@@ -109,7 +113,7 @@ npm run tauri build
 
 アンインストールすると、ブロックしたアドレスは元に戻ります。macOS では、プログラムを削除する前にブロックをオフにしてください。
 
-拡張機能：`extension` フォルダーで `npm ci && npm run build` を実行し、Firefox で `about:debugging` を開き、「この Firefox」、「一時的なアドオンを読み込む」、ファイル `extension/web/manifest.json` を選びます。
+拡張機能：`extension` フォルダーで `npm ci && npm run build` を実行し、Firefox で `about:debugging` を開き、「この Firefox」、「一時的なアドオンを読み込む」、ファイル `extension/packed/firefox/manifest.json` を選びます。Chromium ではフォルダー `extension/packed/chrome` を使います。
 
 ## 翻訳
 

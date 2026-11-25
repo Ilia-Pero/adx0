@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "ad×0",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "__MSG_description__",
   "default_locale": "en",
   "homepage_url": "https://github.com/Ilia-Pero/adx0",
@@ -35,7 +35,8 @@
   "background": {
     "scripts": [
       "background.js"
-    ]
+    ],
+    "service_worker": "background.js"
   },
   "action": {
     "default_title": "ad×0",

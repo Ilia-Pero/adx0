@@ -4,7 +4,7 @@
 
 <p align="center"><b>ad × 0 = 0</b></p>
 
-<p align="center">不在后台运行的广告屏蔽工具，支持 Windows、macOS、Linux 和 Firefox</p>
+<p align="center">不在后台运行的广告屏蔽工具，支持 Windows、macOS、Linux 和浏览器</p>
 
 <p align="center">
 <a href="https://github.com/Ilia-Pero/adx0/actions/workflows/build.yml"><img src="https://github.com/Ilia-Pero/adx0/actions/workflows/build.yml/badge.svg" alt="build"></a>
@@ -20,7 +20,7 @@
 <img src="window-on.png" width="380" alt="程序窗口：广告已屏蔽">
 </p>
 
-ad×0 把广告服务器的地址写入系统的 hosts 文件，然后退出。所有程序中来自这些地址的广告都不再加载，也没有后台进程占用内存或处理器。Firefox 扩展负责 hosts 文件做不到的事：隐藏网页上的广告块，并去掉 YouTube 视频中的广告。
+ad×0 把广告服务器的地址写入系统的 hosts 文件，然后退出。所有程序中来自这些地址的广告都不再加载，也没有后台进程占用内存或处理器。浏览器扩展负责 hosts 文件做不到的事：隐藏网页上的广告块，并去掉 YouTube 视频中的广告。
 
 ## 程序
 
@@ -28,11 +28,13 @@ ad×0 把广告服务器的地址写入系统的 hosts 文件，然后退出。�
 - 保留 hosts 文件中您自己的内容，首次修改前留下副本，并重新读取写入的内容。
 - 保存每个列表最后一份有效副本，屏蔽不依赖列表网站是否可用。
 - 列表中的错误不会关闭 Google、Wikipedia 或 GitHub 等网站（[完整清单](../data/essential.json)）。其他网站可在“不屏蔽”中放行。
-- 支持 14 种语言，可在窗口顶部和 Windows 安装程序中选择。不向任何地方发送内容，只下载列表：在您按下按钮时，以及屏蔽开启期间系统启动时，每天最多一次。后者无窗口、片刻完成，可以关闭。
+- 支持 14 种语言，可在窗口顶部和 Windows 安装程序中选择。不向任何地方发送内容，只下载列表：在您按下按钮时，以及屏蔽开启期间系统启动时，每天最多一次。后者无窗口、片刻完成，可以关闭。只有在您点击按钮时才检查新版本。
 
-## Firefox 扩展
+## 浏览器扩展
 
-<p align="center"><img src="popup.png" width="312" alt="Firefox 扩展"></p>
+适用于 Firefox 和基于 Chromium 的浏览器：Chrome、Yandex 浏览器、Edge、Opera。
+
+<p align="center"><img src="popup.png" width="312" alt="浏览器扩展"></p>
 
 - 屏蔽广告地址并隐藏网页上的广告块。区域列表按浏览器语言选择。
 - 从 YouTube 的响应中去掉广告安排，播放器便没有广告可放。
@@ -83,7 +85,8 @@ hosts 文件只能处理整个地址。与内容来自同一地址的广告（�
 | Windows | 在 Windows Server 2022 上可以使用：已用真实列表在 hosts 文件的副本上检查。尚未在 Windows 10 和 11 上检查。 |
 | macOS 10.13+ | 可以构建并通过测试；在 GitHub 的机器上能安装和启动。还没有人手动试过。 |
 | Ubuntu 24.04+ | 可以构建并通过测试；在 GitHub 的机器上能安装和启动。还没有人手动试过。 |
-| Firefox 128+ | 在 Firefox 160 中可用。尚未经 Mozilla 签名，重启 Firefox 后需要重新加载。 |
+| Firefox 128+ | 在 Firefox 161 中可用。尚未经 Mozilla 签名，重启 Firefox 后需要重新加载。 |
+| Chrome、Yandex 浏览器、Edge、Opera | 在 Edge 158 中可用，已在无窗口模式下检查。其他浏览器尚未检查，需要 Chromium 120 或更新版本。 |
 
 ## 安装
 
@@ -93,6 +96,7 @@ hosts 文件只能处理整个地址。与内容来自同一地址的广告（�
 | macOS 10.13+ | [adx0-macos.dmg](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-macos.dmg) | 把程序拖到“应用程序”并打开。macOS 拒绝时，打开“系统设置”中的“隐私与安全性”，点按“仍要打开”。 |
 | Ubuntu 24.04+ | [adx0-ubuntu.deb](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-ubuntu.deb) | `sudo apt install ./adx0-ubuntu.deb` |
 | Firefox 128+ | [adx0-firefox.zip](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-firefox.zip) | 打开 `about:debugging`，选择“此 Firefox”、“临时载入附加组件”和该文件。重启 Firefox 后需重新载入。 |
+| Chrome、Yandex 浏览器、Edge、Opera | [adx0-chrome.zip](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-chrome.zip) | 解压后打开 `chrome://extensions`，开启“开发者模式”，点击“加载已解压的扩展程序”并选择该文件夹；请保留文件夹。Yandex 浏览器只信任应用商店，可能会停用该扩展。 |
 
 GitHub 用本仓库的代码构建这些文件，安装并启动程序，然后才全部发布。这些文件没有付费签名，因此 Windows 和 macOS 会在首次启动时发出警告。
 
@@ -109,7 +113,7 @@ npm run tauri build
 
 卸载程序会重新放行被屏蔽的地址。在 macOS 上，请在删除程序之前关闭屏蔽。
 
-扩展：在 `extension` 文件夹中运行 `npm ci && npm run build`，在 Firefox 中打开 `about:debugging`，选择“此 Firefox”、“临时载入附加组件”和文件 `extension/web/manifest.json`。
+扩展：在 `extension` 文件夹中运行 `npm ci && npm run build`，在 Firefox 中打开 `about:debugging`，选择“此 Firefox”、“临时载入附加组件”和文件 `extension/packed/firefox/manifest.json`。对于 Chromium，请选择文件夹 `extension/packed/chrome`。
 
 ## 翻译
 

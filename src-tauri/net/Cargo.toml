@@ -2,7 +2,7 @@
 name = "adx0-net"
 version = "0.1.0"
 edition = "2021"
-description = "Downloading lists of ad addresses"
+description = "Downloading lists of ad addresses, and the latest release of the program"
 license = "MIT"
 publish = false
 

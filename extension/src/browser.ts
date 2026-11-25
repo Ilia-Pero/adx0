@@ -35,9 +35,11 @@ interface Browser {
     getURL(path: string): string;
     readonly onInstalled: { addListener(listen: () => void): void };
     readonly onMessage: {
-      addListener(listen: (message: Message, sender: Sender) => Promise<unknown>): void;
+      addListener(
+        listen: (message: Message, sender: Sender, answer: (reply: Reply) => void) => boolean,
+      ): void;
     };
-    sendMessage<T>(message: Message): Promise<T>;
+    sendMessage(message: Message): Promise<Reply>;
   };
   readonly scripting: {
     insertCSS(injection: {
@@ -60,6 +62,13 @@ export type Message =
   | { readonly kind: 'allow'; readonly host: string; readonly on: boolean }
   | { readonly kind: 'refresh' };
 
+/** An answer to a message. An empty reason means that there is no failure. */
+export interface Reply {
+  readonly reason: string;
+  /** What the popup shows, if this is what was asked for. */
+  readonly status: ReadonlyArray<Status>;
+}
+
 /** What the popup shows. */
 export interface Status {
   readonly allowed: boolean;
@@ -70,5 +79,26 @@ export interface Status {
 }
 
 declare global {
-  const browser: Browser;
+  var browser: Browser | undefined;
+  var chrome: Browser | undefined;
+}
+
+/** Firefox has the one name, Chromium the other; newer ones have both. */
+function found(): Browser {
+  const known = globalThis.browser ?? globalThis.chrome;
+  if (known === undefined) {
+    throw new Error('This is not a browser');
+  }
+  return known;
+}
+
+export const browser = found();
+
+/** What the background part of the extension answers. */
+export async function asked(message: Message): Promise<ReadonlyArray<Status>> {
+  const reply = await browser.runtime.sendMessage(message);
+  if (reply.reason !== '') {
+    throw new Error(reply.reason);
+  }
+  return reply.status;
 }

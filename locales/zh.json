@@ -42,5 +42,12 @@
   "error.silent": "列表未更新：{url} 没有响应。（{reason}）",
   "error.short": "列表 {title} 未更新：其中地址太少（{count}）。",
   "error.disk": "磁盘错误：{reason}",
-  "error.empty": "没有可屏蔽的内容：请至少选择一个列表。"
+  "error.empty": "没有可屏蔽的内容：请至少选择一个列表。",
+  "update.check": "检查更新",
+  "update.checking": "正在检查…",
+  "update.latest": "已是最新版本。",
+  "update.found": "新版本 {version} 已发布。",
+  "update.get": "下载",
+  "update.news": "更新内容",
+  "error.update": "无法检查更新：{reason}"
 }

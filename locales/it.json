@@ -42,5 +42,12 @@
   "error.silent": "La lista non è stata aggiornata: {url} non risponde. ({reason})",
   "error.short": "La lista {title} non è stata aggiornata: contiene troppo pochi indirizzi ({count}).",
   "error.disk": "Errore del disco: {reason}",
-  "error.empty": "Non c’è nulla da bloccare: scegli almeno una lista."
+  "error.empty": "Non c’è nulla da bloccare: scegli almeno una lista.",
+  "update.check": "Cerca aggiornamenti",
+  "update.checking": "Ricerca in corso…",
+  "update.latest": "Questa è l’ultima versione.",
+  "update.found": "È uscita la versione {version}.",
+  "update.get": "Scarica",
+  "update.news": "Novità",
+  "error.update": "Impossibile cercare aggiornamenti: {reason}"
 }

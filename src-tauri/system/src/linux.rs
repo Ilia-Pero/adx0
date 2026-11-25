@@ -88,6 +88,13 @@ impl System for Linux {
         Self::told(&["daemon-reload"]);
     }
 
+    fn browse(&self, url: &str) -> Result<(), Failure> {
+        Ok(Command::new("/usr/bin/xdg-open")
+            .arg(url)
+            .status()
+            .map(|_| ())?)
+    }
+
     fn forget(&self) {
         let _ = Command::new("/usr/bin/resolvectl")
             .arg("flush-caches")

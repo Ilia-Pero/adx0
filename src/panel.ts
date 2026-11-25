@@ -1,5 +1,6 @@
 import type { Backend, Report, Row, Settings } from './backend.ts';
 import { alike, saved, translated } from './choice.ts';
+import { Edition } from './edition.ts';
 import { element, written } from './elements.ts';
 import { Lines } from './lines.ts';
 import { age, formula, summary } from './wording.ts';
@@ -39,12 +40,14 @@ export class Panel {
   private readonly apply = element('button', 'main apply hidden');
   private readonly speech = element('select', '');
   private readonly labels: Label[] = [];
+  private readonly edition: Edition;
   private report: Report;
 
   constructor(backend: Backend, root: HTMLElement, report: Report) {
     this.backend = backend;
     this.root = root;
     this.report = report;
+    this.edition = new Edition(backend, report);
   }
 
   open(): void {
@@ -84,6 +87,7 @@ export class Panel {
     this.section('blocked.title', ['blocked.hint'], this.blocked);
     this.root.appendChild(this.apply);
     this.root.appendChild(this.labelled(element('p', 'foot'), 'youtube'));
+    this.root.appendChild(this.edition.place());
     this.labelled(this.update, 'update');
     this.labelled(this.apply, 'apply');
     this.sign.dir = 'ltr';
@@ -197,6 +201,7 @@ export class Panel {
       this.speech.appendChild(option);
     });
     this.speech.value = report.settings.language;
+    this.edition.show(report);
     this.mark();
   }
 

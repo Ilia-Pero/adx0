@@ -1,16 +1,16 @@
 {
   "name": "adx0-extension",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "private": true,
   "type": "module",
-  "description": "A Firefox extension that blocks ads on pages and in YouTube videos",
+  "description": "A browser extension that blocks ads on pages and in YouTube videos",
   "license": "MIT",
   "repository": "github:Ilia-Pero/adx0",
   "scripts": {
-    "lint": "oxlint --deny-warnings src test",
+    "lint": "oxlint --deny-warnings src test tools",
     "types": "tsc --noEmit",
     "test": "node --test \"test/**/*.test.ts\"",
-    "bundle": "esbuild src/background.ts src/page.ts src/player.ts src/skip.ts src/popup.ts --bundle --charset=utf8 --format=iife --target=firefox128 --outdir=web",
+    "bundle": "esbuild src/background.ts src/page.ts src/player.ts src/skip.ts src/popup.ts --bundle --charset=utf8 --format=iife --target=firefox128,chrome120 --outdir=web && node tools/pack.ts",
     "build": "npm run lint && npm run types && npm test && npm run bundle"
   },
   "devDependencies": {

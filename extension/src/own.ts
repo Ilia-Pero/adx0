@@ -1,3 +1,4 @@
+import { browser } from './browser.ts';
 import type { Messages, Speech } from './speech.ts';
 
 /** The language of the browser. */

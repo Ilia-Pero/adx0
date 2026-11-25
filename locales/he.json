@@ -42,5 +42,12 @@
   "error.silent": "הרשימה לא עודכנה: {url} אינו מגיב. ({reason})",
   "error.short": "הרשימה {title} לא עודכנה: יש בה מעט מדי כתובות ({count}).",
   "error.disk": "שגיאת דיסק: {reason}",
-  "error.empty": "אין מה לחסום: בחרו לפחות רשימה אחת."
+  "error.empty": "אין מה לחסום: בחרו לפחות רשימה אחת.",
+  "update.check": "בדיקת עדכונים",
+  "update.checking": "בודק…",
+  "update.latest": "זו הגרסה האחרונה.",
+  "update.found": "יצאה גרסה {version}.",
+  "update.get": "הורדה",
+  "update.news": "מה חדש",
+  "error.update": "בדיקת העדכונים נכשלה: {reason}"
 }

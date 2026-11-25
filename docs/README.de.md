@@ -4,7 +4,7 @@
 
 <p align="center"><b>ad × 0 = 0</b></p>
 
-<p align="center">Ein Werbeblocker, der nicht im Hintergrund läuft: für Windows, macOS, Linux und Firefox</p>
+<p align="center">Ein Werbeblocker, der nicht im Hintergrund läuft: für Windows, macOS, Linux und Browser</p>
 
 <p align="center">
 <a href="https://github.com/Ilia-Pero/adx0/actions/workflows/build.yml"><img src="https://github.com/Ilia-Pero/adx0/actions/workflows/build.yml/badge.svg" alt="build"></a>
@@ -20,7 +20,7 @@
 <img src="window-on.png" width="380" alt="Das Fenster des Programms: Werbung ist blockiert">
 </p>
 
-ad×0 schreibt Adressen von Werbeservern in die Datei hosts des Systems und beendet sich. Werbung von diesen Adressen wird in keinem Programm mehr geladen, und es gibt keinen Hintergrundprozess, der Speicher oder Prozessor belegt. Eine Erweiterung für Firefox tut, was die Datei hosts nicht kann: Sie blendet Werbeblöcke auf Seiten aus und entfernt Werbung aus YouTube-Videos.
+ad×0 schreibt Adressen von Werbeservern in die Datei hosts des Systems und beendet sich. Werbung von diesen Adressen wird in keinem Programm mehr geladen, und es gibt keinen Hintergrundprozess, der Speicher oder Prozessor belegt. Eine Browser-Erweiterung tut, was die Datei hosts nicht kann: Sie blendet Werbeblöcke auf Seiten aus und entfernt Werbung aus YouTube-Videos.
 
 ## Das Programm
 
@@ -28,11 +28,13 @@ ad×0 schreibt Adressen von Werbeservern in die Datei hosts des Systems und been
 - Behält Ihre eigenen Zeilen in der Datei hosts, legt vor der ersten Änderung eine Kopie an und liest zurück, was es geschrieben hat.
 - Bewahrt die letzte gute Kopie jeder Liste auf, sodass die Blockierung nicht davon abhängt, ob die Website der Liste erreichbar ist.
 - Lässt nicht zu, dass ein Fehler in einer Liste Seiten wie Google, Wikipedia oder GitHub sperrt: hier ist [die ganze Liste](../data/essential.json). Jede andere Seite wird im Feld „Nicht blockieren“ geöffnet.
-- Spricht 14 Sprachen: Die Sprache wird oben im Fenster und im Installationsprogramm für Windows gewählt. Sendet nichts: Es lädt nur die Listen herunter, wenn Sie auf die Schaltfläche klicken und, solange die Blockierung an ist, beim Systemstart, höchstens einmal am Tag. Letzteres geschieht ohne Fenster in einem Augenblick und lässt sich ausschalten.
+- Spricht 14 Sprachen: Die Sprache wird oben im Fenster und im Installationsprogramm für Windows gewählt. Sendet nichts: Es lädt nur die Listen herunter, wenn Sie auf die Schaltfläche klicken und, solange die Blockierung an ist, beim Systemstart, höchstens einmal am Tag. Letzteres geschieht ohne Fenster in einem Augenblick und lässt sich ausschalten. Nach einer neuen Version sucht es nur, wenn Sie auf die Schaltfläche klicken.
 
-## Die Erweiterung für Firefox
+## Die Browser-Erweiterung
 
-<p align="center"><img src="popup.png" width="312" alt="Die Erweiterung für Firefox"></p>
+Für Firefox und für Browser auf Basis von Chromium: Chrome, Yandex Browser, Edge, Opera.
+
+<p align="center"><img src="popup.png" width="312" alt="Die Browser-Erweiterung"></p>
 
 - Blockiert Werbeadressen und blendet Werbeblöcke auf Seiten aus. Regionale Listen werden nach den Sprachen des Browsers gewählt.
 - Entfernt den Werbeplan aus den Antworten von YouTube, sodass der Player nichts zu zeigen hat.
@@ -83,7 +85,8 @@ Die Listen gehören nicht zu diesem Repository. Ihre Kopie des Programms lädt s
 | Windows | Funktioniert unter Windows Server 2022: mit echten Listen an einer Kopie der Datei hosts geprüft. Unter Windows 10 und 11 noch nicht geprüft. |
 | macOS 10.13+ | Lässt sich bauen und besteht die Tests; auf einer Maschine bei GitHub lässt es sich installieren und startet. Von Hand hat es noch niemand ausprobiert. |
 | Ubuntu 24.04+ | Lässt sich bauen und besteht die Tests; auf einer Maschine bei GitHub lässt es sich installieren und startet. Von Hand hat es noch niemand ausprobiert. |
-| Firefox 128+ | Funktioniert in Firefox 160. Von Mozilla noch nicht signiert und muss nach einem Neustart von Firefox erneut geladen werden. |
+| Firefox 128+ | Funktioniert in Firefox 161. Von Mozilla noch nicht signiert und muss nach einem Neustart von Firefox erneut geladen werden. |
+| Chrome, Yandex Browser, Edge, Opera | Funktioniert in Edge 158, ohne Fenster geprüft. Die anderen sind nicht geprüft; nötig ist Chromium 120 oder neuer. |
 
 ## Installation
 
@@ -93,6 +96,7 @@ Die Listen gehören nicht zu diesem Repository. Ihre Kopie des Programms lädt s
 | macOS 10.13+ | [adx0-macos.dmg](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-macos.dmg) | Ziehen Sie das Programm in „Programme“ und öffnen Sie es. Wenn macOS es ablehnt, öffnen Sie die Systemeinstellungen, „Datenschutz und Sicherheit“, und klicken Sie auf „Dennoch öffnen“. |
 | Ubuntu 24.04+ | [adx0-ubuntu.deb](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-ubuntu.deb) | `sudo apt install ./adx0-ubuntu.deb` |
 | Firefox 128+ | [adx0-firefox.zip](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-firefox.zip) | Öffnen Sie `about:debugging`, „Dieser Firefox“, „Temporäres Add-on laden“, und wählen Sie die Datei. Nach einem Neustart von Firefox laden Sie sie erneut. |
+| Chrome, Yandex Browser, Edge, Opera | [adx0-chrome.zip](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-chrome.zip) | Entpacken Sie sie, öffnen Sie `chrome://extensions`, schalten Sie den „Entwicklermodus“ ein, klicken Sie auf „Entpackte Erweiterung laden“ und wählen Sie den Ordner; löschen Sie ihn nicht. Yandex Browser vertraut nur Katalogen und kann die Erweiterung ausschalten. |
 
 GitHub baut diese Dateien aus dem Code dieses Repositorys, installiert und startet die Programme und veröffentlicht erst dann alles. Die Dateien haben keine bezahlte Signatur, deshalb warnen Windows und macOS beim ersten Start.
 
@@ -109,7 +113,7 @@ Das Installationsprogramm erscheint in `src-tauri/target/release/bundle`.
 
 Die Deinstallation gibt die blockierten Adressen wieder frei. Unter macOS schalten Sie die Blockierung aus, bevor Sie das Programm löschen.
 
-Die Erweiterung: Führen Sie `npm ci && npm run build` im Ordner `extension` aus, öffnen Sie `about:debugging` in Firefox, wählen Sie „Dieser Firefox“, „Temporäres Add-on laden“ und die Datei `extension/web/manifest.json`.
+Die Erweiterung: Führen Sie `npm ci && npm run build` im Ordner `extension` aus, öffnen Sie `about:debugging` in Firefox, wählen Sie „Dieser Firefox“, „Temporäres Add-on laden“ und die Datei `extension/packed/firefox/manifest.json`. Für Chromium ist es der Ordner `extension/packed/chrome`.
 
 ## Übersetzungen
 

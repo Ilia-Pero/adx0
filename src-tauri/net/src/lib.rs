@@ -1,4 +1,4 @@
-//! The internet lists are downloaded from.
+//! The internet lists are downloaded from, and where the latest release of the program is.
 //!
 //! This is a crate of its own because encryption needs a C compiler, while the rest of the code
 //! has to be checked for all systems on one machine.
@@ -6,6 +6,12 @@
 use std::time::Duration;
 
 use adx0_core::{Failure, Web};
+
+mod latest;
+mod version;
+
+pub use latest::Latest;
+pub use version::Version;
 
 /// No list is larger: this is a guard against an endless answer.
 const LIMIT: u64 = 32 * 1024 * 1024;

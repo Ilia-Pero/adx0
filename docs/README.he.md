@@ -6,7 +6,7 @@
 
 <p align="center"><b>ad × 0 = 0</b></p>
 
-<p align="center">חוסם פרסומות שאינו רץ ברקע: עבור Windows‏, macOS‏, Linux ו־Firefox</p>
+<p align="center">חוסם פרסומות שאינו רץ ברקע: עבור Windows‏, macOS‏, Linux ודפדפנים</p>
 
 <p align="center">
 <a href="https://github.com/Ilia-Pero/adx0/actions/workflows/build.yml"><img src="https://github.com/Ilia-Pero/adx0/actions/workflows/build.yml/badge.svg" alt="build"></a>
@@ -22,7 +22,7 @@
 <img src="window-on.png" width="380" alt="חלון התוכנה: הפרסומות חסומות">
 </p>
 
-‏ad×0 כותבת את הכתובות של שרתי פרסום אל קובץ ה־hosts של המערכת ונסגרת. פרסומות מהכתובות האלה מפסיקות להיטען בכל התוכנות, ואין תהליך רקע שתופס זיכרון או מעבד. הרחבה ל־Firefox עושה את מה שקובץ ה־hosts אינו יכול: מסתירה בלוקים של פרסום בדפים ומסירה פרסומות מסרטוני YouTube.
+‏ad×0 כותבת את הכתובות של שרתי פרסום אל קובץ ה־hosts של המערכת ונסגרת. פרסומות מהכתובות האלה מפסיקות להיטען בכל התוכנות, ואין תהליך רקע שתופס זיכרון או מעבד. הרחבה לדפדפן עושה את מה שקובץ ה־hosts אינו יכול: מסתירה בלוקים של פרסום בדפים ומסירה פרסומות מסרטוני YouTube.
 
 ## התוכנה
 
@@ -30,11 +30,13 @@
 - שומרת על השורות שלכם בקובץ ה־hosts, משאירה עותק שלו לפני השינוי הראשון וקוראת שוב את מה שכתבה.
 - שומרת את העותק התקין האחרון של כל רשימה, כך שהחסימה אינה תלויה בזמינות האתר של הרשימה.
 - אינה מניחה לטעות ברשימה לסגור אתרים כמו Google‏, Wikipedia או GitHub: הנה [הרשימה המלאה](../data/essential.json). כל אתר אחר פותחים בשדה "לא לחסום".
-- מדברת 14 שפות: את השפה בוחרים בראש החלון ובתוכנית ההתקנה ל־Windows. אינה שולחת דבר לשום מקום: רק מורידה את הרשימות, כשאתם לוחצים על הכפתור וכל עוד החסימה פועלת גם עם הפעלת המערכת, לכל היותר פעם ביום. זה קורה ללא חלון בתוך רגע, ואפשר לכבות את זה.
+- מדברת 14 שפות: את השפה בוחרים בראש החלון ובתוכנית ההתקנה ל־Windows. אינה שולחת דבר לשום מקום: רק מורידה את הרשימות, כשאתם לוחצים על הכפתור וכל עוד החסימה פועלת גם עם הפעלת המערכת, לכל היותר פעם ביום. זה קורה ללא חלון בתוך רגע, ואפשר לכבות את זה. גרסה חדשה נבדקת רק כשאתם לוחצים על הכפתור.
 
-## ההרחבה ל־Firefox
+## ההרחבה לדפדפן
 
-<p align="center"><img src="popup.png" width="312" alt="ההרחבה ל־Firefox"></p>
+עבור Firefox ועבור דפדפנים המבוססים על Chromium‏: Chrome‏, Yandex Browser‏, Edge‏, Opera.
+
+<p align="center"><img src="popup.png" width="312" alt="ההרחבה לדפדפן"></p>
 
 - חוסמת כתובות פרסום ומסתירה בלוקים של פרסום בדפים. רשימות אזוריות נבחרות לפי שפות הדפדפן.
 - מסירה את לוח הפרסומות מהתשובות של YouTube, כך שלנגן אין מה להציג.
@@ -85,7 +87,8 @@
 | Windows | עובדת ב־Windows Server 2022: נבדקה עם רשימות אמיתיות על עותק של קובץ ה־hosts. עדיין לא נבדקה ב־Windows 10 ו־11. |
 | macOS 10.13+ | נבנית ועוברת את הבדיקות; במחשב של GitHub היא מותקנת ומופעלת. איש עדיין לא ניסה אותה ביד. |
 | Ubuntu 24.04+ | נבנית ועוברת את הבדיקות; במחשב של GitHub היא מותקנת ומופעלת. איש עדיין לא ניסה אותה ביד. |
-| Firefox 128+ | עובדת ב־Firefox 160. Mozilla עדיין לא חתמה עליה, ולכן צריך לטעון אותה שוב אחרי הפעלה מחדש של Firefox. |
+| Firefox 128+ | עובדת ב־Firefox 161. Mozilla עדיין לא חתמה עליה, ולכן צריך לטעון אותה שוב אחרי הפעלה מחדש של Firefox. |
+| Chrome, Yandex Browser, Edge, Opera | עובדת ב־Edge 158, נבדקה ללא חלון. האחרים לא נבדקו; נדרש Chromium 120 ומעלה. |
 
 ## התקנה
 
@@ -95,6 +98,7 @@
 | macOS 10.13+ | [adx0-macos.dmg](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-macos.dmg) | גררו את התוכנה ליישומים ופתחו אותה. כש־macOS מסרבת, פתחו את הגדרות המערכת, "פרטיות ואבטחה", ולחצו על "פתח בכל זאת". |
 | Ubuntu 24.04+ | [adx0-ubuntu.deb](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-ubuntu.deb) | `sudo apt install ./adx0-ubuntu.deb` |
 | Firefox 128+ | [adx0-firefox.zip](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-firefox.zip) | פתחו את `about:debugging`, "This Firefox", "Load Temporary Add-on", ובחרו את הקובץ. אחרי הפעלה מחדש של Firefox טענו אותו שוב. |
+| Chrome, Yandex Browser, Edge, Opera | [adx0-chrome.zip](https://github.com/Ilia-Pero/adx0/releases/latest/download/adx0-chrome.zip) | פרקו את הקובץ, פתחו את `chrome://extensions`, הפעילו "Developer mode", לחצו "Load unpacked" ובחרו את התיקייה; אל תמחקו אותה. Yandex Browser סומך רק על קטלוגים ועשוי לכבות את ההרחבה. |
 
 GitHub בונה את הקבצים האלה מהקוד של מאגר זה, מתקין ומפעיל את התוכנות ורק אז מפרסם הכול. לקבצים אין חתימה בתשלום, ולכן Windows ו־macOS מזהירות בהפעלה הראשונה.
 
@@ -115,7 +119,7 @@ npm run tauri build
 
 הסרת ההתקנה פותחת מחדש את הכתובות החסומות. ב־macOS כבו את החסימה לפני מחיקת התוכנה.
 
-ההרחבה: הריצו `npm ci && npm run build` בתיקייה `extension`, פתחו ב־Firefox את `about:debugging`, בחרו "This Firefox", "Load Temporary Add-on" ואת הקובץ `extension/web/manifest.json`.
+ההרחבה: הריצו `npm ci && npm run build` בתיקייה `extension`, פתחו ב־Firefox את `about:debugging`, בחרו "This Firefox", "Load Temporary Add-on" ואת הקובץ `extension/packed/firefox/manifest.json`. עבור Chromium התיקייה היא `extension/packed/chrome`.
 
 ## תרגומים
 

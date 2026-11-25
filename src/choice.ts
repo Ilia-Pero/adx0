@@ -7,6 +7,7 @@ export function saved(report: Report): Settings {
     blocked: report.settings.blocked,
     allowed: report.settings.allowed,
     language: report.settings.language,
+    fresh: report.settings.fresh,
   };
 }
 
@@ -17,6 +18,7 @@ export function translated(settings: Settings, language: string): Settings {
     blocked: settings.blocked,
     allowed: settings.allowed,
     language,
+    fresh: settings.fresh,
   };
 }
 
@@ -24,11 +26,12 @@ function equal(one: ReadonlyArray<string>, other: ReadonlyArray<string>): boolea
   return one.length === other.length && one.every((item, index) => item === other[index]);
 }
 
-/** True if both choices block the same. */
+/** True if both choices block the same, now and later. */
 export function alike(one: Settings, other: Settings): boolean {
   return (
     equal(one.sources, other.sources) &&
     equal(one.blocked, other.blocked) &&
-    equal(one.allowed, other.allowed)
+    equal(one.allowed, other.allowed) &&
+    one.fresh === other.fresh
   );
 }

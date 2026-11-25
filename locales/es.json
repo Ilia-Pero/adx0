@@ -19,6 +19,8 @@
   "lists": "Listas",
   "list.never": "aún no descargada",
   "list.date": "descargada el {date}",
+  "fresh": "Actualizar las listas al iniciar el sistema",
+  "fresh.hint": "Como mucho una vez al día. El programa se inicia un momento sin ventana y termina.",
   "allowed.title": "No bloquear",
   "allowed.hint": "El sitio se abre junto con sus subdominios. Uno por línea.",
   "blocked.title": "Bloquear también",

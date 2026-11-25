@@ -1,5 +1,9 @@
 # Changes
 
+## 0.2.0 (not released)
+
+- While blocking is on, the lists are downloaded again when the system starts, at most once a day. The program starts for a moment without a window and exits. A person can turn this off.
+
 ## 0.1.1 (2026-11-25)
 
 - Windows and Ubuntu name Ilia-Pero as the publisher. In 0.1.0 it was “github” by mistake.

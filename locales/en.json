@@ -19,6 +19,8 @@
   "lists": "Lists",
   "list.never": "not downloaded yet",
   "list.date": "downloaded on {date}",
+  "fresh": "Update the lists when the system starts",
+  "fresh.hint": "At most once a day. The program starts for a moment without a window and exits.",
   "allowed.title": "Do not block",
   "allowed.hint": "A site opens together with its subdomains. One per line.",
   "blocked.title": "Block as well",

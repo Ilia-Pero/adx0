@@ -28,7 +28,7 @@ ad×0 scrive gli indirizzi dei server pubblicitari nel file hosts del sistema e 
 - Conserva le tue righe del file hosts, ne lascia una copia prima della prima modifica e rilegge ciò che ha scritto.
 - Conserva l’ultima copia valida di ogni lista, così il blocco non dipende dal sito della lista.
 - Non permette a un errore in una lista di chiudere siti come Google, Wikipedia o GitHub: ecco [la lista completa](../data/essential.json). Ogni altro sito si apre con il campo «Non bloccare».
-- Parla 12 lingue: la lingua si sceglie in alto nella finestra e nel programma di installazione per Windows. Non invia nulla: scarica soltanto le liste quando premi il pulsante.
+- Parla 12 lingue: la lingua si sceglie in alto nella finestra e nel programma di installazione per Windows. Non invia nulla: scarica soltanto le liste, quando premi il pulsante e, finché il blocco è attivo, all’avvio del sistema, al massimo una volta al giorno. Questo avviene senza finestra in un istante e si può disattivare.
 
 ## L’estensione per Firefox
 

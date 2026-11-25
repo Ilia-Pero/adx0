@@ -20,6 +20,14 @@ pub struct Settings {
     /// The code of the language. Empty means the language of the system.
     #[serde(default)]
     pub language: String,
+    /// Whether the lists are downloaded again when the system starts.
+    #[serde(default = "yes")]
+    pub fresh: bool,
+}
+
+/// Versions before 0.2 did not download lists by themselves and did not write about it.
+fn yes() -> bool {
+    true
 }
 
 impl Settings {
@@ -35,6 +43,7 @@ impl Settings {
             blocked: Vec::new(),
             allowed: Vec::new(),
             language: String::new(),
+            fresh: true,
         }
     }
 }
@@ -116,6 +125,7 @@ mod tests {
             blocked: vec!["a.com".to_owned()],
             allowed: vec!["b.com".to_owned()],
             language: "el".to_owned(),
+            fresh: false,
         };
         file.write(&chosen).unwrap();
         assert_eq!(file.read().unwrap(), chosen);

@@ -19,6 +19,8 @@
   "lists": "목록",
   "list.never": "아직 받지 않음",
   "list.date": "{date}에 받음",
+  "fresh": "시스템이 시작될 때 목록 업데이트",
+  "fresh.hint": "하루에 한 번 이하입니다. 프로그램이 창 없이 잠깐 실행되고 끝납니다.",
   "allowed.title": "차단하지 않음",
   "allowed.hint": "사이트는 하위 도메인과 함께 열립니다. 한 줄에 하나씩.",
   "blocked.title": "추가로 차단",

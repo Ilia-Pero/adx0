@@ -28,7 +28,7 @@ ad×0 writes addresses of ad servers into the hosts file of the system and exits
 - Keeps your own lines of the hosts file, leaves a copy of it before the first change, and reads back what it has written.
 - Keeps the last good copy of each list, so blocking does not depend on whether the site of a list is up.
 - Does not let a mistake in a list close sites such as Google, Wikipedia or GitHub: here is [the whole list](data/essential.json). Any other site is opened with the field “Do not block”.
-- Speaks 12 languages: the language is chosen at the top of the window and in the installer for Windows. Sends nothing anywhere: it only downloads the lists when you press the button.
+- Speaks 12 languages: the language is chosen at the top of the window and in the installer for Windows. Sends nothing anywhere: it only downloads the lists, when you press the button and, while blocking is on, when the system starts, at most once a day. The second is done without a window in a moment, and you can turn it off.
 
 ## The Firefox extension
 

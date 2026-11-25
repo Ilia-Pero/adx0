@@ -23,6 +23,8 @@ export interface Settings {
   readonly allowed: ReadonlyArray<string>;
   /** The code of the language. Empty means the language of the system. */
   readonly language: string;
+  /** Whether the lists are downloaded again when the system starts. */
+  readonly fresh: boolean;
 }
 
 /** Everything the window shows. */

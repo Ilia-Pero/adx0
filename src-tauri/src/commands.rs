@@ -59,6 +59,8 @@ fn report(home: &Home) -> Result<Report, Failure> {
     let settings = home.settings().read()?;
     Language::choose(&settings.language);
     let shelf = home.shelf();
+    // The part that starts by itself has lists of its own, and they may be newer.
+    let kept = guard::kept();
     Ok(Report {
         count: guard::hosts()?.read()?.count(),
         rows: SOURCES
@@ -70,6 +72,10 @@ fn report(home: &Home) -> Result<Report, Failure> {
                 on: settings.sources.iter().any(|id| id == source.id),
                 updated: shelf
                     .moment(source.id)
+                    .max(
+                        kept.as_ref()
+                            .and_then(|kept| kept.shelf().moment(source.id)),
+                    )
                     .and_then(|moment| moment.duration_since(UNIX_EPOCH).ok())
                     .map_or(0, |age| age.as_secs()),
             })

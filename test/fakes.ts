@@ -11,7 +11,7 @@ export function report(tag: string, count: number, rows: ReadonlyArray<Row>): Re
   return {
     count,
     rows,
-    settings: { sources: [], blocked: ['b.com'], allowed: ['a.com'], language: '' },
+    settings: { sources: [], blocked: ['b.com'], allowed: ['a.com'], language: '', fresh: true },
     spoken: code(tag),
     languages: [],
     words: spoken(tag),

@@ -45,6 +45,16 @@ impl Home {
         Shelf::new(self.root.join("lists"))
     }
 
+    /// Copies the settings and the chosen lists to the other folder.
+    pub fn copy(&self, vault: &Home) -> Result<(), Failure> {
+        let settings = self.settings().read()?;
+        vault.settings().write(&settings)?;
+        settings
+            .sources
+            .iter()
+            .try_for_each(|id| self.shelf().copy(id, &vault.shelf()))
+    }
+
     /// Addresses to block. An empty set is a mistake of a person and not a wish to turn off.
     pub fn domains(&self) -> Result<BTreeSet<Domain>, Failure> {
         let domains = Verdict::new(&self.settings().read()?, &self.shelf(), SOURCES).domains()?;

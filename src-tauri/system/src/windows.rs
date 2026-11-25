@@ -5,17 +5,31 @@
 use std::ffi::{OsStr, OsString};
 use std::mem::{size_of, zeroed};
 use std::os::windows::ffi::{OsStrExt, OsStringExt};
+use std::os::windows::process::CommandExt;
 use std::path::PathBuf;
 use std::process::{Command, Stdio};
+use std::ptr::null_mut;
 
 use adx0_core::Failure;
 use windows_sys::Win32::Foundation::{CloseHandle, GetLastError, ERROR_CANCELLED};
+use windows_sys::Win32::System::Com::CoTaskMemFree;
 use windows_sys::Win32::System::SystemInformation::GetSystemDirectoryW;
-use windows_sys::Win32::System::Threading::{GetExitCodeProcess, WaitForSingleObject, INFINITE};
-use windows_sys::Win32::UI::Shell::{ShellExecuteExW, SEE_MASK_NOCLOSEPROCESS, SHELLEXECUTEINFOW};
+use windows_sys::Win32::System::Threading::{
+    GetExitCodeProcess, WaitForSingleObject, CREATE_NO_WINDOW, INFINITE,
+};
+use windows_sys::Win32::UI::Shell::{
+    FOLDERID_ProgramFiles, SHGetKnownFolderPath, ShellExecuteExW, SEE_MASK_NOCLOSEPROCESS,
+    SHELLEXECUTEINFOW,
+};
 use windows_sys::Win32::UI::WindowsAndMessaging::SW_HIDE;
 
 use crate::System;
+
+/// No path of Windows is longer.
+const LONGEST: usize = 32_767;
+
+/// The name of the task in the scheduler.
+const TASK: &str = "adx0";
 
 /// Windows.
 pub struct Windows;
@@ -32,6 +46,35 @@ impl Windows {
             return Err(Failure::Disk("System32".to_owned()));
         }
         Ok(PathBuf::from(OsString::from_wide(&name[..length])))
+    }
+
+    /// The folder `Program Files`. The system is asked for it, see above.
+    fn programs() -> Option<PathBuf> {
+        let mut name = null_mut();
+        // SAFETY: the system allocates the name, and it is freed once, whatever the answer is.
+        unsafe {
+            let answer = SHGetKnownFolderPath(&FOLDERID_ProgramFiles, 0, null_mut(), &raw mut name);
+            let found = (answer == 0 && !name.is_null()).then(|| {
+                let length = (0..LONGEST)
+                    .take_while(|index| *name.add(*index) != 0)
+                    .count();
+                PathBuf::from(OsString::from_wide(std::slice::from_raw_parts(
+                    name, length,
+                )))
+            });
+            CoTaskMemFree(name.cast());
+            found
+        }
+    }
+
+    /// The scheduler.
+    fn scheduler() -> Result<Command, Failure> {
+        let mut scheduler = Command::new(Self::folder()?.join("schtasks.exe"));
+        scheduler
+            .creation_flags(CREATE_NO_WINDOW)
+            .stdout(Stdio::null())
+            .stderr(Stdio::null());
+        Ok(scheduler)
     }
 }
 
@@ -75,6 +118,37 @@ impl System for Windows {
             Ok(0) => Ok(()),
             Ok(code) => Err(Failure::from_code(code)),
             Err(_) => Err(Failure::Closed(code.to_string())),
+        }
+    }
+
+    fn vault(&self) -> Option<PathBuf> {
+        let program = std::env::current_exe().ok()?;
+        program
+            .starts_with(Self::programs()?)
+            .then(|| program.with_file_name("kept"))
+    }
+
+    /// The task belongs to the system itself, so it has no window and asks for nothing. It waits
+    /// for two minutes: there is enough to do when the system starts.
+    fn settle(&self, argument: &str) -> Result<(), Failure> {
+        let program = std::env::current_exe()?;
+        let status = Self::scheduler()?
+            .args([
+                "/Create", "/F", "/TN", TASK, "/RU", "SYSTEM", "/RL", "HIGHEST",
+            ])
+            .args(["/SC", "ONLOGON", "/DELAY", "0002:00", "/TR"])
+            .arg(format!("\"{}\" {argument}", program.display()))
+            .status()?;
+        if status.success() {
+            Ok(())
+        } else {
+            Err(Failure::Disk("schtasks".to_owned()))
+        }
+    }
+
+    fn unsettle(&self) {
+        if let Ok(mut scheduler) = Self::scheduler() {
+            let _ = scheduler.args(["/Delete", "/F", "/TN", TASK]).status();
         }
     }
 

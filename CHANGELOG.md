@@ -1,5 +1,9 @@
 # Changes
 
+## 0.1.1 (2026-11-25)
+
+- Windows and Ubuntu name Ilia-Pero as the publisher. In 0.1.0 it was “github” by mistake.
+
 ## 0.1.0 (2026-11-25)
 
 - The program: lists of ad addresses in the hosts file, sites of one's own to block and to open.

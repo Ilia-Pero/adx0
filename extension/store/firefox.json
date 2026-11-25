@@ -1,0 +1,28 @@
+{
+  "id": "adx0@ilia-pero.github.io",
+  "license": "MIT",
+  "notes": "The scripts are bundled from TypeScript by esbuild and are not minified. The same files are built with Node.js 24 on Ubuntu 24.04 or any other system, in the folder extension: npm ci && npm run bundle. The package is the folder extension/packed/firefox; the source is in extension/src. No account is needed: open any site with ads, or a video on YouTube. player.js runs in the page of YouTube and removes the fields with the schedule of ads from the answers the player gets; skip.js is the spare way, it rewinds an ad that has started. Lists of addresses and style rules are downloaded once a day as data from pgl.yoyo.org, adaway.org, easylist.to and the sites of regional lists; no code is loaded from anywhere. The extension sends nothing about the person.",
+  "about": {
+    "slug": "adx0",
+    "default_locale": "en-US",
+    "categories": ["privacy-security"],
+    "tags": ["ad blocker", "content blocker", "privacy", "youtube"],
+    "name": {
+      "en-US": "ad×0"
+    },
+    "summary": {
+      "en-US": "Removes ads on pages and in YouTube videos. No load at rest.",
+      "ru": "Убирает рекламу на страницах и в видео на YouTube. В покое нагрузки нет."
+    },
+    "description": {
+      "en-US": "ad × 0 = 0. Blocks about 64,000 addresses of ad servers and trackers, hides ad blocks on pages and takes the schedule of ads out of the answers of YouTube, so the player has nothing to show.\n\nThe rules are run by the browser itself, and the background part of the extension is unloaded between updates and pages, so there is no load at rest. The lists are downloaded from their own sites once a day: Peter Lowe, AdAway, EasyList, and a regional list chosen by the languages of the browser. The last good copy of each list is kept, so blocking does not depend on whether its site is up.\n\nAds can be allowed on any site with one button. A mistake in a list cannot close sites such as Google, Wikipedia or GitHub. The extension has no account, no telemetry and no server, and it lets no ads through for money. It speaks 14 languages. The code is open, under MIT.",
+      "ru": "ad × 0 = 0. Закрывает около 64 тысяч адресов рекламных серверов и счётчиков, скрывает рекламные блоки на страницах и убирает расписание рекламы из ответов YouTube, поэтому проигрывателю нечего показывать.\n\nПравила исполняет сам браузер, а фоновая часть расширения между обновлениями и страницами выгружена, поэтому в покое нагрузки нет. Списки скачиваются с их сайтов раз в сутки: Peter Lowe, AdAway, EasyList и региональный список по языкам браузера. Последняя удачная копия каждого списка хранится, поэтому блокировка не зависит от того, работает ли его сайт.\n\nРекламу на любом сайте можно открыть одной кнопкой. Ошибка в списке не закроет такие сайты, как Яндекс, Google или Госуслуги. У расширения нет учётной записи, телеметрии и сервера, рекламу за деньги оно не пропускает. Говорит на 14 языках. Код открыт, лицензия MIT."
+    },
+    "homepage": {
+      "en-US": "https://github.com/Ilia-Pero/adx0"
+    },
+    "support_url": {
+      "en-US": "https://github.com/Ilia-Pero/adx0/issues"
+    }
+  }
+}

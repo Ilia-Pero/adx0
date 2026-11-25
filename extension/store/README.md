@@ -1,6 +1,6 @@
 # The extension in catalogs
 
-What to write and what to upload when the extension is published. The files come from a [release](https://github.com/Ilia-Pero/adx0/releases/latest).
+What to write and what to upload when the extension is published. The files come from a [release](https://github.com/Ilia-Pero/adx0/releases/latest). A release sends the extension to Firefox Add-ons by itself, with the texts of [firefox.json](firefox.json).
 
 | Catalog | Browsers | File | Registration |
 | --- | --- | --- | --- |
